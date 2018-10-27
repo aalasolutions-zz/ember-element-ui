@@ -1,0 +1,8 @@
+<button class="el-button" {{action "clickAction"}}>
+
+  {{#if loading}}
+    <i class="el-icon-loading"></i>
+  {{/if}}
+
+  {{yield}}
+</button>

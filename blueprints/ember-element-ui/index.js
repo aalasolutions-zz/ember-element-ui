@@ -1,11 +1,16 @@
+/* eslint-env node */
 'use strict';
+
 const path = require('path');
+const fs = require('fs');
 const Funnel = require('broccoli-funnel');
 const mergeTrees = require('broccoli-merge-trees');
 
 
 module.exports = {
-  name: require('./package').name,
+
+  description: 'Add required plugins',
+
 
   beforeInstall() {
     // Add addons to package.json and run defaultBlueprint
@@ -32,7 +37,7 @@ module.exports = {
     this._ensureFindHost();
 
     var popperPath = path.join('node_modules', 'popper.js', 'dist', 'umd');
-    var pnotifyPath = path.join('node_modules', 'pnotify', 'dist',);
+    var pnotifyPath = path.join('node_modules', 'pnotify', 'dist');
     var pnotifyPathJS = path.join(pnotifyPath, 'umd');
 
     var host = this._findHost();
@@ -98,4 +103,5 @@ module.exports = {
       };
     }
   }
+
 };
