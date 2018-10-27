@@ -10,6 +10,7 @@ const mergeTrees = require('broccoli-merge-trees');
 module.exports = {
 
   description: 'Add required plugins',
+  normalizeEntityName: function() {},
 
 
   beforeInstall() {

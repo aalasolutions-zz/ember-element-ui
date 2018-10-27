@@ -6,6 +6,7 @@ const mergeTrees = require('broccoli-merge-trees');
 
 module.exports = {
   name: require('./package').name,
+  normalizeEntityName: function() {},
 
   beforeInstall() {
     // Add addons to package.json and run defaultBlueprint
