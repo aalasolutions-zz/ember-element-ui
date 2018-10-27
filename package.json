@@ -1,22 +1,13 @@
 {
   "name": "ember-element-ui",
   "version": "0.0.0",
-  "description": "Ember Addon for Element UI",
+  "description": "The default blueprint for ember-cli addons.",
   "keywords": [
-    "ember-addon",
-    "ember element ui",
-    "ui kit"
+    "ember-addon"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aalasolutions/ember-element-ui"
-  },
-  "bugs": {
-    "url": "https://github.com/aalasolutions/ember-element-ui/issues"
-  },
+  "repository": "",
   "license": "MIT",
-  "author": "Aamir @ AALA",
-  "author": "Aamir @ AALA",
+  "author": "",
   "directories": {
     "doc": "doc",
     "test": "tests"
