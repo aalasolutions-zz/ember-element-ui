@@ -10,7 +10,8 @@ const mergeTrees = require('broccoli-merge-trees');
 module.exports = {
 
   description: 'Add required plugins',
-  normalizeEntityName: function() {},
+  normalizeEntityName: function () {
+  },
 
 
   beforeInstall() {
@@ -26,6 +27,22 @@ module.exports = {
 
   },
   afterInstall() {
+    var importStatement = '\n@import "ember-element-ui";\n';
+    var stylePath = path.join('app', 'styles');
+    var file = path.join(stylePath, `app.scss`);
+
+    if (!fs.existsSync(stylePath)) {
+      fs.mkdirSync(stylePath);
+    }
+
+    if (fs.existsSync(file)) {
+      this.ui.writeLine(`Added import statement to ${file}`);
+      this.insertIntoFile(file, importStatement, {});
+    } else {
+      fs.writeFileSync(file, importStatement);
+      this.ui.writeLine(`Created ${file}`);
+    }
+
     return this.addPackagesToProject([
       {name: 'element-theme-chalk'},
       {name: 'popper.js'},
