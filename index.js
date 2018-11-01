@@ -42,6 +42,7 @@ module.exports = {
       {name: 'element-theme-chalk', target: '^2.4.9'},
       {name: 'popper.js'},
       {name: 'pnotify'},
+      {name: 'normalize.css'},
     ]);
   },
 
@@ -80,6 +81,7 @@ module.exports = {
     host.import(path.join(pnotifyPathJS, 'PNotifyStyleMaterial.js'));
 
     host.import(path.join(pnotifyPath, 'PNotifyBrightTheme.css'));
+    host.import(path.join('node_modules', 'normalize.css', 'normalize.css'));
 
   },
 
