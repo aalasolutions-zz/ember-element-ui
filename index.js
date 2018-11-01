@@ -1,5 +1,6 @@
 'use strict';
 const path = require('path');
+const fs = require('fs');
 const Funnel = require('broccoli-funnel');
 const mergeTrees = require('broccoli-merge-trees');
 
@@ -83,6 +84,19 @@ module.exports = {
     host.import(path.join(pnotifyPath, 'PNotifyBrightTheme.css'));
     host.import(path.join('node_modules', 'normalize.css', 'normalize.css'));
 
+    let fontsPath = 'vendor/element-font/fonts';
+    let absoluteFontsPath = path.join('node_modules', 'element-theme-chalk', 'src', 'fonts');
+    let fontsFolderPath = '/fonts';
+    let fontsToImport = fs.readdirSync(absoluteFontsPath);
+
+
+    fontsToImport.forEach(function (fontFilename) {
+      host.import(
+        path.join(fontsPath, fontFilename),
+        {destDir: fontsFolderPath}
+      );
+    });
+
   },
 
 
@@ -103,6 +117,23 @@ module.exports = {
     return mergeTrees(styleTrees, {overwrite: true});
   },
 
+  treeForVendor() {
+    // Get configured fontFormats
+    let fontFormats = ['ttf', 'woff'];
+    let fontFormatsString = fontFormats.join(',');
+    // Define fontFormatPattern
+    let fontFormatPattern;
+    if (fontFormats.length > 1) {
+      fontFormatPattern = `*.{${fontFormatsString}}`;
+    } else {
+      fontFormatPattern = `*.${fontFormatsString}`;
+    }
+    // Funnel required font types
+    return new Funnel(path.join('node_modules', 'element-theme-chalk', 'src'), {
+      destDir: 'element-font',
+      include: [`fonts/${fontFormatPattern}`]
+    });
+  },
 
   _ensureFindHost() {
     if (!this._findHost) {
