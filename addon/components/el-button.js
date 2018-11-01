@@ -7,7 +7,7 @@ export default Component.extend({
   tagName: 'button',
 
 
-  // classNames: ['el-container'],
+  classNames: ['el-button'],
   classNameBindings: ['getClassName',
     'loading:is-loading',
     'plain:is-plain',
@@ -22,7 +22,7 @@ export default Component.extend({
   autofocus: false,
 
   type: 'default',
-  size: false,
+  size: false, // false, medium, small, mini
   icon:  false,
   loading: false,
   plain: false,
@@ -36,7 +36,7 @@ export default Component.extend({
 
     classNames += 'el-button--' + get(this, 'type');
 
-    if(get(this, 'size')){classNames += ` el-button-${get(this, 'size')}`;}
+    if(get(this, 'size')){classNames += ` el-button--${get(this, 'size')}`;}
 
     if(get(this, 'loading') || get(this, 'disabled') ){classNames += ` is-disabled`;}
 
