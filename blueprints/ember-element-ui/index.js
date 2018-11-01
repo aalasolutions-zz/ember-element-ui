@@ -89,7 +89,7 @@ module.exports = {
 
     let fontsPath = 'vendor/element-font/fonts';
     let absoluteFontsPath = path.join('node_modules', 'element-theme-chalk', 'src', 'fonts');
-    let fontsFolderPath = '/fonts';
+    let fontsFolderPath = '/assets/fonts';
     let fontsToImport = fs.readdirSync(absoluteFontsPath);
 
 
@@ -121,8 +121,10 @@ module.exports = {
   },
 
 
-  treeForVendor() {
+  treeForVendor: function(tree) {
     // Get configured fontFormats
+    var fontsTree = [];
+
     let fontFormats = ['ttf', 'woff'];
     let fontFormatsString = fontFormats.join(',');
     // Define fontFormatPattern
@@ -133,10 +135,20 @@ module.exports = {
       fontFormatPattern = `*.${fontFormatsString}`;
     }
     // Funnel required font types
-    return new Funnel(path.join('node_modules', 'element-theme-chalk', 'src'), {
+    let fonts = new Funnel(path.join('node_modules', 'element-theme-chalk', 'src'), {
       destDir: 'element-font',
       include: [`fonts/${fontFormatPattern}`]
     });
+
+    fontsTree.push(fonts);
+
+    if (tree) {
+      fontsTree.push(tree);
+    }
+
+    return mergeTrees(fontsTree, {overwrite: true});
+
+
   },
 
   _ensureFindHost() {
