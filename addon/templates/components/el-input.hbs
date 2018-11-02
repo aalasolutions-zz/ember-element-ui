@@ -1,0 +1,46 @@
+{{yield (hash
+          prepend=(component "ElInputPrepend" object=object)
+        )}}
+
+{{input
+  tabindex=tabindex
+  class="el-input__inner"
+  type=type
+  disabled=disabled
+  readonly=readonly
+  autocomplete=autocomplete
+  value=value
+  placeholder=placeholder
+
+}}
+
+{{#if prefixIcon}}
+  <span class="el-input__prefix">
+    <i class="el-input__icon {{prefixIcon}}"></i>
+  </span>
+{{/if}}
+
+
+{{#if _isShowSuffixIcon}}
+
+  <span class="el-input__suffix">
+    <span class="el-input__suffix-inner">
+      {{#if showClear}}
+        <i class="el-input__icon el-icon-circle-close el-input__clear"
+          {{action 'clear'}}
+        >
+        </i>
+      {{else}}
+        {{#if suffixIcon}}
+          <i class="el-input__icon {{suffixIcon}}"></i>
+        {{/if}}
+      {{/if}}
+    </span>
+
+  </span>
+{{/if}}
+
+
+{{yield (hash
+          append=(component "ElInputAppend" object=object)
+        )}}

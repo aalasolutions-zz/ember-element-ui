@@ -4,7 +4,7 @@ import {computed, get} from "@ember/object";
 
 export default Component.extend({
   layout,
-  span:  24,
+  span: 24,
   offset: null,
   pull: null,
   push: null,
@@ -14,12 +14,10 @@ export default Component.extend({
   lg: null,
   xl: null,
 
-
   classNames: ['el-col'],
   classNameBindings: ['getClassName'],
 
-
-  getClassName: computed('span', 'offset', 'pull', 'push', 'xs', 'sm', 'md', 'lg', 'xl', function(){
+  getClassName: computed('span', 'offset', 'pull', 'push', 'xs', 'sm', 'md', 'lg', 'xl', function () {
 
     let classList = [];
     ['span', 'offset', 'pull', 'push'].forEach(prop => {
@@ -33,15 +31,10 @@ export default Component.extend({
     });
 
 
-
-
     ['xs', 'sm', 'md', 'lg', 'xl'].forEach(size => {
-
-      console.log( get(this, size));
-      console.log(typeof get(this, size));
       if (typeof get(this, size) === 'number') {
         classList.push(`el-col-${size}-${get(this, size)}`);
-      } else if ( get(this, size) && typeof get(this, size) === 'object') {
+      } else if (get(this, size) && typeof get(this, size) === 'object') {
         let props = get(this, size);
 
 

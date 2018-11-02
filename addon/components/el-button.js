@@ -30,7 +30,7 @@ export default Component.extend({
   circle: false,
 
 
-  getClassName: computed('type', 'size', 'icon', 'disabled', 'autofocus', function () {
+  getClassName: computed('type', 'size', 'disabled', 'autofocus', function () {
 
     let classNames = '';
 
