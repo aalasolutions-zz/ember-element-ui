@@ -5,7 +5,7 @@ import {computed, get} from "@ember/object";
 export default Component.extend({
   layout,
   tagName: 'section',
-  direction: 'horizontal',
+  direction: 'vertical',
   classNames: ['el-container'],
   classNameBindings: ['getClassName'],
 
