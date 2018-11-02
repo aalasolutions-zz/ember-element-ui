@@ -84,6 +84,9 @@ module.exports = {
     host.import(path.join(pnotifyPath, 'PNotifyBrightTheme.css'));
     host.import(path.join('node_modules', 'normalize.css', 'normalize.css'));
 
+    host.import(path.join('node_modules', 'popper.js', 'dist', 'umd', 'popper.js'));
+    host.import(path.join('node_modules', 'popper.js', 'dist', 'umd', 'popper-utils.js'));
+
     let fontsPath = 'vendor/element-font/fonts';
     let absoluteFontsPath = path.join('node_modules', 'element-theme-chalk', 'src', 'fonts');
     let fontsFolderPath = '/assets/fonts';
