@@ -45,6 +45,7 @@ module.exports = {
 
     return this.addPackagesToProject([
       {name: 'element-theme-chalk', target: '^2.4.9'},
+      {name: "liquid-fire", target: "^0.29.5"},
       {name: 'popper.js'},
       {name: 'pnotify'},
       {name: 'normalize.css'},
