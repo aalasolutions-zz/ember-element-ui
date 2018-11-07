@@ -27,7 +27,8 @@ export default LinkComponent.extend({
   },
 
   submenu: false,
-  classNameBindings: ['getMenuClass'],
+  classNameBindings: ['getMenuClass',
+    'disabled:is-disabled'],
 
   role: 'menuitem',
   attributeBindings: ['role'],

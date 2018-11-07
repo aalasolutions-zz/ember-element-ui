@@ -5,7 +5,7 @@ import {computed, set, get} from "@ember/object";
 export default Component.extend({
   layout,
   tagName: 'ul',
-  mode: 'vertical',
+  mode: 'horizontal',
   collapse: false,
   defaultActive: '',
   defaultOpeneds: null,
@@ -28,21 +28,19 @@ export default Component.extend({
 
 
   getClassName: computed('mode', function () {
-
     let classNames = '';
-
-    // classNames += 'el-button--' + get(this, 'type');
-
     if (get(this, 'mode') === 'horizontal') {
       classNames += 'el-menu--horizontal';
     }
-
     return classNames;
   }),
 
   init(){
     this._super(...arguments);
     set(this, 'defaultOpeneds', []);
-  }
+  },
+
+
+
 
 });

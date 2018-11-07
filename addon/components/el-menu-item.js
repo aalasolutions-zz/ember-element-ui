@@ -22,4 +22,12 @@ export default Component.extend({
       return 'el-menu-item';
     }
   }),
+
+
+  click(){
+    if(this.get('action')){
+      this.get('action')();
+    }
+  }
+
 });

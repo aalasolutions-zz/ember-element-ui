@@ -49,4 +49,11 @@ export default Component.extend({
   }),
 
 
+  click(){
+    if(this.get('action')){
+      this.get('action')();
+    }
+  }
+
+
 });
