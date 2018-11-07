@@ -15,13 +15,13 @@ export default Component.extend({
     'circle:is-circle',
   ],
 
-  attributeBindings: ['disabled', 'autofocus'],
+  attributeBindings: ['disabled', 'autofocus', 'type'],
 
 
   disabled: false,
   autofocus: false,
 
-  type: 'default',
+  color: 'default',
   size: false, // false, medium, small, mini
   icon:  false,
   loading: false,
@@ -30,11 +30,11 @@ export default Component.extend({
   circle: false,
 
 
-  getClassName: computed('type', 'size', 'disabled', 'autofocus', function () {
+  getClassName: computed('color', 'size', 'disabled', 'autofocus', function () {
 
     let classNames = '';
 
-    classNames += 'el-button--' + get(this, 'type');
+    classNames += 'el-button--' + get(this, 'color');
 
     if(get(this, 'size')){classNames += ` el-button--${get(this, 'size')}`;}
 
