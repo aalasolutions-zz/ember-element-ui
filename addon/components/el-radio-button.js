@@ -1,8 +1,6 @@
 import Component from '@ember/component';
 import layout from '../templates/components/el-radio-button';
 import {computed} from '@ember/object';
-import {isEqual} from '@ember/utils';
-import {run} from '@ember/runloop';
 
 export default Component.extend({
   layout,
@@ -15,23 +13,27 @@ export default Component.extend({
     'disabled:is-disabled',
     'sizeClass'
   ],
+  attributeBindings: [
+    'role',
+    'isChecked:aria-checked'
+  ],
+  role: 'radio',
 
   model: null,
   label: null,
-
+  name: null,
   change: null,
   item: '',
 
   size: '',
 
   isChecked: computed('model', 'label', function () {
-    console.warn(this.get('model') , this.get('label'), this.get('model') === this.get('label'));
     return this.get('model') === this.get('label');
   }),
 
   sizeClass: computed('size', function () {
 
-    if(this.get('size')){
+    if (this.get('size')) {
       return 'el-radio-button--' + this.get('size');
     }
     // return this.get('model') === this.get('label');
@@ -39,8 +41,8 @@ export default Component.extend({
 
   actions: {
     changed(value, name) {
-      if (this.get('change')) {
-        this.get('change')(value, name);
+      if (this.get('action')) {
+        this.get('action')(value, name);
       }
     }
   }

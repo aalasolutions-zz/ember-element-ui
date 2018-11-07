@@ -17,9 +17,15 @@ export default Component.extend({
     'sizeClass',
   ],
 
+  attributeBindings: [
+    'role',
+    'isChecked:aria-checked'
+  ],
+  role: 'radio',
+
   model: null,
   label: null,
-
+  name: null,
   change: null,
   border: false,
   item: '',
@@ -38,8 +44,8 @@ export default Component.extend({
   }),
   actions: {
     changed(value, name) {
-      if (this.get('change')) {
-        this.get('change')(value, name);
+      if (this.get('action')) {
+        this.get('action')(value, name);
       }
     }
   }

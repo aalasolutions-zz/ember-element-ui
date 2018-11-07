@@ -6,10 +6,9 @@ export default Component.extend({
   classNames: ['el-radio-group'],
   model: null,
   size: '',
+  fill: '#409EFF',
 
 
   attributeBindings: ['role'],
-
-
   role: 'radiogroup',
 });
