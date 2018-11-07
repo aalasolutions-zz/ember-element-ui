@@ -1,0 +1,30 @@
+<span class="el-radio__input {{if isChecked ' is-checked '}} {{if disabled ' is-disabled '}}">
+  <span class="el-radio__inner"></span>
+  {{el-radio-input
+    value=label
+    model=model
+    item=item
+    disabled=disabled
+    changed=(action 'changed')
+    class='el-radio__original'
+  }}
+  {{!--<input
+    class="el-radio__original"
+    :value="label"
+    type="radio"
+    aria-hidden="true"
+    v-model="model"
+    @focus="focus = true"
+    @blur="focus = false"
+    @change="handleChange"
+    :name="name"
+    :disabled="isDisabled"
+    tabindex="-1"
+  >--}}
+</span>
+{{!--<span class="el-radio__label" @keydown.stop>--}}
+<span class="el-radio__label">
+      {{yield}}
+  {{!--<template v-if="!$slots.default">{{label}}</template>--}}
+</span>
+
