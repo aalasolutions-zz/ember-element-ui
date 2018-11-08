@@ -1,0 +1,19 @@
+<span class="el-checkbox__input {{if isChecked ' is-checked '}} {{if disabled ' is-disabled '}}">
+  <span class="el-checkbox__inner"></span>
+  {{input
+    type="checkbox"
+    checked=model
+    name=name
+    disabled=disabled
+    tabindex=tabindex
+    autofocus=autofocus
+    form=form
+    class='el-checkbox__original'
+  }}
+  {{!--change=(action 'changed')--}}
+
+</span>
+<span class="el-checkbox__label">
+  {{yield}}
+</span>
+
