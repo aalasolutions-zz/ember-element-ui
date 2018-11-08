@@ -5,7 +5,7 @@ import {computed, set, get} from "@ember/object";
 export default Component.extend({
   layout,
   tagName: 'ul',
-  mode: 'horizontal',
+  mode: 'vertical',
   collapse: false,
   defaultActive: '',
   defaultOpeneds: null,

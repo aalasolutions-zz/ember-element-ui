@@ -166,6 +166,45 @@ Elements
 
 #### Navigation
 - [ ] NavMenu
+  - [ ] Menu `{{el-menu}}`
+    - [x] Attributes
+      - [x] mode `{{el-menu mode="horizontal"}}`
+      - [x] collapse `{{el-menu collpase=true}}` 
+      - [ ] background-color
+      - [ ] text-color
+      - [ ] active-text-color
+      - [ ] default-active
+      - [ ] default-opened
+      - [ ] unique-opened
+      - [ ] menu-trigger
+      - [ ] router
+      - [ ] collapse transition
+    - [ ] Methods
+      - [ ] open
+      - [ ] close
+    - [ ] Events
+      - [ ] select
+      - [ ] open
+      - [ ] close
+  - [x] Menu Item `{{el-menu-item}}`
+    - [x] title `{{el-menu-item title="Logout"}}`
+    - [x] icon `{{el-menu-item  title="Logout" icon='el-icon-xxxx'}}`
+    - [x] disabled `{{el-menu-item  title="Logout" disabled=true}}`
+    - [x] click: changed to `action` `{{el-menu-item  title="Logout" icon='el-icon-xxxx' action=(action "logout")}}`
+  - [x] Menu Item Route `{{el-menu-item-route}}`
+    - [x] title `{{#el-menu-item-route linkto='logout'}} Logout {{/el-menu-item-route}}`
+    - [x] icon `{{#el-menu-item-route  linkto='logout' icon='el-icon-xxxx'}} Logout {{/el-menu-item-route}}`
+    - [x] disabled `{{#el-menu-item-route  linkto='logout' disabled=true}} Logout {{/el-menu-item-route}}`
+  - [ ] Submenu `{{el-submenu}}`
+    - [x] icon `{{el-submenu icon="el-icon-location"}}`
+    - [x] title `{{el-submenu icon="el-icon-location" title="Member Settings"}}`
+    - [ ] disabled 
+    - [ ] popper-class
+    - [ ] show-timeout
+    - [ ] hide-timeout
+    - [ ] popper-append-to-body
+  - [ ] Menu Groups
+    - [ ] title
 - [ ] Tabs
 - [ ] Breadcrumb
 - [ ] Dropdown
