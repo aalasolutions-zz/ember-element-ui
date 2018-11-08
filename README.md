@@ -87,9 +87,9 @@ Elements
         - [ ] change: 
     ```hbs
       {{#el-radio-group model=var1 size="small" as |group|}}
-        {{#group.option @label="Windows" action=(action 'handleResponse')}}Windows{{/group.option}}
-        {{#group.option @label="XP" action=(action 'handleResponse') }}XP</gro{{p.option}}
-        {{#group.option @label="Mac" disabled=true action=(action (mut var1)) }}Mac</gr{{up.option}}
+        {{#group.option label="Windows" action=(action 'handleResponse')}} Windows {{/group.option}}
+        {{#group.option label="XP" action=(action 'handleResponse') }} XP {{/group.option}}
+        {{#group.option label="Mac" disabled=true action=(action (mut var1)) }} Mac {{/group.option}}
       {{/el-radio-group}}
     ```
   - [x] Attributes
