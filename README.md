@@ -92,8 +92,48 @@ Elements
         {{#group.option label="Mac" disabled=true action=(action (mut var1)) }} Mac {{/group.option}}
       {{/el-radio-group}}
     ```
-  - [x] Attributes
-- [ ] Checkbox
+- [ ] Checkboxes
+  - [ ] Checkbox  `{{el-checkbox}}`
+    - [x] Attributes
+      - [x] label `{{el-checkbox label="first_name"}}`
+      - [ ] true-label 
+      - [ ] false-label 
+      - [x] disabled `{{el-checkbox disabled=true}}`
+      - [x] border `{{el-checkbox border=true}}`
+      - [x] size `{{el-checkbox size="small"}}`
+      - [x] name `{{el-checkbox name="optName"}}`
+      - [x] checked: changed it to `model` `{{el-checkbox model=varName}}`
+      - [ ] indeterminate: 
+    - [ ] Events
+      - [ ] change
+  - [x] Checkbox Button  `{{el-checkbox-button}}`
+    - [x] Attributes
+      - [x] label `{{el-checkbox-button label="first_name"}}`
+      - [ ] true-label 
+      - [ ] false-label 
+      - [x] disabled `{{el-checkbox-button disabled=true}}`
+      - [x] size `{{el-checkbox-button size="small"}}`
+      - [x] name `{{el-checkbox-button name="optName"}}`
+      - [ ] checked: changed it to `model` `{{el-checkbox-button model=varName}}`
+    - [ ] Events
+      - [ ] change: 
+  - [ ] Checkbox Group `{{el-checkbox-group}}`
+    - [ ] Attributes
+      - [x] size: `{{el-checkbox-group size="medium"}}`
+      - [x] disabled: `{{el-checkbox-group disabled=true}}`
+      - [ ] min: 
+      - [ ] max: 
+      - [ ] text-color: 
+      - [ ] fill:
+    - [ ] Group Events
+        - [ ] change: 
+    ```hbs
+      {{#el-checkbox-group size="small" as |group|}}
+        {{#group.option model=vWindows> Windows {{/group.option}}
+        {{#group.option model=vXP> XP {{/group.option}}
+        {{#group.option disabled=true model=vMac> Mac {{/group.option}}
+      {{/el-checkbox-group}}
+    ```
 - [ ] Input
 - [ ] InputNumber
 - [ ] Select
