@@ -95,7 +95,7 @@ Elements
 - [ ] Checkboxes
   - [ ] Checkbox  `{{el-checkbox}}`
     - [x] Attributes
-      - [x] label `{{el-checkbox label="first_name"}}`
+      - [ ] label skipped it
       - [ ] true-label 
       - [ ] false-label 
       - [x] disabled `{{el-checkbox disabled=true}}`
