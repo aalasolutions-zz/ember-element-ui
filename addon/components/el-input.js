@@ -10,7 +10,7 @@ export default Component.extend({
   disabled: false,
   readonly: false,
   type: 'text',
-  autosize:false,
+  autosize: false,
   autocomplete: 'off',
   validateEvent: true,
   suffixIcon: null,
@@ -19,27 +19,32 @@ export default Component.extend({
   clearable: false,
   tabindex: '',
   placeholder: '',
-
-  showClear: false,
-
   prepend: null,
   append: null,
 
-  _isGroup: computed('prepend', 'append', function(){
+  _isGroup: computed('prepend', 'append', function () {
     return !!(get(this, 'prepend') || get(this, 'append'));
   }),
 
-  _isPrefix: computed('prefix', 'prefixIcon', function(){
+  _isPrefix: computed('prefix', 'prefixIcon', function () {
     return !!(get(this, 'prefix') || get(this, 'prefixIcon'));
   }),
 
-  _isSuffix: computed('suffix', 'suffixIcon', function(){
+  _isSuffix: computed('suffix', 'suffixIcon', function () {
     return !!(get(this, 'suffix') || get(this, 'suffixIcon'));
   }),
 
 
-  _isShowSuffixIcon: computed('suffixIcon', 'showClear','validateState','needStatusIcon', function(){
-    return !!(get(this, 'suffixIcon') || get(this, 'showClear') || (get(this, 'validateState') && get(this, 'needStatusIcon') ));
+  showClear: computed('clearable', 'disabled', 'readonly', 'value', function () {
+    return this.get('clearable') &&
+      !this.get('disabled') &&
+      !this.get('readonly') &&
+      this.get('value') !== ''
+  }),
+
+
+  _isShowSuffixIcon: computed('suffixIcon', 'showClear', 'validateState', 'needStatusIcon', function () {
+    return !!(get(this, 'suffixIcon') || get(this, 'showClear') || (get(this, 'validateState') && get(this, 'needStatusIcon')));
   }),
 
 
@@ -53,20 +58,21 @@ export default Component.extend({
   ],
 
 
-
   getClassName: computed('type', 'size', function () {
 
     let classNames = '';
 
     classNames += get(this, 'type') === 'textarea' ? 'el-textarea' : 'el-input';
 
-    if(get(this, 'size')){classNames += ` el-input--${get(this, 'size')}`;}
+    if (get(this, 'size')) {
+      classNames += ` el-input--${get(this, 'size')}`;
+    }
 
     return classNames;
   }),
 
-  actions:{
-    clear(){
+  actions: {
+    clear() {
       set(this, 'value', '');
     }
   }

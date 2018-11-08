@@ -136,19 +136,20 @@ Elements
     ```
 - [ ] Input
   - [ ] input `{{el-input}}`
-    - [ ] type
-    - [x] value
+    - [x] type `{{el-input type="password"}}`
+    - [x] value `{{el-input value=var_name}}`
     - [ ] maxlength
     - [ ] minlength
-    - [x] placeholder
-    - [x] clearable
-    - [x] disalbed
-    - [x] size
-    - [x] prefix-icon
-    - [x] suffix-icon
-    - [ ] autocomplete
-    - [ ] name
-    - [ ] readonly
+    - [x] placeholder `{{el-input placeholder="Enter Login"}}`
+    - [x] clearable `{{el-input clearable=true}}`
+      - [ ] On hover and on Focus events
+    - [x] disabled `{{el-input disabled=true}}`
+    - [x] size `{{el-input size="small"}}`
+    - [x] prefix-icon `{{el-input prefixIcon="fa fa-bars"}}`
+    - [x] suffix-icon `{{el-input suffixIcon="fa fa-bars"}}`
+    - [x] autocomplete `{{el-input autocomplete="off"}}`
+    - [x] name `{{el-input name="username"}}`
+    - [x] readonly `{{el-input readonly=true}}`
     - [ ] max
     - [ ] min
     - [ ] step
