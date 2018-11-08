@@ -1,7 +1,7 @@
-ember-element-ui
+Ember Element UI
 ==============================================================================
 
-[Short description of the addon.]
+Implementation of eleme.io in Ember
 
 Installation
 ------------------------------------------------------------------------------
@@ -11,10 +11,57 @@ ember install ember-element-ui
 ```
 
 
-Usage
+Elements
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+####Basic 
+- [ ] Layout
+  - [ ] el-row `{{el-row}}`
+    - [ ] gutter `{{el-row gutter=20}}`
+    - [x] type `{{el-row type="flex"}}`
+    - [x] justify `{{el-row justify="end"}}` start/end/center/space-around/space-between
+    - [x] align `{{el-row align="middle"}}` top/middle/bottom
+    - [ ] tag - Skipped it
+  - [ ] el-col
+    - [ ] span
+    - [ ] offset
+    - [ ] push
+    - [ ] pull
+    - [ ] xs
+    - [ ] sm
+    - [ ] md
+    - [ ] lg
+    - [ ] xl
+    - [ ] tag
+- [ ] Layout Container
+  - [x] el-container: direction
+  - [ ] el-header: height
+  - [ ] el-aside: width
+  - [ ] el-footer: height
+- [x] Colors
+- [x] Typography
+- [x] Icons
+- [x] Button
+  - [x] size
+  - [x] type: changed it to `color`
+  - [x] plain
+  - [x] round
+  - [x] circle
+  - [x] loading
+  - [x] disabled
+  - [x] icon
+  - [x] autofocus
+  - [x] native-type: changed it to `type`
+  
+####Form
+- [ ] Radio
+  - [ ] Attributes
+    - [x] label
+    - [x] disabled
+    - [x] border
+    - [x] size
+    - [ ] name
+
 
 
 Contributing
