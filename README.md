@@ -135,6 +135,71 @@ Elements
       {{/el-checkbox-group}}
     ```
 - [ ] Input
+  - [ ] input `{{el-input}}`
+    - [ ] type
+    - [x] value
+    - [ ] maxlength
+    - [ ] minlength
+    - [x] placeholder
+    - [x] clearable
+    - [x] disalbed
+    - [x] size
+    - [x] prefix-icon
+    - [x] suffix-icon
+    - [ ] autocomplete
+    - [ ] name
+    - [ ] readonly
+    - [ ] max
+    - [ ] min
+    - [ ] step
+    - [ ] resize
+    - [ ] form
+    - [ ] label
+    - [ ] tabindex
+    - [ ] when type is text only
+      - [x] prefix
+      - [x] suffix
+      - [x] prepend
+      - [x] append
+    - [ ] input events
+      - [ ] blur
+      - [ ] focus
+      - [ ] change
+      - [ ] clear
+    - [ ] input methods
+      - [ ] focus
+      - [ ] blur
+      - [ ] select
+  - [ ] input autocomplete
+    - [ ] placeholder
+    - [ ] disabled
+    - [ ] value-key
+    - [ ] icon
+    - [ ] value
+    - [ ] debounce
+    - [ ] placement
+    - [ ] fetch-suggestions
+    - [ ] popper-class
+    - [ ] trigger-on-focus
+    - [ ] name
+    - [ ] select-when-unmatched
+    - [ ] label
+    - [ ] prefix-icon
+    - [ ] suffix-icon
+    - [ ] hide-loading
+    - [ ] popper-append-to-body
+    - [ ] prefix
+    - [ ] suffix
+    - [ ] prepend
+    - [ ] append
+    - [ ] Events
+      - [ ] select
+    - [ ] Method
+      - [ ] focus
+  - [ ] text area `{{el-input-textarea}}`
+    - [ ] rows
+    - [ ] autosize
+    - [ ] name
 - [ ] InputNumber
 - [ ] Select
 - [ ] Cascader
