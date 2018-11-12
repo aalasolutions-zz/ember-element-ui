@@ -91,6 +91,7 @@ module.exports = {
 
     host.import(path.join(pnotifyPath, 'PNotifyBrightTheme.css'));
     host.import(path.join('node_modules', 'normalize.css', 'normalize.css'));
+    host.import(path.join('node_modules', 'animate.css', 'animate.css'));
 
     host.import(path.join('node_modules', 'popper.js', 'dist', 'umd', 'popper.js'));
     host.import(path.join('node_modules', 'popper.js', 'dist', 'umd', 'popper-utils.js'));

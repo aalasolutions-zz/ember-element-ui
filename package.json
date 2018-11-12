@@ -34,6 +34,7 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
+    "animate.css": "^3.7.0",
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^3.0.1",
     "element-theme-chalk": "^2.4.9",
