@@ -237,7 +237,13 @@ Elements
   - [x] showText `{{el-progress showText=true}}`
 - [ ] Tree
 - [ ] Pagination
-- [ ] Badge
+- [x] Badge `{{#el-badge}}`
+  - [x] value `{{#el-badge value="new"}}content{/el-badge}}`
+  - [x] max `{{#el-badge value=15 max=20}}content{/el-badge}}`
+  - [x] isDot `{{#el-badge isDot=true}}content{/el-badge}}`
+  - [x] hidden `{{#el-badge hidden=true}}content{/el-badge}}`
+  - [x] type `{{#el-badge type="danger"}}content{/el-badge}}`
+  
 
 #### Notice
 - [ ] Alert
