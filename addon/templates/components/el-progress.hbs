@@ -1,0 +1,38 @@
+{{#if isTypeLine}}
+  <div class="el-progress-bar">
+    <div class="el-progress-bar__outer" style="height: {{strokeWidth}}px">
+      <div class="el-progress-bar__inner" style="width: {{barStyle.width}}; background-color: {{barStyle.backgroundColor}}">
+        <div class="el-progress-bar__innerText">
+          {{#if showTextInside}}
+            {{percentage}}%
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+{{else}}
+
+  <div class="el-progress-circle" style="height: {{width}}px; width: {{width}}px">
+    <svg viewBox="0 0 100 100">
+      <path class="el-progress-circle__track" d="{{trackPath}}" stroke="#e5e9f2" stroke-width="{{relativeStrokeWidth}}"
+            fill="none"></path>
+      <path class="el-progress-circle__path" d="{{trackPath}}" stroke-linecap="round" stroke="{{stroke}}"
+            stroke-width="{{relativeStrokeWidth}}" fill="none" style="
+                      stroke-dasharray: {{circlePathStyle.strokeDasharray}};
+                      stroke-dashoffset: {{circlePathStyle.strokeDashoffset}};
+                      transition: {{circlePathStyle.transition}};
+        "></path>
+    </svg>
+  </div>
+{{/if}}
+
+{{#if progressText}}
+  <div class="el-progress__text" style="fontSize: {{progressTextSize}}px">
+    {{#if showStatus}}
+      {{percentage}}%
+    {{else}}
+      <i class="{{iconClass}}"></i>
+    {{/if}}
+  </div>
+{{/if}}
+{{yield}}

@@ -226,15 +226,15 @@ Elements
     - [x] size `{{#el-tag size="medium"}}Tag #{{/el-tag}}`
   - [x] events
     - [x] close `{{#el-tag close=(action 'tagAction')}}Tag #{{/el-tag}}`  
-- [ ] Progress `{{#`
-  - [ ] percentage
-  - [ ] type
-  - [ ] strokeWidth
-  - [ ] textInside
-  - [ ] status
-  - [ ] color
-  - [ ] width
-  - [ ] showText
+- [x] Progress `{{el-progress}}`
+  - [x] percentage `{{el-progress percentage=50}}`
+  - [x] type `{{el-progress type='circle'}}`
+  - [x] strokeWidth `{{el-progress strokeWidth=20}}`
+  - [x] textInside `{{el-progress textInside=true}}`
+  - [x] status `{{el-progress status='success'}}`
+  - [x] color `{{el-progress color='rgba(145,115,200,0.5)'}}`
+  - [x] width `{{el-progress width='150'}}` *only for circle type*
+  - [x] showText `{{el-progress showText=true}}`
 - [ ] Tree
 - [ ] Pagination
 - [ ] Badge
