@@ -21,7 +21,7 @@ Elements
     - [x] type `{{el-row type="flex"}}`
     - [x] justify `{{el-row justify="end"}}` start/end/center/space-around/space-between
     - [x] align `{{el-row align="middle"}}` top/middle/bottom
-    - [x] tag - Skipped it
+    - [x] ~~tag~~ - Skipped it
   - [x] el-col `{{el-col}}`
     - [x] span `{{el-col span=4}}`
     - [x] offset `{{el-col offset=4}}`
@@ -32,7 +32,7 @@ Elements
     - [x] md `{{el-col md=4}}`
     - [x] lg `{{el-col lg=4}}`
     - [x] xl `{{el-col xl=4}}`
-    - [x] tag - Skipped it
+    - [x] ~~tag~~ - Skipped it
 - [ ] Layout Container 
   - [ ] el-container `{{el-container}}`
     - [x] direction`{{el-container direction="vertical"}}`
@@ -95,7 +95,7 @@ Elements
 - [ ] Checkboxes
   - [ ] Checkbox  `{{el-checkbox}}`
     - [x] Attributes
-      - [ ] label skipped it
+      - [ ] ~~label~~ skipped it
       - [ ] true-label 
       - [ ] false-label 
       - [x] disabled `{{el-checkbox disabled=true}}`
@@ -217,8 +217,24 @@ Elements
 
 #### Data
 - [ ] Table
-- [ ] Tag
-- [ ] Progress
+- [x] Tag `{{#el-tag}}Tag #{{/el-tag}}`
+  - [x] attributes
+    - [x] type `{{#el-tag type='warning'}}Tag #{{/el-tag}}`
+    - [x] closeable `{{#el-tag closeable=true}}Tag #{{/el-tag}}`
+    - [x] hit `{{#el-tag hit=true}}Tag #{{/el-tag}}`
+    - [x] ~~color~~ skipped it
+    - [x] size `{{#el-tag size="medium"}}Tag #{{/el-tag}}`
+  - [x] events
+    - [x] close `{{#el-tag close=(action 'tagAction')}}Tag #{{/el-tag}}`  
+- [ ] Progress `{{#`
+  - [ ] percentage
+  - [ ] type
+  - [ ] strokeWidth
+  - [ ] textInside
+  - [ ] status
+  - [ ] color
+  - [ ] width
+  - [ ] showText
 - [ ] Tree
 - [ ] Pagination
 - [ ] Badge
