@@ -1,0 +1,10 @@
+<div class="cell">
+  {{#if hasBlock}}
+    {{yield row }}
+  {{!-----  {{yield prop (get row property)}} -----}}
+  {{else}}
+    {{get row prop}}
+  {{/if}}
+</div>
+
+
