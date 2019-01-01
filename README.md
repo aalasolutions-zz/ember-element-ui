@@ -302,7 +302,7 @@ Elements
 - [ ] Dialog
 - [ ] Tooltip
 - [ ] Popover
-- [ ] Card
+- [X] Card
 - [ ] Carousel
 - [ ] Collapse
 
