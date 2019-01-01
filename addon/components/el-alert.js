@@ -8,7 +8,7 @@ export default Component.extend({
 
   TYPE_CLASSES_MAP: null,
 
-  classNames: ['el-alert'],
+  classNames: ['el-alert','animated', 'fadeIn'],
   classNameBindings: ['typeClass',
     'center:is-center',
     'isClosed:el-hidden',

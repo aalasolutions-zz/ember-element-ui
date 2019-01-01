@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import layout from '../templates/components/el-tag';
-import {computed, get} from "@ember/object";
+import {computed, get, set} from "@ember/object";
 
 export default Component.extend({
   layout,
@@ -9,6 +9,7 @@ export default Component.extend({
 
   classNameBindings: ['getClassName',
     'hit:is-hit',
+    'isClosed:el-hidden',
   ],
 
 
@@ -22,6 +23,7 @@ export default Component.extend({
     return classNames;
   }),
 
+  isClosed: false,
 
   closable: false,
   type: '',
@@ -37,6 +39,8 @@ export default Component.extend({
       this.$().addClass('animated flipOutY');
       this.$().one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
         () => {
+          set(this, 'isClosed', true);
+
           if (this.get('close')) {
             this.get('close')();
           }
