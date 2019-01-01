@@ -2,11 +2,14 @@
   <i class="el-alert__icon {{iconClass}} {{isBigIcon}}"></i>
 {{/if}}
 <div class="el-alert__content">
-  {{#if title}}
-    <span class="el-alert__title  {{isBoldTitle}} ">
-      {{ title }}
-    </span>
-
+  {{#if hasBlock}}
+    {{yield}}
+  {{else}}
+    {{#if title}}
+      <span class="el-alert__title  {{isBoldTitle}} ">
+        {{ title }}
+      </span>
+    {{/if}}
   {{/if}}
 
   {{#if description}}

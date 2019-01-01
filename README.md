@@ -246,7 +246,19 @@ Elements
   
 
 #### Notice
-- [ ] Alert
+- [x] Alert `{{el-alert}}`
+  - [x] Attributes 
+    - [x] title  `{{el-alert title="Alert Title"}}`
+    - [x] type  `{{el-alert title="Alert Title" type="warning"}}`
+    - [x] description `{{el-alert title="Alert Title" type="warning" description="Alert Description"}}`
+    - [x] closable `{{el-alert title="Alert Title" closeable=false}}`
+    - [x] center `{{el-alert title="Alert Title" type="warning" center=true}}`
+    - [x] closeText `{{el-alert title="Alert Title" type="warning" closeText="Sure"}}`
+    - [x] showIcon `{{el-alert title="Alert Title" type="warning" showIcon=true}}`
+  - [x] Block Content 
+    - [x] Custom content `{{#el-alert title="Alert Title" type="warning" showIcon=true}} Custom Content {{/el-alert}}`
+  - [x] Event
+    - [x] close `{{#el-alert title="Hi" action=(action "handleChange") }}`
 - [ ] Loading
 - [ ] Message
 - [ ] MessageBox
