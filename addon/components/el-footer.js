@@ -14,6 +14,6 @@ export default Component.extend({
   dataComponent: 'el-footer',
 
   style: computed('height', function () {
-    return htmlSafe(get(this, 'height'));
+    return htmlSafe('height: ' + get(this, 'height'));
   }),
 });

@@ -12,7 +12,7 @@ export default Component.extend({
   attributeBindings: ['style'],
 
   style: computed('width', function () {
-    return htmlSafe(get(this, 'width'));
+    return htmlSafe('width: ' + get(this, 'width'));
   }),
 
 });

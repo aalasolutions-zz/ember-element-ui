@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import layout from '../templates/components/el-progress';
 import {computed, get} from "@ember/object";
+import {htmlSafe} from '@ember/template';
 
 export default Component.extend({
   layout,
@@ -9,8 +10,6 @@ export default Component.extend({
   classNameBindings: ['getClassName',
     'hit:is-hit',
   ],
-
-
 
 
   attributeBindings: ['role'],
@@ -26,7 +25,7 @@ export default Component.extend({
   showText: true,
 
 
-  iconClass: computed('line', 'status', function() {
+  iconClass: computed('line', 'status', function () {
     if (get(this, 'type') === 'line') {
       return get(this, 'status') === 'success' ? 'el-icon-circle-check' : 'el-icon-circle-close';
     } else {
@@ -34,34 +33,23 @@ export default Component.extend({
     }
   }),
 
-  relativeStrokeWidth: computed('strokeWidth', function(){
+  relativeStrokeWidth: computed('strokeWidth', function () {
     return (get(this, 'strokeWidth') / this.width * 100).toFixed(1);
 
   }),
 
-  trackPath: computed('relativeStrokeWidth', function(){
-    const radius = parseInt(50 - parseFloat(get(this,'relativeStrokeWidth')) / 2, 10);
+  trackPath: computed('relativeStrokeWidth', function () {
+    const radius = parseInt(50 - parseFloat(get(this, 'relativeStrokeWidth')) / 2, 10);
     return `M 50 50 m 0 -${radius} a ${radius} ${radius} 0 1 1 0 ${radius * 2} a ${radius} ${radius} 0 1 1 0 -${radius * 2}`;
 
   }),
 
-  perimeter: computed('relativeStrokeWidth', function() {
-    const radius = 50 - parseFloat(get(this,'relativeStrokeWidth')) / 2;
+  perimeter: computed('relativeStrokeWidth', function () {
+    const radius = 50 - parseFloat(get(this, 'relativeStrokeWidth')) / 2;
     return 2 * Math.PI * radius;
   }),
 
-
-  circlePathStyle: computed('perimeter', 'percentage', function() {
-    const perimeter = get(this, 'perimeter');
-    return {
-      strokeDasharray: `${perimeter}px,${perimeter}px`,
-      strokeDashoffset: (1 - get(this, 'percentage') / 100) * perimeter + 'px',
-      transition: 'stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease'
-    };
-  }),
-
-
-  stroke: computed('color', 'status', function() {
+  stroke: computed('color', 'status', function () {
     let ret;
     if (get(this, 'color')) {
       ret = get(this, 'color');
@@ -101,32 +89,51 @@ export default Component.extend({
     return classNames;
   }),
 
-
-  barStyle: computed('percentage', 'color', function(){
-    const style = {};
-    style.width = get(this, 'percentage') + '%';
-    style.backgroundColor = get(this, 'color');
-    return style;
-  }),
-
-  progressTextSize: computed('type', 'strokeWidth', 'width', function(){
-    return get(this, 'type') === 'line'
-      ? 12 + get(this,'strokeWidth') * 0.4
-      : get(this, 'width') * 0.111111 + 2 ;
-  }),
-
-
   showTextInside: computed.and('showText', 'textInside'),
   showStatus: computed.not('status'),
 
   isTypeLine: computed.equal('type', 'line'),
   isTypeCircle: computed.equal('type', 'line'),
 
-  progressText: computed('textInside', 'showText', function(){
+  progressText: computed('textInside', 'showText', function () {
     return !get(this, 'textInside') && get(this, 'showText');
   }),
 
+  strokeWidthStyle: computed('strokeWidth', function () {
+    let strokeWidth = get(this, 'strokeWidth');
+    return htmlSafe(`height: ${strokeWidth}px`);
+  }),
 
 
+  barStyle: computed('percentage', 'color', function () {
+    const style = {};
+    style.width = get(this, 'percentage') + '%';
+    style.backgroundColor = get(this, 'color');
+
+    return htmlSafe(`width: ${style.width}; background-color: ${style.backgroundColor}`);
+  }),
+
+  circleStyle: computed('width', function () {
+    let width = get(this, 'width');
+    return htmlSafe(`height: ${width}px; width: ${width}px`);
+  }),
+
+  progressTextStyle: computed('type', 'strokeWidth', 'width', function () {
+    let size = get(this, 'type') === 'line'
+      ? 12 + get(this, 'strokeWidth') * 0.4
+      : get(this, 'width') * 0.111111 + 2;
+    return htmlSafe(`fontSize: ${size}px`);
+  }),
+
+  circlePathStyle: computed('perimeter', 'percentage', function () {
+    const perimeter = get(this, 'perimeter');
+
+    let strokeDasharray = `${perimeter}px,${perimeter}px`;
+    let strokeDashoffset = (1 - get(this, 'percentage') / 100) * perimeter + 'px';
+    let transition = 'stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease';
+
+
+    return htmlSafe(`stroke-dasharray: ${strokeDasharray}; stroke-dashoffset: ${strokeDashoffset}; transition: ${transition}`);
+  }),
 
 });

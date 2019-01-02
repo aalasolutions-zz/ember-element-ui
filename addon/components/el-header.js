@@ -12,7 +12,7 @@ export default Component.extend({
   attributeBindings: ['style', 'dataComponent:data-component'],
   dataComponent: 'el-header',
   style: computed('height', function () {
-    return htmlSafe(get(this, 'height'));
+    return htmlSafe('height: ' + get(this, 'height'));
   }),
 
 });

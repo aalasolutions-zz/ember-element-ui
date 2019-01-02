@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import layout from '../templates/components/el-col';
 import {computed, get} from "@ember/object";
+import {htmlSafe} from '@ember/template';
 
 export default Component.extend({
   layout,
@@ -23,7 +24,7 @@ export default Component.extend({
   style: computed('gutter', function () {
     if (get(this, 'gutter')) {
       let gutter = (get(this, 'gutter') / 2) + 'px';
-      return `padding-left: ${gutter}; padding-right: ${gutter}`;
+      return htmlSafe(`padding-left: ${gutter}; padding-right: ${gutter}`);
     }
   }),
 
