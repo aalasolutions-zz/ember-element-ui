@@ -16,8 +16,8 @@ Elements
 
 #### Basic 
 - [ ] Layout
-  - [ ] el-row `{{el-row}}`
-    - [ ] gutter `{{el-row gutter=20}}`
+  - [x] el-row `{{el-row}}`
+    - [x] gutter `{{el-row gutter=20}}`
     - [x] type `{{el-row type="flex"}}`
     - [x] justify `{{el-row justify="end"}}` start/end/center/space-around/space-between
     - [x] align `{{el-row align="middle"}}` top/middle/bottom

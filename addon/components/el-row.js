@@ -4,34 +4,38 @@ import {computed, get} from "@ember/object";
 
 export default Component.extend({
   layout,
-  gutter: 5, // todo: Add dynamic gutter classes
+  gutter: null, // todo: Add dynamic gutter classes
   justify: 'start',
   align: 'top',
   type: null,
 
-
   classNames: ['el-row'],
   classNameBindings: ['getClassName'],
+  attributeBindings: ['style'],
 
-  getClassName: computed('justify', 'align', function(){
+  style: computed('gutter', function () {
+    if (get(this, 'gutter')) {
+      let gutter = (get(this, 'gutter') / 2) + 'px';
+      return `margin-left: -${gutter}; margin-right: -${gutter}`;
+    }
+  }),
 
+  getClassName: computed('justify', 'align', function () {
 
     let classNames = '';
 
-    if(get(this, 'justify') !== 'start'){
+    if (get(this, 'justify') !== 'start') {
       classNames += ` is-justify-${get(this, 'justify')}`;
     }
 
-    if(get(this, 'align') !== 'top'){
+    if (get(this, 'align') !== 'top') {
       classNames += ` is-align-${get(this, 'align')}`;
     }
-    if(get(this, 'type') === 'flex'){
+
+    if (get(this, 'type') === 'flex') {
       classNames += ` el-row--flex}`;
     }
 
-
     return classNames;
-
   }),
-
 });

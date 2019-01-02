@@ -14,8 +14,18 @@ export default Component.extend({
   lg: null,
   xl: null,
 
+  gutter: null,
+
   classNames: ['el-col'],
   classNameBindings: ['getClassName'],
+  attributeBindings: ['style'],
+
+  style: computed('gutter', function () {
+    if (get(this, 'gutter')) {
+      let gutter = (get(this, 'gutter') / 2) + 'px';
+      return `padding-left: ${gutter}; padding-right: ${gutter}`;
+    }
+  }),
 
   getClassName: computed('span', 'offset', 'pull', 'push', 'xs', 'sm', 'md', 'lg', 'xl', function () {
 
