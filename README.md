@@ -34,7 +34,7 @@ Elements
     - [x] xl `{{el-col xl=4}}`
     - [x] ~~tag~~ - Skipped it
 - [x] Layout Container 
-  - [ ] el-container `{{el-container}}`
+  - [x] el-container `{{el-container}}`
     - [x] direction`{{el-container direction="vertical"}}`
       - [x] Auto change direction to vertical if it have header or footer 
   - [x] el-header `{{el-header}}`
