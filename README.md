@@ -15,7 +15,7 @@ Elements
 ------------------------------------------------------------------------------
 
 #### Basic 
-- [ ] Layout
+- [x] Layout
   - [x] el-row `{{el-row}}`
     - [x] gutter `{{el-row gutter=20}}`
     - [x] type `{{el-row type="flex"}}`
@@ -33,16 +33,16 @@ Elements
     - [x] lg `{{el-col lg=4}}`
     - [x] xl `{{el-col xl=4}}`
     - [x] ~~tag~~ - Skipped it
-- [ ] Layout Container 
+- [x] Layout Container 
   - [ ] el-container `{{el-container}}`
     - [x] direction`{{el-container direction="vertical"}}`
-      - [ ] Auto change direction to vertical if it have header or footer 
+      - [x] Auto change direction to vertical if it have header or footer 
   - [x] el-header `{{el-header}}`
-    - [ ] height
+    - [x] height
   - [x] el-aside `{{el-aside}}`
-    - [ ] width
+    - [x] width
   - [x] el-footer `{{el-footer}}`
-    - [ ] height
+    - [x] height
 - [x] Colors
 - [x] Typography
 - [x] Icons : http://element.eleme.io/#/en-US/component/icon
