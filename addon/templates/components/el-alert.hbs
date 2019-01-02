@@ -17,7 +17,11 @@
   {{/if}}
 
   {{#if closable}}
-    <i class="el-alert__closebtn {{if closeText 'is-customed' 'el-icon-close'}} " {{action 'close'}}>
+    <i
+      class="el-alert__closebtn {{if closeText "is-customed" "el-icon-close"}} "
+      role="button"
+      {{action "close"}}
+    >
       {{closeText}}
     </i>
 

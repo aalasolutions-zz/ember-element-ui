@@ -1,8 +1,6 @@
 import Component from '@ember/component';
 import layout from '../templates/components/el-radio';
 import {computed} from '@ember/object';
-import {isEqual} from '@ember/utils';
-import {run} from '@ember/runloop';
 
 export default Component.extend({
   layout,

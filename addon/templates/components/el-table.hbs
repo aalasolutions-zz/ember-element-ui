@@ -1,5 +1,4 @@
 <div class="hidden-columns" ref="hiddenColumns">
-
 </div>
 
 {{!--
@@ -59,50 +58,43 @@
   </thead>
 </table>--}}
 
-
 {{#if showHeader}}
   <table class="el-table__header" cellspacing="0" cellpadding="0" border="0">
-
     <colgroup>
-    {{yield
-      (hash
-        column=(component "ElTableColgroup"
-          width=width
+      {{yield
+        (hash
+          column=(component "ElTableColgroup"
+            width=width
+          )
         )
-      )
-    }}
+      }}
     </colgroup>
 
     {{!--{ this._l(this.columns, column => <col name={ column.id } />) }--}}
     {{!--{ this.hasGutter ? <col name="gutter" /> : '' }--}}
 
     <thead>
-    {{!--'is-group': isGroup, 'has-gutter': this.hasGutter }] }>--}}
-
-    <tr>
-    {{!--<tr
-      style={ this.getHeaderRowStyle(rowIndex) }
-      class={ this.getHeaderRowClass(rowIndex) }
-    >--}}
-
-
-    {{yield
-      (hash
-        column=(component "ElTableHeader"
-          object=object
-          prop=prop
-          parent=parent
-          label=label
-          style=layoutBodyWidth
-        )
-      )
-    }}
-    </tr>
+      {{!--'is-group': isGroup, 'has-gutter': this.hasGutter }] }>--}}
+      <tr>
+        {{!--<tr
+          style={ this.getHeaderRowStyle(rowIndex) }
+          class={ this.getHeaderRowClass(rowIndex) }
+        >--}}
+        {{yield
+          (hash
+            column=(component "ElTableHeader"
+              object=object
+              prop=prop
+              parent=parent
+              label=label
+              style=layoutBodyWidth
+            )
+          )
+        }}
+      </tr>
     </thead>
   </table>
 {{/if}}
-
-
 
 {{!--
 
@@ -194,22 +186,22 @@
     }}
   </colgroup>
   <tbody>
-  {{#each data as |row|}}
-    <tr>
-      {{yield
-        (hash
-          column=(component "ElTableColumn"
-            object=object
-            row=row
-            store=store
-            parent=parent
-            prop=prop
-            label=label
-            width=width
+    {{#each data as |row|}}
+      <tr>
+        {{yield
+          (hash
+            column=(component "ElTableColumn"
+              object=object
+              row=row
+              store=store
+              parent=parent
+              prop=prop
+              label=label
+              width=width
+            )
           )
-        )
-      }}
-    </tr>
-  {{/each}}
+        }}
+      </tr>
+    {{/each}}
   </tbody>
 </table>

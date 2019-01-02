@@ -14,14 +14,14 @@ export default LinkComponent.extend({
 
     if (this.get('linkto')) {
       if (this.get('parent')) {
-        params.push(this.get('parent') + '.' + this.get('linkto'));
+        params.push(get(this, 'parent') + '.' + get(this, 'linkto'));
       } else {
-        params.push(this.get('linkto'));
+        params.push(get(this, 'linkto'));
       }
     }
 
 
-    this.set('params', params);
+    set(this, 'params', params);
 
     this._super();
   },

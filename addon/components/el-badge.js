@@ -22,7 +22,7 @@ export default Component.extend({
     let type = get(this,'type');
 
     if(['primary', 'success', 'warning', 'info', 'danger'].indexOf(type) === -1){
-      console.error('Provided type for el-badge is not valid. Please select one from [\'primary\', \'success\', \'warning\', \'info\', \'danger\']');
+      // console.error('Provided type for el-badge is not valid. Please select one from [\'primary\', \'success\', \'warning\', \'info\', \'danger\']');
     }
 
     // set(this, 'value')

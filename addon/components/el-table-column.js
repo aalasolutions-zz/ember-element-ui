@@ -2,7 +2,8 @@ import Component from '@ember/component';
 import layout from '../templates/components/el-table-column';
 import objectAssign from '../utils/merge';
 import { getPropByPath } from '../utils/util';
-import {computed, get, set} from "@ember/object";
+import {set} from "@ember/object";
+// import {computed, get, set} from "@ember/object";
 
 const defaults = {
   default: {

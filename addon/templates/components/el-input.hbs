@@ -1,6 +1,8 @@
-{{yield (hash
-          prepend=(component "ElInputPrepend" object=object)
-        )}}
+{{yield
+  (hash
+    prepend=(component "ElInputPrepend" object=object)
+  )
+}}
 
 {{input
   tabindex=tabindex
@@ -12,7 +14,6 @@
   name=name
   value=value
   placeholder=placeholder
-
 }}
 
 {{#if prefixIcon}}
@@ -27,8 +28,10 @@
   <span class="el-input__suffix">
     <span class="el-input__suffix-inner">
       {{#if showClear}}
-        <i class="el-input__icon el-icon-circle-close el-input__clear"
-          {{action 'clear'}}
+        <i
+          class="el-input__icon el-icon-circle-close el-input__clear"
+          role="button"
+          {{action "clear"}}
         >
         </i>
       {{else}}
@@ -42,6 +45,8 @@
 {{/if}}
 
 
-{{yield (hash
-          append=(component "ElInputAppend" object=object)
-        )}}
+{{yield
+  (hash
+    append=(component "ElInputAppend" object=object)
+  )
+}}

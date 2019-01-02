@@ -40,7 +40,6 @@ export default Component.extend({
   }),
   actions: {
     changed(value, name) {
-      console.log(name, value, this.get('model'), this.get('label'));
       if (this.get('action')) {
         this.get('action')(value, name);
       }

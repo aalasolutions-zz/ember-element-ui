@@ -1,6 +1,8 @@
-<div class="el-submenu__title" {{action 'collapse'}}>
-  {{#if icon}}<i class="{{icon}}"></i>{{/if}}
-  <span>{{title}} </span>
+<div class="el-submenu__title" {{action "collapse"}} role="button">
+  {{#if icon}}
+    <i class={{icon}}></i>
+  {{/if}}
+  <span>{{title}}</span>
   <i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
 </div>
 
