@@ -23,4 +23,48 @@ module('Integration | Component | el-button', function(hooks) {
 
     assert.equal(this.element.textContent.trim(), 'template block text');
   });
+
+
+  test('it checks size', async function(assert) {
+
+    this.set('size', "small");
+    this.set('disabled', false);
+
+    await render(hbs`
+    {{#el-button size=size disabled=disabled}}
+       Master
+    {{/el-button}}
+    `
+    );
+
+    assert.equal(this.element.textContent.trim(), 'Master');
+
+
+    this.set('loading', true);
+
+    await render(hbs`
+    {{#el-button size=size loading=loading disabled=disabled}}
+       Master
+    {{/el-button}}
+    `
+    );
+
+    assert.equal(this.element.textContent.trim(), 'Master');
+
+
+    this.set('icon', "arrow");
+
+    await render(hbs`
+    {{#el-button size=size disabled=disabled icon=icon}}
+       Master
+    {{/el-button}}
+    `
+    );
+
+    assert.equal(this.element.textContent.trim(), 'Master');
+
+
+
+  });
+
 });

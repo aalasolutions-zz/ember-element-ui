@@ -23,4 +23,28 @@ module('Integration | Component | el-alert', function(hooks) {
 
     assert.equal(this.element.textContent.trim(), 'template block text');
   });
+
+  test('it checks iconClass', async function(assert) {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.set('myAction', function(val) { ... });
+
+
+
+    this.set('icon', "warning");
+
+
+
+    await render(hbs`{{el-alert type=icon}}`);
+
+    assert.equal(this.element.textContent.trim(), '');
+    //
+    // // Template block usage:
+    // await render(hbs`
+    //   {{#el-alert}}
+    //     template block text
+    //   {{/el-alert}}
+    // `);
+    //
+    // assert.equal(this.element.textContent.trim(), 'template block text');
+  });
 });

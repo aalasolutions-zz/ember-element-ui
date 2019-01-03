@@ -23,4 +23,36 @@ module('Integration | Component | el-badge', function(hooks) {
 
     assert.equal(this.element.textContent.trim(), 'template block text');
   });
+
+  test('Dot Value', async function(assert) {
+    this.set('isDot', true);
+    await render(hbs`{{el-badge isDot=isDot}}`);
+    assert.equal(this.element.textContent.trim(), '');
+
+
+    this.set('type', 'badOption');
+
+    await render(hbs`{{el-badge type=type}}`);
+    assert.equal(this.element.textContent.trim(), '');
+  });
+
+  test('counter', async function(assert) {
+    this.set('value', 10);
+
+    await render(hbs`{{el-badge value=value }}`);
+    assert.equal(this.element.textContent.trim(), '10');
+
+    this.set('max', 5);
+
+    await render(hbs`{{el-badge value=value max=max}}`);
+    assert.equal(this.element.textContent.trim(), '5+');
+
+    this.set('value', 3);
+
+    await render(hbs`{{el-badge value=value max=max}}`);
+    assert.equal(this.element.textContent.trim(), '3');
+
+
+
+  });
 });

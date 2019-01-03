@@ -6,7 +6,6 @@
   <i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
 </div>
 
-
-{{#liquid-if isOpen use="crossFade" growDuration=500}}
+{{#if isOpen }}
   {{yield}}
-{{/liquid-if}}
+{{/if}}

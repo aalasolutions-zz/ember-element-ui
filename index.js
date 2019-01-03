@@ -41,7 +41,6 @@ module.exports = {
 
     this.addAddonsToProject({
       packages: [
-        {name: "liquid-fire", target: "^0.29.5"},
         {name: "ember-font-awesome", target: "^4.0.0-rc.4"},
       ]
     });
