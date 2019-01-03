@@ -4,6 +4,26 @@ Ember Element UI
 Implementation of eleme.io in Ember
 
 [![Build Status](https://travis-ci.org/aalasolutions/ember-element-ui.svg?branch=master)](https://travis-ci.org/aalasolutions/ember-element-ui)
+[![Latest NPM release][npm-badge]][npm-badge-url]
+[![Test Coverage][coveralls-badge]][coveralls-badge-url]
+[![Ember Observer Score][ember-observer-badge]][ember-observer-badge-url]
+[![License][license-badge]][license-badge-url]
+[![Dependencies][dependencies-badge]][dependencies-badge-url] 
+[![Dev Dependencies][devDependencies-badge]][devDependencies-badge-url]
+
+
+[npm-badge]: https://img.shields.io/npm/v/ember-element-ui.svg
+[npm-badge-url]: https://www.npmjs.com/package/ember-element-ui
+[coveralls-badge]: https://coveralls.io/repos/github/aalasolutions/ember-element-ui/badge.svg?branch=master
+[coveralls-badge-url]: https://coveralls.io/github/aalasolutions/ember-element-ui?branch=master
+[ember-observer-badge]: http://emberobserver.com/badges/ember-element-ui.svg
+[ember-observer-badge-url]: http://emberobserver.com/addons/ember-element-ui
+[license-badge]: https://img.shields.io/npm/l/ember-element-ui.svg
+[license-badge-url]: LICENSE.md
+[dependencies-badge]: https://img.shields.io/david/aalasolutions/ember-element-ui.svg
+[dependencies-badge-url]: https://david-dm.org/aalasolutions/ember-element-ui
+[devDependencies-badge]: https://img.shields.io/david/dev/aalasolutions/ember-element-ui.svg
+[devDependencies-badge-url]: https://david-dm.org/aalasolutions/ember-element-ui#info=devDependencies
 
 
 Installation
