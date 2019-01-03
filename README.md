@@ -1,7 +1,7 @@
 Ember Element UI
 ==============================================================================
 
-Implementation of eleme.io in Ember
+Implementation of http://element.eleme.io in Ember
 
 [![Build Status](https://travis-ci.org/aalasolutions/ember-element-ui.svg?branch=master)](https://travis-ci.org/aalasolutions/ember-element-ui)
 [![Latest NPM release][npm-badge]][npm-badge-url]

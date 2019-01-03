@@ -134,3 +134,11 @@ table{
 .el-hidden{
   display: none !important;
 }
+
+.el-animate{
+  transition: all 500ms
+}
+
+.el-menu-item *{
+  transition: all 500ms
+}

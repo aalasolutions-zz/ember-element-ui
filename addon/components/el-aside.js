@@ -6,13 +6,18 @@ import {htmlSafe} from '@ember/template';
 export default Component.extend({
   layout,
   tagName: 'aside',
-  classNames: ['el-aside'],
+  classNames: ['el-aside', 'el-animate'],
   width: '300px',
+  collapse: false,
 
   attributeBindings: ['style'],
 
-  style: computed('width', function () {
-    return htmlSafe('width: ' + get(this, 'width'));
+  style: computed('width', 'collapse', function () {
+    let width = get(this, 'width');
+    if(get(this, 'collapse') === true){
+      width = '65px';
+    }
+    return htmlSafe('width: ' + width);
   }),
 
 });
