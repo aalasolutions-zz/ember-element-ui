@@ -10,17 +10,10 @@ module('Integration | Component | el-menu-item-route', function(hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{el-menu-item-route}}`);
+    this.set('linkTo', 'dummy-link');
+    await render(hbs`{{el-menu-item-route linkto=linkTo}}`);
 
     assert.equal(this.element.textContent.trim(), '');
 
-    // Template block usage:
-    await render(hbs`
-      {{#el-menu-item-route}}
-        template block text
-      {{/el-menu-item-route}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });

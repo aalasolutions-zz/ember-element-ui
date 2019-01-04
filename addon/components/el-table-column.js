@@ -1,10 +1,11 @@
 import Component from '@ember/component';
 import layout from '../templates/components/el-table-column';
-import objectAssign from '../utils/merge';
-import { getPropByPath } from '../utils/util';
+// import objectAssign from '../utils/merge';
+// import { getPropByPath } from '../utils/util';
 import {set} from "@ember/object";
 // import {computed, get, set} from "@ember/object";
 
+/*
 const defaults = {
   default: {
     order: ''
@@ -34,7 +35,7 @@ const defaults = {
 
 const forced = {
   selection: {
-  /*  renderHeader: function(h, { store }) {
+  /!*  renderHeader: function(h, { store }) {
       return <el-checkbox
       disabled={ store.states.data && store.states.data.length === 0 }
       indeterminate={ store.states.selection.length > 0 && !this.isAllSelected }
@@ -49,7 +50,7 @@ const forced = {
       on-input={ () => { store.commit('rowSelectedChanged', row); } } />;
     },
     sortable: false,
-    resizable: false*/
+    resizable: false*!/
   },
   index: {
     renderHeader: function(h, { column }) {
@@ -141,6 +142,7 @@ const parseMinWidth = (minWidth) => {
   }
   return minWidth;
 };
+*/
 
 export default Component.extend({
   layout,

@@ -3,7 +3,7 @@ import { debounce } from '@ember/runloop';
 import merge from './merge';
 import { orderBy, getColumnById, getRowIdentity } from './table-util';
 import $ from 'jquery';
-import {computed, get, set} from "@ember/object";
+import { get, set} from "@ember/object";
 
 
 import EmberObject from '@ember/object';
@@ -202,7 +202,7 @@ export default EmberObject.extend({
 
           this.updateAllSelected();
         } else {
-          console.warn('WARN: rowKey is required when reserve-selection is enabled.');
+          // console.warn('WARN: rowKey is required when reserve-selection is enabled.');
         }
       }
 
@@ -669,7 +669,7 @@ export default EmberObject.extend({
 
   updateCurrentRow(){
     const states = get(this, 'states');
-    const table = get(this, 'table');
+    // const table = get(this, 'table');
     const data = states.data || [];
     const oldCurrentRow = states.currentRow;
 

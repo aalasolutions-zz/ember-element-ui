@@ -15,6 +15,7 @@ const getAllColumns = (columns) => {
   });
   return result;
 };
+/*
 
 const convertToRows = (originColumns) => {
   let maxLevel = 1;
@@ -60,6 +61,7 @@ const convertToRows = (originColumns) => {
 
   return rows;
 };
+*/
 
 export default Component.extend({
   layout,
@@ -106,7 +108,7 @@ export default Component.extend({
   didInsertElement() {
     this._super();
 
-    const {prop, order} = get(this, 'defaultSort');
+    // const {prop, order} = get(this, 'defaultSort');
     // get(this, 'store').commit('sort', { prop, order });
 
   },
@@ -212,10 +214,10 @@ export default Component.extend({
 
     handleFilterClick(event, column) {
       event.stopPropagation();
-      const target = event.target;
-      let cell = target.tagName === 'TH' ? target : target.parentNode;
-      cell = cell.querySelector('.el-table__column-filter-trigger') || cell;
-      const table = get(this, 'table');
+      // const target = event.target;
+      // let cell = target.tagName === 'TH' ? target : target.parentNode;
+      // cell = cell.querySelector('.el-table__column-filter-trigger') || cell;
+      // const table = get(this, 'table');
 
       let filterPanel = get(this, 'filterPanels')[column.id];
 
@@ -271,7 +273,7 @@ export default Component.extend({
         const columnRect = columnEl.getBoundingClientRect();
         const minLeft = columnRect.left - tableLeft + 30;
 
-        addClass(columnEl, 'noclick');
+        // addClass(columnEl, 'noclick');
 
         this.dragState = {
           startMouseLeft: event.clientX,
@@ -323,9 +325,9 @@ export default Component.extend({
           document.onselectstart = null;
           document.ondragstart = null;
 
-          setTimeout(function () {
-            removeClass(columnEl, 'noclick');
-          }, 0);
+          // setTimeout(function () {
+          //   removeClass(columnEl, 'noclick');
+          // }, 0);
         };
 
         document.addEventListener('mousemove', handleMouseMove);
@@ -348,15 +350,15 @@ export default Component.extend({
         const bodyStyle = document.body.style;
         if (rect.width > 12 && rect.right - event.pageX < 8) {
           bodyStyle.cursor = 'col-resize';
-          if (hasClass(target, 'is-sortable')) {
-            target.style.cursor = 'col-resize';
-          }
+          // if (hasClass(target, 'is-sortable')) {
+          //   target.style.cursor = 'col-resize';
+          // }
           this.draggingColumn = column;
         } else if (!this.dragging) {
-          bodyStyle.cursor = '';
-          if (hasClass(target, 'is-sortable')) {
-            target.style.cursor = 'pointer';
-          }
+          // bodyStyle.cursor = '';
+          // if (hasClass(target, 'is-sortable')) {
+          //   target.style.cursor = 'pointer';
+          // }
           this.draggingColumn = null;
         }
       }
@@ -382,12 +384,12 @@ export default Component.extend({
         target = target.parentNode;
       }
 
-      if (target && target.tagName === 'TH') {
-        if (hasClass(target, 'noclick')) {
-          removeClass(target, 'noclick');
-          return;
-        }
-      }
+      // if (target && target.tagName === 'TH') {
+      //   if (hasClass(target, 'noclick')) {
+      //     removeClass(target, 'noclick');
+      //     return;
+      //   }
+      // }
 
       if (!column.sortable) return;
 

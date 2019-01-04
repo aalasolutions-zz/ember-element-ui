@@ -12,15 +12,7 @@ module('Integration | Component | el-progress', function(hooks) {
 
     await render(hbs`{{el-progress}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal(this.element.textContent.trim(), '0%');
 
-    // Template block usage:
-    await render(hbs`
-      {{#el-progress}}
-        template block text
-      {{/el-progress}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });

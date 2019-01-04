@@ -14,13 +14,6 @@ module('Integration | Component | el-table', function(hooks) {
 
     assert.equal(this.element.textContent.trim(), '');
 
-    // Template block usage:
-    await render(hbs`
-      {{#el-table}}
-        template block text
-      {{/el-table}}
-    `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });

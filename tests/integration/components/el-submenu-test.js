@@ -14,13 +14,5 @@ module('Integration | Component | el-submenu', function(hooks) {
 
     assert.equal(this.element.textContent.trim(), '');
 
-    // Template block usage:
-    await render(hbs`
-      {{#el-submenu}}
-        template block text
-      {{/el-submenu}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });

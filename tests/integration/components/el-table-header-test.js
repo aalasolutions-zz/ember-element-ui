@@ -14,13 +14,5 @@ module('Integration | Component | el-table-header', function(hooks) {
 
     assert.equal(this.element.textContent.trim(), '');
 
-    // Template block usage:
-    await render(hbs`
-      {{#el-table-header}}
-        template block text
-      {{/el-table-header}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });

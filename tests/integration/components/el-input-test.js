@@ -13,14 +13,5 @@ module('Integration | Component | el-input', function(hooks) {
     await render(hbs`{{el-input}}`);
 
     assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#el-input}}
-        template block text
-      {{/el-input}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });
