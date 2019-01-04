@@ -58,7 +58,7 @@ install:
   - yarn install --no-lockfile --non-interactive
 
 after_script:
-  - npm run test:cov
+  - COVERAGE=true ember test
   - npm install coveralls && cat ./coverage/lcov.info | coveralls
 
 script:
