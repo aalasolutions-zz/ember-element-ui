@@ -57,5 +57,9 @@ before_install:
 install:
   - yarn install --no-lockfile --non-interactive
 
+after_script:
+  - npm run test:cov
+  - npm install coveralls && cat ./coverage/lcov.info | coveralls
+
 script:
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
