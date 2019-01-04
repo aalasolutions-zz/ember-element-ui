@@ -54,12 +54,12 @@ module.exports = {
     ]);
   },
 
-  included(app) {
+  included() {
     this._super.included.apply(this, arguments);
     this._ensureFindHost();
 
     var popperPath = path.join('node_modules', 'popper.js', 'dist', 'umd');
-    var pnotifyPath = path.join('node_modules', 'pnotify', 'dist',);
+    var pnotifyPath = path.join('node_modules', 'pnotify', 'dist');
     var pnotifyPathJS = path.join(pnotifyPath, 'umd');
 
     var host = this._findHost();

@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | el-tag', function(hooks) {
@@ -21,6 +21,40 @@ module('Integration | Component | el-tag', function(hooks) {
       {{/el-tag}}
     `);
 
+    assert.equal(this.element.textContent.trim(), 'template block text');
+  });
+
+  test('Check size and Types', async function(assert) {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.set('myAction', function(val) { ... });
+
+
+    this.set('type', 'warning');
+    this.set('size', 'large');
+    this.set('closable', true);
+
+
+
+    await render(hbs`
+      {{#el-tag type=type size=size}}
+        template block text
+      {{/el-tag}}
+    `);
+
+    assert.equal(this.element.textContent.trim(), 'template block text');
+    this.set('myAction', function(val) {
+      // console.log(val);
+      assert.equal(val, 1);
+    });
+
+
+    await render(hbs`
+      {{#el-tag closable=closable close=myAction}}
+        template block text
+      {{/el-tag}}
+    `);
+
+    await click('.el-icon-close');
     assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });
