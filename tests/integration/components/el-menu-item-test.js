@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import {click, render} from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | el-menu-item', function(hooks) {
@@ -22,5 +22,16 @@ module('Integration | Component | el-menu-item', function(hooks) {
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');
+
+
+    this.set('submenu', true);
+
+    await render(hbs`{{el-menu-item submenu=submenu}}`);
+    assert.equal(this.element.textContent.trim(), '');
+
+
+    await click(this.element);
+
+
   });
 });

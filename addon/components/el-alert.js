@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import layout from '../templates/components/el-alert';
 import {computed, get, set} from "@ember/object";
+import transition from "../utils/transition";
 
 
 export default Component.extend({
@@ -54,18 +55,18 @@ export default Component.extend({
 
   actions: {
     close() {
+      let e = this.element;
 
-      this.$().addClass('animated fadeOut');
-      this.$().one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
-        () => {
-          set(this, 'isClosed', true);
-          if (this.get('action')) {
-            this.get('action')();
-          }
+      let transitionEvent = transition('animation');
+      e.addEventListener(transitionEvent, () => {
+        set(this, 'isClosed', true);
+        if (this.get('action')) {
+          this.get('action')();
         }
-      );
+      });
 
-
+      e.classList.add('animated');
+      e.classList.add('fadeOut');
 
     }
   }

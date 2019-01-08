@@ -1,37 +1,7 @@
 import Component from '@ember/component';
 import layout from '../templates/components/el-tag';
 import {computed, get, set} from "@ember/object";
-
-
-const whichTransitionEvent = function () {
-  let t;
-  let el = document.createElement('fakeelement');
-  let transitions = {
-    'transition': 'transitionend',
-    'OTransition': 'oTransitionEnd',
-    'MozTransition': 'transitionend',
-    'WebkitTransition': 'webkitTransitionEnd'
-  };
-
-  let animations = {
-    'animation': 'animationend',
-    'OAnimation': 'oanimationend',
-    'MozAnimation': 'mozAnimationEnd',
-    'WebkitAnimation': 'webkitAnimationEnd'
-  };
-  // this.$().one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'
-  for (t in animations) {
-    if (el.style[t] !== undefined) {
-      return animations[t];
-    }
-  }
-
-  for (t in transitions) {
-    if (el.style[t] !== undefined) {
-      return transitions[t];
-    }
-  }
-};
+import transition from "../utils/transition";
 
 export default Component.extend({
   layout,
@@ -74,7 +44,7 @@ export default Component.extend({
       // this.$().addClass('animated flipOutY');
       let e = this.element;
 
-      let transitionEvent = whichTransitionEvent();
+      let transitionEvent = transition('animation');
       e.addEventListener(transitionEvent, () => {
         set(this, 'isClosed', true);
         if (this.get('close')) {
@@ -82,21 +52,8 @@ export default Component.extend({
         }
       });
 
-
       e.classList.add('animated');
       e.classList.add('flipOutY');
-
-
-      /*this.$().one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
-        () => {
-          set(this, 'isClosed', true);
-
-          if (this.get('close')) {
-            this.get('close')();
-          }
-        }
-      );
-      */
 
     }
   },

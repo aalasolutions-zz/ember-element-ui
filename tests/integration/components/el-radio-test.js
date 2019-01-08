@@ -22,5 +22,12 @@ module('Integration | Component | el-radio', function(hooks) {
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');
+
+
+
+    this.set('size', 'small');
+    await render(hbs`{{el-radio size=size}}`);
+
+    assert.equal(this.element.textContent.trim(), '');
   });
 });

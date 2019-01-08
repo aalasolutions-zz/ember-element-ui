@@ -22,5 +22,23 @@ module('Integration | Component | el-container', function(hooks) {
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');
+
+
+    this.set('direction', 'vertical');
+    await render(hbs`{{el-container direction=direction}}`);
+
+    assert.equal(this.element.textContent.trim(), '');
+
   });
+
+  test("child", async function (assert){
+    await render(hbs`
+      {{#el-container}}
+        {{#el-header}}Header{{/el-header}}{{#el-footer}}Footer{{/el-footer}}
+      {{/el-container}}
+    `);
+
+    assert.equal(this.element.textContent.trim(), 'HeaderFooter');
+
+  })
 });

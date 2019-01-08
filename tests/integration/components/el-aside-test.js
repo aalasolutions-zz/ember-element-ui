@@ -22,5 +22,12 @@ module('Integration | Component | el-aside', function(hooks) {
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');
+
+
+    this.set("collapse", true);
+    await render(hbs`{{el-aside collapse=collapse}}`);
+
+    assert.equal(this.element.textContent.trim(), '');
+
   });
 });
