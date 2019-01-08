@@ -22,5 +22,10 @@ module('Integration | Component | el-checkbox-button', function(hooks) {
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');
+
+
+    this.set('size', 'large');
+    await render(hbs`{{el-checkbox-button size=size}}`);
+
   });
 });

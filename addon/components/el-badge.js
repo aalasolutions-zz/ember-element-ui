@@ -30,8 +30,8 @@ export default Component.extend({
 
   content: computed('isDot', 'value', 'max', function(){
     if(get(this, 'isDot')) return;
-    const value = parseFloat(get(this, 'value'));
-    const max = parseFloat(get(this, 'max'));
+    const value = get(this, 'value');
+    const max = get(this, 'max');
 
     if(typeof value === 'number' && typeof max === 'number'){
       return max < value ? `${max}+` : value;

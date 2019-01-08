@@ -22,5 +22,13 @@ module('Integration | Component | el-radio-button', function(hooks) {
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');
+
+
+    this.set('size', 'large');
+    this.set('changed', function(v,n){
+      assert.equal(v, 'test', 'fetch closure action called with search value');
+      assert.equal(n, 'test', 'fetch closure action called with search value');
+    });
+    await render(hbs`{{el-radio-button size=size changed=changed}}`);
   });
 });

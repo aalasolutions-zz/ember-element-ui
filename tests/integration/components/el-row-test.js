@@ -22,5 +22,18 @@ module('Integration | Component | el-row', function(hooks) {
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');
+
+
+    this.set('gutter', 10);
+    this.set('justify', 'left');
+    this.set('align', 'middle');
+    this.set('type', 'flex');
+    await render(hbs`{{el-row gutter=gutter
+            justify=justify
+            align=align
+            type=type
+    }}`);
+
+    assert.equal(this.element.textContent.trim(), '');
   });
 });

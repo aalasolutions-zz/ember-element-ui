@@ -13,6 +13,13 @@ module('Integration | Component | el-menu-item-route', function(hooks) {
     this.set('linkTo', 'dummy-link');
     await render(hbs`{{el-menu-item-route linkto=linkTo}}`);
 
+    this.set('parent', 'dummy-parent');
+    await render(hbs`{{el-menu-item-route linkto=linkTo parent=parent}}`);
+
+
+    this.set('submenu', true);
+    await render(hbs`{{el-menu-item-route linkto=linkTo parent=parent submenu=submenu}}`);
+
     assert.equal(this.element.textContent.trim(), '');
 
   });

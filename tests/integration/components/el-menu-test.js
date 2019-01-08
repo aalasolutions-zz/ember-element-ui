@@ -22,5 +22,11 @@ module('Integration | Component | el-menu', function(hooks) {
     `);
 
     assert.equal(this.element.textContent.trim(), 'template block text');
+
+
+    this.set('mode', 'horizontal');
+    await render(hbs`{{el-menu mode=mode}}`);
+    assert.equal(this.element.textContent.trim(), '');
+
   });
 });

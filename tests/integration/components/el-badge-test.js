@@ -47,10 +47,16 @@ module('Integration | Component | el-badge', function(hooks) {
     await render(hbs`{{el-badge value=value max=max}}`);
     assert.equal(this.element.textContent.trim(), '5+');
 
-    this.set('value', 3);
+    this.set('max', 15);
 
     await render(hbs`{{el-badge value=value max=max}}`);
-    assert.equal(this.element.textContent.trim(), '3');
+    assert.equal(this.element.textContent.trim(), '10');
+
+    this.set('value', 'blue');
+    // this.set('max', null);
+
+    await render(hbs`{{el-badge value=value }}`);
+    assert.equal(this.element.textContent.trim(), 'blue');
 
 
 
