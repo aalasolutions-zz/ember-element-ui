@@ -283,7 +283,22 @@ Elements
   - [x] Event
     - [x] close `{{#el-alert title="Hi" action=(action "handleChange") }}`
 - [ ] Loading
-- [ ] Message
+- [x] Message : Do add `{{el-notification-container}}` in parent template
+  - [x] Import service `Message: service('message'),`
+  - [x] Usage
+    ```js
+    this.get('Message').success("Welcome Man Welcome", { // Msg.warning(); Msg.error(); Msg.info()
+      duration: 3000, // Duration in MS, default 3000
+      iconClass: '', // if you need custom icon
+      customClass: '', // if any custom class is needed
+      onClose: null, // a callback function, Message object will be returned in that function
+      showClose: false, // TO show close icon or not, default is false 
+      center: false, // Make text center, default is false
+      autoClear: true, // should message auto remove or not, default to true
+      return: {someObj: val}, // any object or value which you want in return 
+    });
+    ```
+  
 - [ ] MessageBox
 - [ ] Notification
 
