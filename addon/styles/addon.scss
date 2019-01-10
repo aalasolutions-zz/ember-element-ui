@@ -142,3 +142,68 @@ table{
 .el-menu-item *{
   transition: all 500ms
 }
+
+
+@-webkit-keyframes fadeOutUpElCustom {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(-50%, -100%, 0);
+    transform: translate3d(-50%, -100%, 0);
+  }
+}
+
+@keyframes fadeOutUpElCustom {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(-50%, -100%, 0);
+    transform: translate3d(-50%, -100%, 0);
+  }
+}
+.fadeOutUpElCustom{
+  -webkit-animation-name: fadeOutUpElCustom;
+  animation-name: fadeOutUpElCustom;
+}
+
+
+
+
+@-webkit-keyframes fadeInDownElCustom {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-50%, -100%, 0);
+    transform: translate3d(-50%, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes fadeInDownElCustom {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-50%, -100%, 0);
+    transform: translate3d(-50%, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.fadeInDownElCustom {
+  -webkit-animation-name: fadeInDownElCustom;
+  animation-name: fadeInDownElCustom;
+}
