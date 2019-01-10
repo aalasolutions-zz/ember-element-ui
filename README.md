@@ -9,8 +9,9 @@ Implementation of http://element.eleme.io in Ember
 [![Ember Observer Score][ember-observer-badge]][ember-observer-badge-url]
 [![License][license-badge]][license-badge-url]
 [![Dependencies][dependencies-badge]][dependencies-badge-url] 
-[![Dev Dependencies][devDependencies-badge]][devDependencies-badge-url]
-
+![](https://img.shields.io/npm/dt/ember-element-ui.svg)
+![](https://img.shields.io/bundlephobia/min/ember-element-ui.svg)
+![](https://img.shields.io/github/last-commit/aalasolutions/ember-element-ui.svg)
 
 [npm-badge]: https://img.shields.io/npm/v/ember-element-ui.svg
 [npm-badge-url]: https://www.npmjs.com/package/ember-element-ui
@@ -22,8 +23,6 @@ Implementation of http://element.eleme.io in Ember
 [license-badge-url]: LICENSE.md
 [dependencies-badge]: https://img.shields.io/david/aalasolutions/ember-element-ui.svg
 [dependencies-badge-url]: https://david-dm.org/aalasolutions/ember-element-ui
-[devDependencies-badge]: https://img.shields.io/david/dev/aalasolutions/ember-element-ui.svg
-[devDependencies-badge-url]: https://david-dm.org/aalasolutions/ember-element-ui#info=devDependencies
 
 
 Installation
