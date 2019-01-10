@@ -49,7 +49,6 @@ module.exports = {
     return this.addPackagesToProject([
       {name: 'element-theme-chalk', target: '^2.4.9'},
       {name: 'popper.js'},
-      {name: 'pnotify'},
       {name: 'normalize.css'},
     ]);
   },
@@ -59,8 +58,6 @@ module.exports = {
     this._ensureFindHost();
 
     var popperPath = path.join('node_modules', 'popper.js', 'dist', 'umd');
-    var pnotifyPath = path.join('node_modules', 'pnotify', 'dist');
-    var pnotifyPathJS = path.join(pnotifyPath, 'umd');
 
     var host = this._findHost();
 
@@ -75,20 +72,6 @@ module.exports = {
     });
 
 
-    host.import(path.join(pnotifyPathJS, 'PNotify.js'));
-    host.import(path.join(pnotifyPathJS, 'PNotifyAnimate.js'));
-    host.import(path.join(pnotifyPathJS, 'PNotifyButtons.js'));
-    host.import(path.join(pnotifyPathJS, 'PNotifyCallbacks.js'));
-    host.import(path.join(pnotifyPathJS, 'PNotifyCompat.js'));
-    host.import(path.join(pnotifyPathJS, 'PNotifyConfirm.js'));
-    host.import(path.join(pnotifyPathJS, 'PNotifyDesktop.js'));
-    host.import(path.join(pnotifyPathJS, 'PNotifyHistory.js'));
-    host.import(path.join(pnotifyPathJS, 'PNotifyMobile.js'));
-    host.import(path.join(pnotifyPathJS, 'PNotifyNonBlock.js'));
-    host.import(path.join(pnotifyPathJS, 'PNotifyReference.js'));
-    host.import(path.join(pnotifyPathJS, 'PNotifyStyleMaterial.js'));
-
-    host.import(path.join(pnotifyPath, 'PNotifyBrightTheme.css'));
     host.import(path.join('node_modules', 'normalize.css', 'normalize.css'));
     host.import(path.join('node_modules', 'animate.css', 'animate.css'));
 

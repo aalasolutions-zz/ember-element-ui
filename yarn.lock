@@ -6239,11 +6239,6 @@ pluralize@^7.0.0:
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
   integrity sha512-ARhBOdzS3e41FbkW/XWrTEtukqqLoK5+Z/4UeDaLuSW+39JPeFgs4gCGqsrJHVZX0fUrx//4OF0K1CUGwlIFow==
 
-pnotify@^4.0.0-alpha.4:
-  version "4.0.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/pnotify/-/pnotify-4.0.0-alpha.4.tgz#3d5ab2906fdb24ed58f060014c148378a4508608"
-  integrity sha512-onzGW2UjHHeYB8B+Bea7fbH0wmhqwIExR8QoEB+saGQ0qbxTyWCeBVd1c+yhtrGFpXPN00gzMFFWIyzZmNZZWw==
-
 popper.js@^1.14.4:
   version "1.14.4"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.4.tgz#8eec1d8ff02a5a3a152dd43414a15c7b79fd69b6"
