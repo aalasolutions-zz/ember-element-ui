@@ -18,7 +18,6 @@ export default Service.extend({
 
 
     const message = EmberObject.create({
-      visible: options.visible !== false,
       message: options.message,
       duration: (isEmpty(options.duration) ? 3000 : options.duration),
       type: options.type || 'info',
@@ -26,7 +25,6 @@ export default Service.extend({
       customClass: options.customClass || '',
       onClose: options.onClose, //null,
       showClose: options.showClose, //false,
-      closed: options.closed, //false,
       timer: options.timer, //null,
       center: options.center, //false,
       dismiss: false,
