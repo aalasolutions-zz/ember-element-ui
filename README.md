@@ -7,7 +7,6 @@ Implementation of http://element.eleme.io in Ember
 [![Latest NPM release][npm-badge]][npm-badge-url]
 [![Test Coverage][coveralls-badge]][coveralls-badge-url]
 [![Ember Observer Score][ember-observer-badge]][ember-observer-badge-url]
-[![License][license-badge]][license-badge-url]
 [![Dependencies][dependencies-badge]][dependencies-badge-url] 
 ![](https://img.shields.io/npm/dt/ember-element-ui.svg)
 ![](https://img.shields.io/bundlephobia/min/ember-element-ui.svg)
@@ -19,8 +18,6 @@ Implementation of http://element.eleme.io in Ember
 [coveralls-badge-url]: https://coveralls.io/github/aalasolutions/ember-element-ui?branch=master
 [ember-observer-badge]: http://emberobserver.com/badges/ember-element-ui.svg
 [ember-observer-badge-url]: http://emberobserver.com/addons/ember-element-ui
-[license-badge]: https://img.shields.io/npm/l/ember-element-ui.svg
-[license-badge-url]: LICENSE.md
 [dependencies-badge]: https://img.shields.io/david/aalasolutions/ember-element-ui.svg
 [dependencies-badge-url]: https://david-dm.org/aalasolutions/ember-element-ui
 
