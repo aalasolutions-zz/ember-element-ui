@@ -1,3 +1,84 @@
-<h2 id="title">Welcome to Ember</h2>
+{{el-notification-container}}
 
-{{outlet}}
+{{#el-container}}
+  {{#el-aside collapse=collapseStatus}}
+
+  {{!--@collapse={{collapseStatus}}--}}
+
+    {{#el-menu
+      collapse=collapseStatus
+      open="handleOpen"
+      mode="vertical"
+      close="handleClose"
+    }}
+
+      {{#el-submenu icon="el-icon-location" title="Members"}}
+      {{!--<ElMenu @mode="vertical">--}}
+
+      {{!--<ElMenuItemRoute @linkto="member.category" @icon="el-icon-document" @title="Categories">--}}
+      {{!--Categories--}}
+      {{!--</ElMenuItemRoute>--}}
+      {{!--<ElMenuItemRoute @linkto="member.account" @icon="el-icon-setting" @title="Accounts">--}}
+      {{!--Accounts--}}
+      {{!--</ElMenuItemRoute>--}}
+
+      {{!--</ElMenu>--}}
+      {{/el-submenu}}
+
+
+    {{#el-menu-item-route linkto="buttons"  icon="el-icon-document" title="Buttons"}}
+    Buttons
+    {{/el-menu-item-route}}
+
+
+    {{!--<ElMenuItemRoute @linkto="member.category" @icon="el-icon-document" @title="Categories">--}}
+    {{!--Categories--}}
+    {{!--</ElMenuItemRoute>--}}
+
+    {{!--<ElMenuItemRoute @linkto="member.account" @icon="el-icon-setting" @title="Accounts">--}}
+    {{!--Accounts--}}
+    {{!--</ElMenuItemRoute>--}}
+
+    {{!--<ElMenuItem @title="Logout" @icon="fa fa-sign-out" @action={{action 'invalidateSession'}} />--}}
+
+    {{/el-menu}}
+
+  {{/el-aside}}
+
+  {{#el-container direction="vertical"}}
+    {{#el-header class="header"}}
+      <div class="hamburger-container" {{action 'toggleMenu'}}>
+        <svg t="1492500959545" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1691"
+             xmlns:xlink="http://www.w3.org/1999/xlink" width="64" height="64"
+             class="hamburger {{if collapseStatus '' 'is-active'}}">
+          <path data-v-2fe8a492=""
+                d="M966.8023 568.849776 57.196677 568.849776c-31.397081 0-56.850799-25.452695-56.850799-56.850799l0 0c0-31.397081 25.452695-56.849776 56.850799-56.849776l909.605623 0c31.397081 0 56.849776 25.452695 56.849776 56.849776l0 0C1023.653099 543.397081 998.200404 568.849776 966.8023 568.849776z"
+                p-id="1692"></path>
+          <path data-v-2fe8a492=""
+                d="M966.8023 881.527125 57.196677 881.527125c-31.397081 0-56.850799-25.452695-56.850799-56.849776l0 0c0-31.397081 25.452695-56.849776 56.850799-56.849776l909.605623 0c31.397081 0 56.849776 25.452695 56.849776 56.849776l0 0C1023.653099 856.07443 998.200404 881.527125 966.8023 881.527125z"
+                p-id="1693"></path>
+          <path data-v-2fe8a492=""
+                d="M966.8023 256.17345 57.196677 256.17345c-31.397081 0-56.850799-25.452695-56.850799-56.849776l0 0c0-31.397081 25.452695-56.850799 56.850799-56.850799l909.605623 0c31.397081 0 56.849776 25.452695 56.849776 56.850799l0 0C1023.653099 230.720755 998.200404 256.17345 966.8023 256.17345z"
+                p-id="1694"></path>
+        </svg>
+      </div>
+
+
+      <h2 id="title">Welcome to Ember-ELement-UI</h2>
+
+
+    {{/el-header}}
+    {{#el-main class="container"}}
+      {{outlet}}
+    {{/el-main}}
+
+    {{#el-footer}}
+      <div class="container-fluid clearfix">
+            <span>Copyright © 2018
+              <a href="http://www.aalasolutions.com/" target="_blank">AA'LA Solutions</a>. All rights reserved.
+            </span>
+      </div>
+    {{/el-footer}}
+
+  {{/el-container}}
+{{/el-container}}
