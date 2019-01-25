@@ -1,1 +1,142 @@
-{{outlet}}
+<h2>Message</h2>
+<p>Used to show feedback after an activity. The difference with Notification is that the latter is often used to show a system level passive notification.</p>
+
+
+
+<h4>To Manage Messages, add Notification Container to your main template</h4>
+
+
+<pre><code class="language-handlebars">\{{el-notification-container}}
+</code></pre>
+
+
+
+
+
+<h3>Basic usage</h3>
+<p>Displays at the top, and disappears after 3 seconds.</p>
+
+{{#el-button plain="true" click=(action 'open')}}Show message{{/el-button}}
+
+<pre><code class="language-handlebars">\{{#el-button plain="true" click=(action 'open')}}Show message\{{/el-button}}
+</code></pre>
+<pre><code class="language-javascript">import { inject as service } from '@ember/service';
+</code></pre>
+<pre><code class="language-javascript">message: service(),
+actions:{
+  open(){
+    this.get('message').success("Welcome Man Welcome");
+  }
+}
+</code></pre>
+
+
+<h3>Types</h3>
+<p>
+  Used to show the feedback of Success, Warning, Message and Error activities.
+</p>
+
+{{#el-button plain="true" click=(action "open2")}}success{{/el-button}}
+{{#el-button plain="true" click=(action "open3")}}warning{{/el-button}}
+{{#el-button plain="true" click=(action "open")}}message{{/el-button}}
+{{#el-button plain="true" click=(action "open4")}}error{{/el-button}}
+
+<pre><code class="language-handlebars">
+\{{#el-button plain="true" click=(action "open2")}}success\{{/el-button}}
+\{{#el-button plain="true" click=(action "open3")}}warning\{{/el-button}}
+\{{#el-button plain="true" click=(action "open")}}message\{{/el-button}}
+\{{#el-button plain="true" click=(action "open4")}}error\{{/el-button}}
+</code></pre>
+<pre><code class="language-javascript">message: service(),
+actions:{
+  open(){
+    this.get('message').info("This is a message.");
+  },
+  open2(){
+    this.get('message').success("Congrats, this is a success message.");
+  },
+  open3(){
+    this.get('message').warning("Warning, this is a warning message.");
+  },
+  open4(){
+    this.get('message').error("Oops, this is a error message.");
+  },
+}
+</code></pre>
+
+
+<h3>Closable</h3>
+<p>
+  A close button can be added.
+</p>
+
+{{#el-button plain="true" click=(action "open5")}}message{{/el-button}}
+{{#el-button plain="true" click=(action "open6")}}success{{/el-button}}
+{{#el-button plain="true" click=(action "open7")}}warning{{/el-button}}
+{{#el-button plain="true" click=(action "open8")}}error{{/el-button}}
+
+<pre><code class="language-handlebars">
+\{{#el-button plain="true" click=(action "open5")}}message\{{/el-button}}
+\{{#el-button plain="true" click=(action "open6")}}success\{{/el-button}}
+\{{#el-button plain="true" click=(action "open7")}}warning\{{/el-button}}
+\{{#el-button plain="true" click=(action "open8")}}error\{{/el-button}}
+</code></pre>
+<pre><code class="language-javascript">message: service(),
+actions:{
+  open5() {
+    this.get('message').info("This is a message.", {
+      showClose: true,
+      autoClear: false,
+    });
+  },
+  open6() {
+    this.get('message').success("Congrats, this is a success message.", {
+      showClose: true,
+      autoClear: false,
+    });
+  },
+  open7() {
+    this.get('message').warning("Warning, this is a warning message.", {
+      showClose: true,
+      autoClear: false,
+    });
+  },
+  open8() {
+    this.get('message').error("Oops, this is a error message.", {
+      showClose: true,
+      autoClear: false,
+    });
+  },
+}
+</code></pre>
+
+<h3>Centered text</h3>
+<p>
+  Use the <code class="code">center</code> attribute to center the text.
+
+</p>
+
+{{#el-button plain="true" click=(action "openCenter")}}Centered Text{{/el-button}}
+
+<pre><code class="language-handlebars">
+\{{#el-button plain="true" click=(action "openCenter")}}Centered Text\{{/el-button}}
+</code></pre>
+<pre><code class="language-javascript">message: service(),
+actions:{
+  openCenter() {
+    this.get('message').info("Center Text", {
+      center: true
+    });
+  },
+}
+</code></pre>
+
+
+<h2>Attributes</h2>
+{{#el-table data=tableAttributes  as |t|}}
+  {{t.column prop="attribute" label="Attribute" width=150}}
+  {{t.column prop="desc" label="Description"}}
+  {{t.column prop="type" label="Type" width=100}}
+  {{t.column prop="val" label="Accepted Values" width=250}}
+  {{t.column prop="def" label="Default" width=75}}
+{{/el-table}}

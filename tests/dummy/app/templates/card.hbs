@@ -1,1 +1,26 @@
-{{outlet}}
+<h2>Card</h2>
+<p>Integrate information in a card container.</p>
+
+<h3>Basic usage</h3>
+<p>Card includes title, content and operations.</p>
+
+{{#el-card class="box-card" as |card|}}
+  {{#card.header title="Card Name"}}
+    {{#el-button  color="text"}}Operation button{{/el-button}}
+  {{/card.header}}
+  {{#card.body}}
+    Some content for the card
+  {{/card.body}}
+{{/el-card}}
+
+
+<pre><code class="language-handlebars">
+\{{#el-card class="box-card" as |card|}}
+  \{{#card.header title="Card Name"}}
+    \{{#el-button  color="text"}}Operation button\{{/el-button}}
+  \{{/card.header}}
+  \{{#card.body}}
+    Some content for the card
+  \{{/card.body}}
+\{{/el-card}}
+  </code></pre>

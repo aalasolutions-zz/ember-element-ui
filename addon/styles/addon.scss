@@ -147,7 +147,9 @@ a {
   font-size: 18px;
   vertical-align: middle;
 }
-
+.el-message{
+  z-index: 10;
+}
 table {
   width: 100%;
 }
