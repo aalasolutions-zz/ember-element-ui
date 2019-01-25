@@ -42,8 +42,11 @@
     {{#if showStatus}}
       {{percentage}}%
     {{else}}
-      <i class={{iconClass}}></i>
+      {{#if statusIsText}}
+        {{yield}}
+      {{else}}
+        <i class={{iconClass}}></i>
+      {{/if}}
     {{/if}}
   </div>
 {{/if}}
-{{yield}}

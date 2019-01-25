@@ -91,6 +91,8 @@ export default Component.extend({
 
   showTextInside: computed.and('showText', 'textInside'),
   showStatus: computed.not('status'),
+  statusIsText: computed.equal('status', 'text'),
+
 
   isTypeLine: computed.equal('type', 'line'),
   isTypeCircle: computed.equal('type', 'line'),
