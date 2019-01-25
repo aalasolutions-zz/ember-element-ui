@@ -10,6 +10,8 @@ Router.map(function() {
   this.route('buttons');
   this.route('layouts');
   this.route('installation');
+  this.route('layout-container');
+  this.route('icons');
 });
 
 export default Router;

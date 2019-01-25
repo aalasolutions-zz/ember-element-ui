@@ -12,19 +12,23 @@
       close="handleClose"
     }}
 
-      {{#el-submenu icon="el-icon-location" title="Basics"}}
-        {{#el-menu mode="vertical"}}
 
-          {{#el-menu-item-route linkto="installation"  icon="el-icon-edit" title="Installation"}}
-            Installation
-          {{/el-menu-item-route}}
+      {{#el-menu-item-route linkto="installation"  icon="el-icon-edit" title="Installation"}}
+        Installation
+      {{/el-menu-item-route}}
 
-          {{#el-menu-item-route linkto="layouts"  icon="el-icon-edit" title="Layouts"}}
-            Layouts
-          {{/el-menu-item-route}}
+      {{#el-menu-item-route linkto="layouts"  icon="el-icon-edit" title="Layouts"}}
+        Layouts
+      {{/el-menu-item-route}}
 
-        {{/el-menu}}
-      {{/el-submenu}}
+      {{#el-menu-item-route linkto="layout-container"  icon="el-icon-edit" title="Layouts Container"}}
+        Layout Container
+      {{/el-menu-item-route}}
+
+      {{#el-menu-item-route linkto="icons"  icon="el-icon-edit" title="Icons"}}
+        Icons
+      {{/el-menu-item-route}}
+
 
       {{#el-menu-item-route linkto="buttons"  icon="el-icon-document" title="Buttons"}}
         Buttons

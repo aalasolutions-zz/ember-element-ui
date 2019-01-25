@@ -4,11 +4,49 @@ h1 {
   margin: 9px;
 }
 
-.code{
+.code {
   background-color: #f9fafc;
   padding: 0 4px;
   border: 1px solid #eaeefb;
   border-radius: 4px;
+}
+
+.icon-list {
+  list-style: none;
+  li {
+    float: left;
+    width: 16.66%;
+    text-align: center;
+    height: 120px;
+    line-height: 120px;
+    color: #666;
+    font-size: 13px;
+    transition: color .15s linear;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-right: -1px;
+    margin-bottom: -1px;
+    span {
+      display: inline-block;
+      line-height: normal;
+      vertical-align: middle;
+      font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+      color: #99a9bf;
+    }
+    .icon-name {
+      display: inline-block;
+      padding: 0 3px;
+      height: 1em;
+      color: #606266;
+    }
+
+    i {
+      display: block;
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #606266;
+    }
+  }
 }
 
 header.header {
@@ -42,7 +80,7 @@ header.header {
 
 main.container {
   //background-color: #f0f2f5;
-  ul:not(.timeline){
+  ul:not(.timeline) {
     font-size: 14px;
     color: #5e6d82;
     line-height: 2em;
@@ -78,7 +116,7 @@ div.page-row {
       background-color: #f9fafc;
     }
   }
-  div.spacing{
+  div.spacing {
     .el-row {
       margin-bottom: 20px;
       &:last-child {
@@ -107,7 +145,7 @@ div.page-row {
     }
   }
 
-  div.hybrid{
+  div.hybrid {
     .el-row {
       margin-bottom: 20px;
       &:last-child {
@@ -135,7 +173,7 @@ div.page-row {
       background-color: #f9fafc;
     }
   }
-  div.offset{
+  div.offset {
     .el-row {
       margin-bottom: 20px;
       &:last-child {
@@ -164,7 +202,7 @@ div.page-row {
     }
   }
 
-  div.alignment{
+  div.alignment {
     .el-row {
       margin-bottom: 20px;
       &:last-child {
@@ -192,7 +230,7 @@ div.page-row {
       background-color: #f9fafc;
     }
   }
-  div.responsive{
+  div.responsive {
     .el-col {
       border-radius: 4px;
     }
@@ -211,3 +249,40 @@ div.page-row {
     }
   }
 }
+
+div.page-layout-container {
+  .el-header, .el-footer {
+    background-color: #B3C0D1;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+  }
+
+  .el-aside {
+    background-color: #D3DCE6;
+    color: #333;
+    text-align: center;
+    line-height: 200px;
+  }
+
+  .el-main {
+    background-color: #E9EEF3;
+    color: #333;
+    text-align: center;
+    line-height: 160px;
+  }
+}
+
+body > .el-container {
+  margin-bottom: 40px;
+}
+
+.el-container:nth-child(5) .el-aside,
+.el-container:nth-child(6) .el-aside {
+  line-height: 260px;
+}
+
+.el-container:nth-child(7) .el-aside {
+  line-height: 320px;
+}
+
