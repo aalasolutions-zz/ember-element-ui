@@ -29,6 +29,9 @@ Installation
 ember install ember-element-ui
 ```
 
+Demo
+------------------------------------------------------------------------------
+https://www.aalasolutions.com/ember/element-ui/
 
 Elements
 ------------------------------------------------------------------------------
