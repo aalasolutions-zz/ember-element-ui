@@ -1,3 +1,5 @@
+//@import "./dialog.scss";
+
 @font-face {
   font-family: "elementdoc";
   src: url('//at.alicdn.com/t/font_137970_p1tpzmomxp9cnmi.eot?t=1508742924398'); /* IE9*/
@@ -33,6 +35,21 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h1, h2, h3 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 22px;
+}
 .h1 {
   font-size: 20px;
 }
@@ -62,7 +79,14 @@ body {
 }
 
 a {
+  color: #409eff;
   text-decoration: none;
+}
+
+.container p, .text {
+  font-size: 14px;
+  color: #5e6d82;
+  line-height: 1.5em;
 }
 
 .typo-PingFang {
@@ -116,9 +140,7 @@ a {
   text-align: center !important;
 }
 
-
-
-.el-menu-item .fa{
+.el-menu-item .fa {
   margin-right: 5px;
   width: 24px;
   text-align: center;
@@ -126,23 +148,21 @@ a {
   vertical-align: middle;
 }
 
-
-table{
+table {
   width: 100%;
 }
 
-.el-hidden{
+.el-hidden {
   display: none !important;
 }
 
-.el-animate{
+.el-animate {
   transition: all 500ms
 }
 
-.el-menu-item *{
+.el-menu-item * {
   transition: all 500ms
 }
-
 
 @-webkit-keyframes fadeOutUpElCustom {
   from {
@@ -167,13 +187,11 @@ table{
     transform: translate3d(-50%, -100%, 0);
   }
 }
-.fadeOutUpElCustom{
+
+.fadeOutUpElCustom {
   -webkit-animation-name: fadeOutUpElCustom;
   animation-name: fadeOutUpElCustom;
 }
-
-
-
 
 @-webkit-keyframes fadeInDownElCustom {
   from {

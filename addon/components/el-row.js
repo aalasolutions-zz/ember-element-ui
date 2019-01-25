@@ -34,7 +34,7 @@ export default Component.extend({
     }
 
     if (get(this, 'type') === 'flex') {
-      classNames += ` el-row--flex}`;
+      classNames += ` el-row--flex`;
     }
 
     return classNames;

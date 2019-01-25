@@ -80,6 +80,9 @@ module.exports = {
     host.import(path.join('node_modules', 'popper.js', 'dist', 'umd', 'popper.js'));
     host.import(path.join('node_modules', 'popper.js', 'dist', 'umd', 'popper-utils.js'));
 
+    host.import(path.join('node_modules',  'element-theme-chalk', 'lib', 'display.css'));
+
+
     let fontsPath = 'vendor/element-font/fonts';
     let absoluteFontsPath = path.join('node_modules', 'element-theme-chalk', 'src', 'fonts');
     let fontsFolderPath = '/assets/fonts';
