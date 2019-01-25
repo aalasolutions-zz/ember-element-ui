@@ -12,6 +12,12 @@ Router.map(function() {
   this.route('installation');
   this.route('layout-container');
   this.route('icons');
+  this.route('progress');
+  this.route('tags');
+  this.route('badge');
+  this.route('message');
+  this.route('alert');
+  this.route('card');
 });
 
 export default Router;
