@@ -283,7 +283,7 @@ Elements
     - [x] close `{{#el-alert title="Hi" action=(action "handleChange") }}`
 - [ ] Loading
 - [x] Message : Do add `{{el-notification-container}}` in parent template
-  - [x] Import service `Message: service('message'),`
+  - [x] Import service ` message: service('message'),`
   - [x] Usage
     ```js
     this.get('Message').success("Welcome Man Welcome", { // Msg.warning(); Msg.error(); Msg.info()
@@ -298,7 +298,11 @@ Elements
     });
     ```
   
-- [ ] MessageBox
+- [x] MessageBox
+  - [x] Import service `messageBox: service('message-box'),`
+  - [x] Usage
+    ```js
+    this.get('Message').alert("Unable to Process", "Pending...");
 - [ ] Notification
 
 #### Navigation
