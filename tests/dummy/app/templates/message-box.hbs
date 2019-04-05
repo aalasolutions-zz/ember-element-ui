@@ -1,0 +1,189 @@
+<h2>MessageBox</h2>
+<p>A set of modal boxes simulating system message box, mainly for alerting information, confirm operations and prompting
+  messages.
+</p>
+
+
+<h4>To Manage Messages' Box, add Notification Container to your main template</h4>
+
+
+<pre><code class="language-handlebars">\{{el-notification-container}}
+</code></pre>
+
+
+<h3>Alert</h3>
+<p>Alert interrupts user operation until the user confirms.</p>
+
+{{#el-button plain="true" click=(action 'open')}}
+  Click to Open Message Box
+{{/el-button}}
+
+<pre><code class="language-handlebars">\{{#el-button plain="true" click=(action 'alert')}}Show message\{{/el-button}}
+</code></pre>
+<pre><code class="language-javascript">import { inject as service } from '@ember/service';
+</code></pre>
+<pre><code class="language-javascript">messageBox: service('message-box'),
+actions:{
+  open(){
+    this.get('messageBox').alert("This is a <b>message</b>.","A Title?",{
+      closeOnPressEscape: true,
+    });
+  }
+}
+</code></pre>
+
+
+<h3>Confirm</h3>
+<p>
+  Confirm is used to ask users' confirmation.
+</p>
+{{#el-button plain="true" click=(action "open2")}}Confirm Me{{/el-button}}
+<pre><code class="language-handlebars">\{{#el-button plain="true" click=(action 'open')}}Confirm Me\{{/el-button}}
+</code></pre>
+<pre><code class="language-javascript">import { inject as service } from '@ember/service';
+</code></pre>
+<pre><code class="language-javascript">messageBox: service('message-box'),
+actions:{
+  open(){
+    this.get('messageBox').confirm("This will permanently delete the file. Continue?","Warning", {
+      confirmButtonText: 'OK',
+      cancelButtonText: 'Cancel',
+      type: 'warning'
+    }).then((action)=>{
+      console.log(action);
+    }).catch((action)=>{
+      console.error(action);
+    });
+  }
+}
+</code></pre>
+
+
+<h3>Prompt</h3>
+<p>
+  Prompt is used when user input is required.
+</p>
+{{#el-button plain="true" click=(action "open3")}}Prompt{{/el-button}}
+<pre><code class="language-handlebars">\{{#el-button plain="true" click=(action 'open')}}Prompt\{{/el-button}}
+</code></pre>
+<pre><code class="language-javascript">import { inject as service } from '@ember/service';
+</code></pre>
+<pre><code class="language-javascript">messageBox: service('message-box'),
+actions:{
+  open(){
+    this.get('messageBox').prompt("Please input your e-mail","Email Address", {
+      confirmButtonText: 'OK',
+      cancelButtonText: 'Cancel',
+      inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
+      inputErrorMessage: 'Invalid Email'
+    }).then((action)=>{
+      console.log(action);
+    }).catch((action)=>{
+      console.error(e);
+    });
+  }
+}
+</code></pre>
+
+
+<h3>Customization</h3>
+<p>
+  Can be customized to show various content.
+</p>
+{{#el-button plain="true" click=(action "open4")}}Customize{{/el-button}}
+<pre><code class="language-handlebars">\{{#el-button plain="true" click=(action 'open')}}Confirm Customization\{{/el-button}}
+</code></pre>
+<pre><code class="language-javascript">import { inject as service } from '@ember/service';
+</code></pre>
+<pre><code class="language-javascript">messageBox: service('message-box'),
+actions:{
+  open(){
+    this.get('messageBox').confirm("This will permanently delete the file. Continue?", "Warning", {
+      showCancelButton: true,
+      confirmButtonText: 'OK',
+      cancelButtonText: 'Cancel',
+      beforeClose: (action, instance, done) => {
+        if (action === 'confirm') {
+          set(instance, 'confirmButtonLoading' , true);
+          set(instance, 'confirmButtonText' , 'Loading...');
+          setTimeout(() => {
+            done.doClose();
+            setTimeout(() => {
+              set(instance, 'confirmButtonLoading' , false);
+            }, 300);
+          }, 3000);
+        } else {
+          done.doClose();
+        }
+      }
+    }).then((action)=>{
+      console.log(action);
+    }).catch((action)=>{
+      console.error(action);
+    });
+  }
+}
+</code></pre>
+
+
+<h3>Distinguishing cancel and close
+</h3>
+<p>
+  In some cases, clicking the cancel button and close button may have different meanings.
+
+</p>
+{{#el-button plain="true" click=(action "open5")}}Distinguish{{/el-button}}
+<pre><code class="language-handlebars">\{{#el-button plain="true" click=(action 'open')}}Distinguish\{{/el-button}}
+</code></pre>
+<pre><code class="language-javascript">import { inject as service } from '@ember/service';
+</code></pre>
+<pre><code class="language-javascript">messageBox: service('message-box'),
+actions:{
+  open(){
+    this.get('messageBox').confirm("This will permanently delete the file. Continue?","Warning", {
+      distinguishCancelAndClose: true,
+      confirmButtonText: 'Save',
+      cancelButtonText: 'Discard Changes',
+      type: 'success'
+    }).then((action)=>{
+      console.log(action);
+    }).catch((action)=>{
+      console.error(action);
+    });
+  }
+}
+</code></pre>
+
+<h3>Centered content
+</h3>
+<p>
+  Content of MessageBox can be centered.
+
+</p>
+{{#el-button plain="true" click=(action "open6")}}Center{{/el-button}}
+<pre><code class="language-handlebars">\{{#el-button plain="true" click=(action 'open')}}Center\{{/el-button}}
+</code></pre>
+<pre><code class="language-javascript">import { inject as service } from '@ember/service';
+</code></pre>
+<pre><code class="language-javascript">messageBox: service('message-box'),
+actions:{
+  open(){
+    this.get('messageBox').alert("This will permanently delete the file. Continue?", "Warning", {
+      confirmButtonText: 'OK',
+      type: 'warning',
+      center: true,
+      distinguishCancelAndClose: true,
+    });
+  }
+}
+</code></pre>
+
+
+<h2>Attributes</h2>
+{{#el-table data=tableAttributes  as |t|}}
+  {{t.column prop="attribute" label="Attribute" width=200}}
+  {{t.column prop="desc" label="Description" width=220}}
+  {{t.column prop="type" label="Type" }}
+  {{t.column prop="val" label="Accepted Values" width=140}}
+  {{t.column prop="def" label="Default" width=120}}
+{{/el-table}}
