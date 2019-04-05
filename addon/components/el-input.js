@@ -21,6 +21,7 @@ export default Component.extend({
   placeholder: '',
   prepend: null,
   append: null,
+  customClass: '',
 
   _isGroup: computed('prepend', 'append', function () {
     return !!(get(this, 'prepend') || get(this, 'append'));
