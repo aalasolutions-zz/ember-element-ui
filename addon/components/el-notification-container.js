@@ -6,9 +6,11 @@ import {get, set} from '@ember/object';
 export default Component.extend({
   layout,
   messagesService: service('message'),
-
+  messagesBoxService: service('message-box'),
   init() {
     this._super();
     set(this, 'messages', get(this, 'messagesService').messages);
-  }
+    set(this, 'messagesBox', get(this, 'messagesBoxService').messages);
+  },
+
 });

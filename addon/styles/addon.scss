@@ -166,17 +166,13 @@ table {
   transition: all 500ms
 }
 
-@-webkit-keyframes fadeOutUpElCustom {
-  from {
-    opacity: 1;
-  }
 
-  to {
-    opacity: 0;
-    -webkit-transform: translate3d(-50%, -100%, 0);
-    transform: translate3d(-50%, -100%, 0);
-  }
+.ember-element-box{
+  z-index: 2100;
+  background-color: rgba(0,0,0,0.5);
 }
+
+
 
 @keyframes fadeOutUpElCustom {
   from {
@@ -185,45 +181,104 @@ table {
 
   to {
     opacity: 0;
-    -webkit-transform: translate3d(-50%, -100%, 0);
     transform: translate3d(-50%, -100%, 0);
   }
 }
 
 .fadeOutUpElCustom {
-  -webkit-animation-name: fadeOutUpElCustom;
   animation-name: fadeOutUpElCustom;
+  animation-duration: 750ms;
+
 }
 
-@-webkit-keyframes fadeInDownElCustom {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(-50%, -100%, 0);
-    transform: translate3d(-50%, -100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: translate3d(-50%, 0, 0);
-    transform: translate3d(-50%, 0, 0);
-  }
-}
 
 @keyframes fadeInDownElCustom {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(-50%, -100%, 0);
     transform: translate3d(-50%, -100%, 0);
   }
 
   to {
     opacity: 1;
-    -webkit-transform: translate3d(-50%, 0, 0);
     transform: translate3d(-50%, 0, 0);
   }
 }
 
 .fadeInDownElCustom {
-  -webkit-animation-name: fadeInDownElCustom;
   animation-name: fadeInDownElCustom;
+  animation-duration: 750ms;
+
+}
+
+@keyframes fadeInDownElCustomBox {
+  from {
+    opacity: 0;
+    transform: translate3d(0%, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+.fadeInDownElCustomBox {
+  animation-name: fadeInDownElCustomBox;
+  animation-duration: 750ms;
+
+}
+
+
+@keyframes fadeOutUpElCustomBox {
+  from {
+    opacity: 1;
+    transform: translate3d(0%, 0%, 0);
+
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0%, -100%, 0);
+  }
+}
+
+.fadeOutUpElCustomBox {
+  animation-name: fadeOutUpElCustomBox;
+  animation-duration: 750ms;
+
+}
+
+
+
+
+@keyframes fadeIn50 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn50 {
+  animation-name: fadeIn50;
+  animation-duration: 500ms;
+
+}
+
+@keyframes fadeOut50 {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut50 {
+  animation-name: fadeOut50;
+  animation-duration: 500ms;
+
 }

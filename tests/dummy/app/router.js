@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('message');
   this.route('alert');
   this.route('card');
+  this.route('message-box');
 });
 
 export default Router;
