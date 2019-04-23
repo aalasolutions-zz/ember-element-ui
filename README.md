@@ -8,7 +8,7 @@ Implementation of http://element.eleme.io in Ember
 [![Test Coverage][coveralls-badge]][coveralls-badge-url]
 [![Ember Observer Score][ember-observer-badge]][ember-observer-badge-url]
 [![Dependencies][dependencies-badge]][dependencies-badge-url] 
-![](https://img.shields.io/npm/dt/ember-element-ui.svg)
+![](https://img.shields.io/npm/dm/ember-element-ui.svg)
 ![](https://img.shields.io/bundlephobia/min/ember-element-ui.svg)
 ![](https://img.shields.io/github/last-commit/aalasolutions/ember-element-ui.svg)
 
@@ -301,8 +301,9 @@ Elements
 - [x] MessageBox
   - [x] Import service `messageBox: service('message-box'),`
   - [x] Usage
-    ```js
-    this.get('Message').alert("Unable to Process", "Pending...");
+	```js
+	this.get('Message').alert("Unable to Process", "Pending...");
+	```
 - [ ] Notification
 
 #### Navigation
