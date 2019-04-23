@@ -198,7 +198,7 @@ export default Component.extend({
 
   },
   click(e){
-    if(e.srcElement.classList.contains('el-message-box__wrapper') && get(this, 'messageObj.closeOnClickModal')){
+    if(e.target.classList.contains('el-message-box__wrapper') && get(this, 'messageObj.closeOnClickModal')){
       this.handleAction(get(this,'messageObj.distinguishCancelAndClose') ? 'close' : 'cancel');
     }
   },

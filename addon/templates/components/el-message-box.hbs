@@ -22,7 +22,6 @@
   {{/if}}
 
 
-
   <div class="el-message-box__content">
     {{#if isIconCenter2}}
       <div class="el-message-box__status {{icon}}"></div>
@@ -30,11 +29,6 @@
     {{#if messageObj.message}}
       <div class="el-message-box__message">
         {{ messageObj.message }}
-
-        {{!--<slot>--}}
-        {{!--<p v-if="!dangerouslyUseHTMLString">{{ messageObj.message }}</p>--}}
-        {{!--<p v-else v-html="message"></p>--}}
-        {{!--</slot>--}}
       </div>
     {{/if}}
     {{#if messageObj.showInput}}
@@ -48,7 +42,6 @@
         }}
 
         {{/el-input}}
-
         {{!-- todo: @keydown.enter.native="handleInputEnter"--}}
 
         <div class="el-message-box__errormsg">
