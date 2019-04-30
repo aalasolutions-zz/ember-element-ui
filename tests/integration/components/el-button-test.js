@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | el-button', function(hooks) {
@@ -62,6 +62,43 @@ module('Integration | Component | el-button', function(hooks) {
     );
 
     assert.equal(this.element.textContent.trim(), 'Master');
+
+
+
+  });
+  test('click event', async function(assert) {
+
+    this.set('size', "small");
+    this.set('disabled', false);
+    this.set('icon', "arrow");
+
+    this.set('externalAction', (actual) => {
+      assert.equal(actual, undefined);
+    });
+
+
+    await render(hbs`
+    {{#el-button size=size disabled=disabled icon=icon action=externalAction}}
+       Master
+    {{/el-button}}
+    `
+    );
+
+    assert.equal(this.element.textContent.trim(), 'Master');
+
+    await click('.el-button');
+
+
+    await render(hbs`
+    {{#el-button size=size disabled=disabled icon=icon }}
+       Master
+    {{/el-button}}
+    `
+    );
+
+    assert.equal(this.element.textContent.trim(), 'Master');
+
+    await click('.el-button');
 
 
 

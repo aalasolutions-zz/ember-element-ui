@@ -24,14 +24,24 @@ module('Integration | Component | el-menu-item', function(hooks) {
     assert.equal(this.element.textContent.trim(), 'template block text');
 
 
+
+  });
+
+
+  test('click event', async function(assert) {
+
     this.set('submenu', true);
 
+    this.set('externalAction', (actual) => {
+      assert.equal(actual, undefined);
+    });
+
+    await render(hbs`{{el-menu-item submenu=submenu action=externalAction}}`);
+    await click('.el-submenu');
+
+
     await render(hbs`{{el-menu-item submenu=submenu}}`);
-    assert.equal(this.element.textContent.trim(), '');
-
-
-    await click(this.element);
-
+    await click('.el-submenu');
 
   });
 });
