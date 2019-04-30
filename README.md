@@ -33,6 +33,13 @@ Demo
 ------------------------------------------------------------------------------
 https://www.aalasolutions.com/ember/element-ui/
 
+Other Applications
+------------------------------------------------------------------------------
+##### Small Medical Record Keeping Application 
+- [Source Code](https://github.com/aalasolutions/ember-medical-inventory)
+- [Play Store Link](https://play.google.com/store/apps/details?id=com.aalasolutions.medicine.inventory)
+
+
 Elements
 ------------------------------------------------------------------------------
 
