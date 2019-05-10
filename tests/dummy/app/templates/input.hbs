@@ -1,0 +1,69 @@
+{{outlet}}
+<h2>Input</h2>
+<h3>Input data using mouse or keyboard.</h3>
+
+<h2>Basic usage</h2>
+<div>
+  {{#el-input placeholder="Please input" value=value customClass="input-width"}}{{/el-input}}
+  <h1>{{value}}</h1>
+  <pre>
+    <code class="language-handlebars">
+      \{{#el-input placeholder="Please input"}}\{{/el-input}}
+    </code>
+  </pre>
+
+  <h2>Disabled</h2>
+  {{#el-input placeholder="Please input" disabled="true" customClass="input-width"}}{{/el-input}}
+  <pre>
+    <code class="language-handlebars">
+      \{{#el-input placeholder="Please input" disabled="true"}}\{{/el-input}}
+    </code>
+  </pre>
+
+  <h2>Clearable</h2>
+  <div class="input-width">
+    {{#el-input placeholder="Please input" clearable="true" }}{{/el-input}}
+  </div>
+  <pre>
+    <code class="language-handlebars">
+      \{{#el-input placeholder="Please input" clearable="true"}}\{{/el-input}}
+    </code>
+  </pre>
+
+  <h2>Input with icon</h2>
+  <h3>You can simply use prefixIcon and suffixIcon attributes.</h3>
+  <div class="input-width">
+    {{#el-input placeholder="Please input" prefixIcon="el-icon-search" }}{{/el-input}}
+    <br>
+    <br>
+    {{#el-input placeholder="Please input" suffixIcon="el-icon-date" }}{{/el-input}}
+  </div>
+  <pre>
+    <code class="language-handlebars">
+      \{{#el-input placeholder="Please input" prefixIcon="el-icon-search"}}\{{/el-input}}
+
+      \{{#el-input placeholder="Please input" suffixIcon="el-icon-date"}}\{{/el-input}}
+    </code>
+  </pre>
+
+  {{!-- <h2>Mixed input</h2>
+  <h3>Prepend or append an element, generally a label or a button.</h3>
+  <div class="input-width">
+    {{#el-input placeholder="Please input" append="true" }}{{/el-input}}
+    <br>
+    <br>
+    {{#el-input placeholder="Please input" suffixIcon="el-icon-date" }}{{/el-input}}
+  </div>
+  <pre>
+    <code class="language-handlebars">
+      \{{#el-input placeholder="Please input" prefixIcon="el-icon-search"}}\{{/el-input}}
+
+      \{{#el-input placeholder="Please input" suffixIcon="el-icon-date"}}\{{/el-input}}
+    </code>
+  </pre> --}}
+
+
+
+
+</div>
+

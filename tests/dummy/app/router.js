@@ -19,6 +19,7 @@ Router.map(function() {
   this.route('alert');
   this.route('card');
   this.route('message-box');
+  this.route('input');
 });
 
 export default Router;
