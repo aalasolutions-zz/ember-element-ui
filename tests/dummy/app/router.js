@@ -20,6 +20,7 @@ Router.map(function() {
   this.route('card');
   this.route('message-box');
   this.route('input');
+  this.route('radio');
 });
 
 export default Router;
