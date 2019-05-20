@@ -1,0 +1,59 @@
+{{outlet}}
+<h2>Input</h2>
+<h3>Input data using mouse or keyboard.</h3>
+<div>
+  <h2>Basic usage</h2>
+  {{#el-input placeholder="Please input" type="" value=value customClass="input-width"}}{{/el-input}}
+  <h1>{{value}}</h1>
+  <pre>
+    <code class="language-handlebars">
+      \{{#el-input placeholder="Please input"}}\{{/el-input}}
+    </code>
+  </pre>
+
+  <h2>Disabled</h2>
+  {{#el-input placeholder="Please input" disabled="true" customClass="input-width"}}{{/el-input}}
+  <pre>
+    <code class="language-handlebars">
+      \{{#el-input placeholder="Please input" disabled="true"}}\{{/el-input}}
+    </code>
+  </pre>
+
+  <h2>Clearable</h2>
+  <div class="input-width">
+    {{#el-input placeholder="Please input" clearable="true" }}{{/el-input}}
+  </div>
+  <pre>
+    <code class="language-handlebars">
+      \{{#el-input placeholder="Please input" clearable="true"}}\{{/el-input}}
+    </code>
+  </pre>
+
+  <h2>Input with icon</h2>
+  <h3>You can simply use prefixIcon and suffixIcon attributes.</h3>
+  <div class="input-width">
+    {{#el-input placeholder="Please input" prefixIcon="el-icon-search" }}{{/el-input}}
+    <br>
+    <br>
+    {{#el-input placeholder="Please input" suffixIcon="el-icon-date" }}{{/el-input}}
+  </div>
+  <pre>
+    <code class="language-handlebars">
+      \{{#el-input placeholder="Please input" prefixIcon="el-icon-search"}}\{{/el-input}}
+
+      \{{#el-input placeholder="Please input" suffixIcon="el-icon-date"}}\{{/el-input}}
+    </code>
+  </pre>
+</div>
+
+<h2>Attributes</h2>
+{{#el-table data=tableAttributes  as |t|}}
+  {{t.column prop="attribute" label="Attribute" width=150}}
+  {{t.column prop="desc" label="Description"}}
+  {{t.column prop="type" label="Type" width=100}}
+  {{t.column prop="val" label="Accepted Values" width=250}}
+  {{t.column prop="def" label="Default" width=75}}
+{{/el-table}}
+
+
+
