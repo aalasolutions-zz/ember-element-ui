@@ -21,6 +21,7 @@ Router.map(function() {
   this.route('message-box');
   this.route('input');
   this.route('radio');
+  this.route('divider');
 });
 
 export default Router;
