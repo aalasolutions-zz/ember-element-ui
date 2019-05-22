@@ -6,7 +6,7 @@ export default Route.extend({
     didTransition() {
       later(this, () => {
         Prism.highlightAll();
-      }, 100);
+      }, 20);
     }
   }
 });
