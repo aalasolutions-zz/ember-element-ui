@@ -11,13 +11,11 @@ export default Component.extend({
   ],
 
   shadow: 'always', // always false hover
-  box: false, // always false hover
-
+  box: false,
+  bodyStyle: null,
 
   getClassName: computed('shadow', function () {
-
     let classNames = '';
-
 
     if(get(this, 'shadow')){
       classNames += ` is-${get(this, 'shadow')}-shadow`;
