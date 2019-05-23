@@ -10,6 +10,7 @@ export default Controller.extend({
     {attribute: 'center', desc: "whether to center the text", type: "boolean", val: '-', def: 'false'},
     {attribute: 'closeText', desc: "customized close button text", type: "string", val: '-', def: '-'},
     {attribute: 'showIcon', desc: "if a type icon is displayed", type: "boolean", val: '-', def: 'false'},
+    {attribute: 'effect', desc: "Choose theme", type: "string", val: 'light/dark', def: 'light'},
 
 
     // {attribute: '', desc: "", type: "", val: '', def: ''},
