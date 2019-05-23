@@ -11,15 +11,36 @@
     {{#el-card class="box-card" shadow="naver" as |card|}}
       {{#card.body}}
         {{el-alert title="success alert" type="success"}}<br>
-        {{el-alert title="info alert" type="info"}}<br>
+        {{el-alert title="info alert"    type="info"}}<br>
         {{el-alert title="warning alert" type="warning"}}<br>
-        {{el-alert title="error alert" type="error"}}<br>
+        {{el-alert title="error alert"   type="error"}}<br>
       {{/card.body}}
     {{/el-card}}
-<pre><code class="language-handlebars">\{{el-alert title="success alert" type="success"}}
-\{{el-alert title="info alert" type="info"}}
-\{{el-alert title="warning alert" type="warning"}}
-\{{el-alert title="error alert" type="error"}}</code></pre>
+<pre><code class="language-handlebars">\{{el-alert title="success alert"    type="success"}}
+\{{el-alert title="info alert"       type="info"}}
+\{{el-alert title="warning alert"    type="warning"}}
+\{{el-alert title="error alert"      type="error"}}</code></pre>
+  {{/card.body}}
+{{/el-card}}
+
+<h3>Theme</h3>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+{{#card.header bodyStyle="padding:4px 0px 4px 20PX;"}}
+<p>Alert provide two different themes, <code class="code">light</code> and <code class="code">dark</code>.</p>
+{{/card.header}}
+  {{#card.body}}
+    {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+        {{el-alert title="success alert"  type="success" effect="dark" }}<br>
+        {{el-alert title="info alert"     type="info" effect="dark"}}<br>
+        {{el-alert title="warning alert"  type="warning" effect="dark" }}<br>
+        {{el-alert title="error alert"    type="error" effect="dark" }}<br>
+      {{/card.body}}
+    {{/el-card}}
+<pre><code class="language-handlebars">\{{el-alert title="success alert" type="success" effect="dark" }}
+\{{el-alert title="info alert"    type="info" effect="dark"}}
+\{{el-alert title="warning alert" type="warning" effect="dark"  }}
+\{{el-alert title="error alert"   type="error" effect="dark" }}</code></pre>
   {{/card.body}}
 {{/el-card}}
 
@@ -32,14 +53,14 @@
   {{#card.body}}
     {{#el-card class="box-card" shadow="naver" as |card|}}
       {{#card.body}}
-        {{el-alert title="unclosable alert" type="success" closable=false}}<br>
-        {{el-alert title="customized close-text" type="info" closeText="Gotcha"}}<br>
-        {{el-alert title="alert with callback" type="warning" action=(action "hello")}}<br>
+        {{el-alert title="unclosable alert"    type="success" closable=false}}<br>
+        {{el-alert title="customized close-text"    type="info" closeText="Aala"}}<br>
+        {{el-alert title="alert with callback"    type="warning" action=(action "hello")}}<br>
       {{/card.body}}
     {{/el-card}}
-<pre><code class="language-handlebars">\{{el-alert title="unclosable alert" type="success" closable=false}}
-\{{el-alert title="customized close-text" type="info" closeText="Gotcha"}}
-\{{el-alert title="alert with callback" type="warning" action=(action "hello")}}</code></pre>
+<pre><code class="language-handlebars">\{{el-alert title="unclosable alert"    type="success" closable=false}}
+\{{el-alert title="customized close-text"    type="info" closeText="Aala"}}
+\{{el-alert title="alert with callback"    type="warning" action=(action "hello")}}</code></pre>
   {{/card.body}}
 {{/el-card}}
 
@@ -49,16 +70,16 @@
   {{#card.body}}
     {{#el-card class="box-card" shadow="naver" as |card|}}
       {{#card.body}}
-        {{el-alert title="success alert" type="success" showIcon=true}}<br>
-        {{el-alert title="info alert" type="info" showIcon=true}}<br>
-        {{el-alert title="warning alert" type="warning" showIcon=true}}<br>
-        {{el-alert title="error alert" type="error" showIcon=true}}<br>
+        {{el-alert title="success alert"    type="success" showIcon=true}}<br>
+        {{el-alert title="info alert"    type="info" showIcon=true}}<br>
+        {{el-alert title="warning alert"    type="warning" showIcon=true}}<br>
+        {{el-alert title="error alert"    type="error" showIcon=true}}<br>
       {{/card.body}}
     {{/el-card}}
-<pre><code class="language-handlebars">\{{el-alert title="success alert" type="success" showIcon=true}}
-\{{el-alert title="info alert" type="info" showIcon=true}}
-\{{el-alert title="warning alert" type="warning" showIcon=true}}
-\{{el-alert title="error alert" type="error" showIcon=true}}</code></pre>
+<pre><code class="language-handlebars">\{{el-alert title="success alert"    type="success" showIcon=true}}
+\{{el-alert title="info alert"    type="info" showIcon=true}}
+\{{el-alert title="warning alert"    type="warning" showIcon=true}}
+\{{el-alert title="error alert"    type="error" showIcon=true}}</code></pre>
   {{/card.body}}
 {{/el-card}}
 
@@ -68,16 +89,16 @@
   {{#card.body}}
     {{#el-card class="box-card" shadow="naver" as |card|}}
       {{#card.body}}
-        {{el-alert title="success alert" type="success" center=true showIcon=true}}<br>
-        {{el-alert title="info alert" type="info" center=true showIcon=true}}<br>
-        {{el-alert title="warning alert" type="warning" center=true showIcon=true}}<br>
-        {{el-alert title="error alert" type="error" center=true showIcon=true}}<br>
+        {{el-alert title="success alert"    type="success" center=true showIcon=true}}<br>
+        {{el-alert title="info alert"    type="info" center=true showIcon=true}}<br>
+        {{el-alert title="warning alert"    type="warning" center=true showIcon=true}}<br>
+        {{el-alert title="error alert"    type="error" center=true showIcon=true}}<br>
       {{/card.body}}
     {{/el-card}}
-<pre><code class="language-handlebars">\{{el-alert title="success alert" type="success" center=true showIcon=true}}
-\{{el-alert title="info alert" type="info" center=true showIcon=true}}
-\{{el-alert title="warning alert" type="warning" center=true showIcon=true}}
-\{{el-alert title="error alert" type="error" center=true showIcon=true}}</code></pre>
+<pre><code class="language-handlebars">\{{el-alert title="success alert"    type="success" center=true showIcon=true}}
+\{{el-alert title="info alert"    type="info" center=true showIcon=true}}
+\{{el-alert title="warning alert"    type="warning" center=true showIcon=true}}
+\{{el-alert title="error alert"    type="error" center=true showIcon=true}}</code></pre>
   {{/card.body}}
 {{/el-card}}
 
@@ -90,13 +111,13 @@
       {{#card.body}}
         {{el-alert
           title="with description"
-          type="success"
+             type="success"
           description="This is a description."}}
       {{/card.body}}
     {{/el-card}}
 <pre><code class="language-handlebars">\{{el-alert
   title="with description"
-  type="success"
+     type="success"
   description="This is a description."}}</code></pre>
   {{/card.body}}
 {{/el-card}}
@@ -108,16 +129,16 @@
   {{#card.body}}
     {{#el-card class="box-card" shadow="naver" as |card|}}
       {{#card.body}}
-        {{el-alert title="success alert" type="success" description="more text description" showIcon=true}}<br>
-        {{el-alert title="info alert" type="info" description="more text description" showIcon=true}}<br>
-        {{el-alert title="warning alert" type="warning" description="more text description" showIcon=true}}<br>
-        {{el-alert title="error alert" type="error" description="more text description" showIcon=true}}<br>
+        {{el-alert title="success alert"    type="success" description="more text description" showIcon=true}}<br>
+        {{el-alert title="info alert"    type="info" description="more text description" showIcon=true}}<br>
+        {{el-alert title="warning alert"    type="warning" description="more text description" showIcon=true}}<br>
+        {{el-alert title="error alert"    type="error" description="more text description" showIcon=true}}<br>
       {{/card.body}}
     {{/el-card}}
-<pre><code class="language-handlebars">\{{el-alert title="success alert" type="success" description="more text description" showIcon=true}}
-\{{el-alert title="info alert" type="info" description="more text description" showIcon=true}}
-\{{el-alert title="warning alert" type="warning" description="more text description" showIcon=true}}
-\{{el-alert title="error alert" type="error" description="more text description" showIcon=true}}</code></pre>
+<pre><code class="language-handlebars">\{{el-alert title="success alert"    type="success" description="more text description" showIcon=true}}
+\{{el-alert title="info alert"    type="info" description="more text description" showIcon=true}}
+\{{el-alert title="warning alert"    type="warning" description="more text description" showIcon=true}}
+\{{el-alert title="error alert"    type="error" description="more text description" showIcon=true}}</code></pre>
   {{/card.body}}
 {{/el-card}}
 
@@ -128,16 +149,16 @@
   {{#card.body}}
     {{#el-card class="box-card" shadow="naver" as |card|}}
       {{#card.body}}
-        {{#el-alert title="success alert" type="success" description="more text description" showIcon=true}}Content{{/el-alert}}<br>
-        {{#el-alert title="info alert" type="info" description="more text description" showIcon=true}}Content{{/el-alert}}<br>
-        {{#el-alert title="warning alert" type="warning" description="more text description" showIcon=true}}Content{{/el-alert}}<br>
-        {{#el-alert title="error alert" type="error" description="more text description" showIcon=true}}Content{{/el-alert}}<br>
+        {{#el-alert title="success alert"    type="success" description="more text description" showIcon=true}}Content{{/el-alert}}<br>
+        {{#el-alert title="info alert"    type="info" description="more text description" showIcon=true}}Content{{/el-alert}}<br>
+        {{#el-alert title="warning alert"    type="warning" description="more text description" showIcon=true}}Content{{/el-alert}}<br>
+        {{#el-alert title="error alert"    type="error" description="more text description" showIcon=true}}Content{{/el-alert}}<br>
       {{/card.body}}
     {{/el-card}}
-<pre><code class="language-handlebars">\{{#el-alert title="success alert" type="success" description="more text description" showIcon=true}}Content\{{/el-alert}}
-\{{#el-alert title="info alert" type="info" description="more text description" showIcon=true}}Content\{{/el-alert}}
-\{{#el-alert title="warning alert" type="warning" description="more text description" showIcon=true}}Content\{{/el-alert}}
-\{{#el-alert title="error alert" type="error" description="more text description" showIcon=true}}Content\{{/el-alert}}</code></pre>
+<pre><code class="language-handlebars">\{{#el-alert title="success alert"    type="success" description="more text description" showIcon=true}}Content\{{/el-alert}}
+\{{#el-alert title="info alert"    type="info" description="more text description" showIcon=true}}Content\{{/el-alert}}
+\{{#el-alert title="warning alert"    type="warning" description="more text description" showIcon=true}}Content\{{/el-alert}}
+\{{#el-alert title="error alert"    type="error" description="more text description" showIcon=true}}Content\{{/el-alert}}</code></pre>
   {{/card.body}}
 {{/el-card}}
 
