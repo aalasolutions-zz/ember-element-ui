@@ -1,5 +1,9 @@
-<h2>Intro</h2>
+<p></p>
 
-
-<p>This is great</p>
-
+<h3>Intro</h3>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+{{#card.header title="This is great"}}{{/card.header}}
+  {{#card.body}}
+<pre>Ember ui elements</pre>
+  {{/card.body}}
+{{/el-card}}

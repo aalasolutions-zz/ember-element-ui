@@ -3,43 +3,43 @@
   Quickly and easily create layouts with the basic 24-column.
 </p>
 
-
-<h3>Basic Layout</h3>
-<p>Create basic grid layout using columns.
-
-</p>
 <div class="page-row">
-
-  <div class="basic">
-{{#el-row}}
-  {{#el-col span=24}}<div class="grid-content bg-purple-dark"></div>{{/el-col}}
-{{/el-row}}
-{{#el-row}}
-  {{#el-col span=12}}<div class="grid-content bg-purple"></div>{{/el-col}}
-  {{#el-col span=12}}<div class="grid-content bg-purple-light"></div>{{/el-col}}
-{{/el-row}}
-{{#el-row}}
-  {{#el-col span=8}}<div class="grid-content bg-purple"></div>{{/el-col}}
-  {{#el-col span=8}}<div class="grid-content bg-purple-light"></div>{{/el-col}}
-  {{#el-col span=8}}<div class="grid-content bg-purple"></div>{{/el-col}}
-{{/el-row}}
-{{#el-row}}
-  {{#el-col span=6}}<div class="grid-content bg-purple"></div>{{/el-col}}
-  {{#el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/el-col}}
-  {{#el-col span=6}}<div class="grid-content bg-purple"></div>{{/el-col}}
-  {{#el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/el-col}}
-{{/el-row}}
-{{#el-row}}
-  {{#el-col span=4}}<div class="grid-content bg-purple"></div>{{/el-col}}
-  {{#el-col span=4}}<div class="grid-content bg-purple-light"></div>{{/el-col}}
-  {{#el-col span=4}}<div class="grid-content bg-purple"></div>{{/el-col}}
-  {{#el-col span=4}}<div class="grid-content bg-purple-light"></div>{{/el-col}}
-  {{#el-col span=4}}<div class="grid-content bg-purple"></div>{{/el-col}}
-  {{#el-col span=4}}<div class="grid-content bg-purple-light"></div>{{/el-col}}
-{{/el-row}}
-
-
-
+<h3>Basic Layout</h3>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+{{#card.header title="Create basic grid layout using columns."}}{{/card.header}}
+  {{#card.body}}
+  {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+          <div class="basic">
+            {{#el-row}}
+              {{#el-col span=24}}<div class="grid-content bg-purple-dark"></div>{{/el-col}}
+            {{/el-row}}
+            {{#el-row}}
+              {{#el-col span=12}}<div class="grid-content bg-purple"></div>{{/el-col}}
+              {{#el-col span=12}}<div class="grid-content bg-purple-light"></div>{{/el-col}}
+            {{/el-row}}
+            {{#el-row}}
+              {{#el-col span=8}}<div class="grid-content bg-purple"></div>{{/el-col}}
+              {{#el-col span=8}}<div class="grid-content bg-purple-light"></div>{{/el-col}}
+              {{#el-col span=8}}<div class="grid-content bg-purple"></div>{{/el-col}}
+            {{/el-row}}
+            {{#el-row}}
+              {{#el-col span=6}}<div class="grid-content bg-purple"></div>{{/el-col}}
+              {{#el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/el-col}}
+              {{#el-col span=6}}<div class="grid-content bg-purple"></div>{{/el-col}}
+              {{#el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/el-col}}
+            {{/el-row}}
+            {{#el-row}}
+              {{#el-col span=4}}<div class="grid-content bg-purple"></div>{{/el-col}}
+              {{#el-col span=4}}<div class="grid-content bg-purple-light"></div>{{/el-col}}
+              {{#el-col span=4}}<div class="grid-content bg-purple"></div>{{/el-col}}
+              {{#el-col span=4}}<div class="grid-content bg-purple-light"></div>{{/el-col}}
+              {{#el-col span=4}}<div class="grid-content bg-purple"></div>{{/el-col}}
+              {{#el-col span=4}}<div class="grid-content bg-purple-light"></div>{{/el-col}}
+            {{/el-row}}
+              </div>
+      {{/card.body}}
+    {{/el-card}}
 <pre><code class="language-handlebars">\{{#el-row}}
   \{{#el-col span=24}}&lt;div class="grid-content bg-purple-dark">&lt;/div>\{{/el-col}}
 \{{/el-row}}
@@ -66,50 +66,65 @@
   \{{#el-col span=4}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/el-col}}
   \{{#el-col span=4}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/el-col}}
 \{{/el-row}}</code></pre>
-  </div>
+  {{/card.body}}
+{{/el-card}}
 
 
-  <div class="spacing">
-    <h3>Column Spacing</h3>
-    <p>Column spacing is supported.
 
-    </p>
-    {{#el-row gutter=20 as |row|}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-{{/el-row}}
-
-    <pre><code class="language-handlebars">\{{#el-row gutter=20 as |row|}}
+<h3>Column Spacing</h3>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+{{#card.header title="Column spacing is supported."}}{{/card.header}}
+  {{#card.body}}
+  {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+        <div class="spacing">
+          {{#el-row gutter=20 as |row|}}
+            {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+          {{/el-row}}
+        </div>
+      {{/card.body}}
+    {{/el-card}}
+<pre><code class="language-handlebars">\{{#el-row gutter=20 as |row|}}
   \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
   \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
   \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
   \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
 \{{/el-row}}</code></pre>
-  </div>
+  {{/card.body}}
+{{/el-card}}
 
 
-  <div class="hybrid">
 
-  <h3>Hybrid layout</h3>
-  <p>Form a more complex hybrid layout by combining the basic 1/24 columns.</p>
-    {{#el-row gutter=20 as |row|}}
-      {{#row.el-col span=16}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=8}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-{{/el-row}}
-    {{#el-row gutter=20 as |row|}}
-      {{#row.el-col span=8}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=8}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=4}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=4}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-{{/el-row}}
-    {{#el-row gutter=20 as |row|}}
-      {{#row.el-col span=4}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=16}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=4}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-{{/el-row}}
-  <pre><code class="language-handlebars">\{{#el-row gutter=20 as |row|}}
+
+<h3>Hybrid layout</h3>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+{{#card.header title="Form a more complex hybrid layout by combining the basic 1/24 columns."}}{{/card.header}}
+  {{#card.body}}
+  {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+        <div class="hybrid">
+          {{#el-row gutter=20 as |row|}}
+            {{#row.el-col span=16}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.el-col span=8}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+          {{/el-row}}
+          {{#el-row gutter=20 as |row|}}
+            {{#row.el-col span=8}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.el-col span=8}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.el-col span=4}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.el-col span=4}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+          {{/el-row}}
+          {{#el-row gutter=20 as |row|}}
+            {{#row.el-col span=4}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.el-col span=16}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.el-col span=4}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+          {{/el-row}}
+        </div>
+      {{/card.body}}
+    {{/el-card}}
+<pre><code class="language-handlebars">\{{#el-row gutter=20 as |row|}}
   \{{#row.el-col span=16}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
   \{{#row.el-col span=8}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
 \{{/el-row}}
@@ -124,25 +139,32 @@
   \{{#row.el-col span=16}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
   \{{#row.el-col span=4}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
 \{{/el-row}}</code></pre>
-  </div>
+  {{/card.body}}
+{{/el-card}}
 
-
-  <div class="offset">
 
   <h3>Column offset</h3>
-  <p>You can specify column offsets.</p>
-    {{#el-row gutter=20 as |row|}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=6 offset=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-{{/el-row}}
-    {{#el-row gutter=20 as |row|}}
-      {{#row.el-col span=6 offset=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=6 offset=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-{{/el-row}}
-    {{#el-row gutter=20 as |row|}}
-      {{#row.el-col span=12 offset=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-{{/el-row}}
-  <pre><code class="language-handlebars">\{{#el-row gutter=20 as |row|}}
+{{#el-card class="box-card" shadow="hover" as |card|}}
+{{#card.header title="Taking example by Bootstrap's responsive design, five breakpoints are preset: xs, sm, md, lg, and xl."}}{{/card.header}}
+  {{#card.body}}
+  {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+        <div class="offset">
+          {{#el-row gutter=20 as |row|}}
+            {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.el-col span=6 offset=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+          {{/el-row}}
+          {{#el-row gutter=20 as |row|}}
+            {{#row.el-col span=6 offset=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.el-col span=6 offset=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+          {{/el-row}}
+          {{#el-row gutter=20 as |row|}}
+            {{#row.el-col span=12 offset=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+          {{/el-row}}
+        </div>
+      {{/card.body}}
+    {{/el-card}}
+<pre><code class="language-handlebars">\{{#el-row gutter=20 as |row|}}
   \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
   \{{#row.el-col span=6 offset=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
 \{{/el-row}}
@@ -153,39 +175,46 @@
 \{{#el-row gutter=20 as |row|}}
   \{{#row.el-col span=12 offset=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
 \{{/el-row}}</code></pre>
-  </div>
+  {{/card.body}}
+{{/el-card}}
 
-  <div class="alignment">
-    <h3>Alignment</h3>
-    <p>Use the flex layout to make flexible alignment of columns.</p>
 
-    {{#el-row type="flex" class="row-bg" as |row|}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-{{/el-row}}
-    {{#el-row type="flex" class="row-bg" justify="center" as |row|}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-{{/el-row}}
-    {{#el-row type="flex" class="row-bg" justify="end" as |row|}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-{{/el-row}}
-    {{#el-row type="flex" class="row-bg" justify="space-between" as |row|}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-{{/el-row}}
-    {{#el-row type="flex" class="row-bg" justify="space-around" as |row|}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
-      {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-{{/el-row}}
-
-    <pre><code class="language-handlebars">\{{#el-row type="flex" class="row-bg" as |row|}}
+<h3>Alignment</h3>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+{{#card.header title="Use the flex layout to make flexible alignment of columns."}}{{/card.header}}
+  {{#card.body}}
+  {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+          <div class="alignment">
+            {{#el-row type="flex" class="row-bg" as |row|}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{/el-row}}
+            {{#el-row type="flex" class="row-bg" justify="center" as |row|}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{/el-row}}
+            {{#el-row type="flex" class="row-bg" justify="end" as |row|}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{/el-row}}
+            {{#el-row type="flex" class="row-bg" justify="space-between" as |row|}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{/el-row}}
+            {{#el-row type="flex" class="row-bg" justify="space-around" as |row|}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
+              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{/el-row}}
+          </div>
+      {{/card.body}}
+    {{/el-card}}
+<pre><code class="language-handlebars">\{{#el-row type="flex" class="row-bg" as |row|}}
   \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
   \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.el-col}}
   \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
@@ -210,41 +239,58 @@
   \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.el-col}}
   \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
 \{{/el-row}}</code></pre>
-  </div>
+  {{/card.body}}
+{{/el-card}}
 
-  <div class="responsive">
-    <h3>Responsive Layout</h3>
-    <p>Taking example by Bootstrap's responsive design, five breakpoints are preset: xs, sm, md, lg, and xl.</p>
-    {{#el-row gutter=10 as |row|}}
-      {{#row.el-col xs=8 sm=6 md=4 lg=3 xl=1}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col xs=4 sm=6 md=8 lg=9 xl=11}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
-      {{#row.el-col xs=4 sm=6 md=8 lg=9 xl=11}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-      {{#row.el-col xs=8 sm=6 md=4 lg=3 xl=1}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
-{{/el-row}}
-  <pre><code class="language-handlebars">\{{#el-row gutter=10 as |row|}}
+
+
+<h3>Responsive Layout</h3>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+{{#card.header title="Taking example by Bootstrap's responsive design, five breakpoints are preset: xs, sm, md, lg, and xl."}}{{/card.header}}
+  {{#card.body}}
+  {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+        <div class="responsive">
+          {{#el-row gutter=10 as |row|}}
+          {{#row.el-col xs=8 sm=6 md=4 lg=3 xl=1}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+          {{#row.el-col xs=4 sm=6 md=8 lg=9 xl=11}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
+          {{#row.el-col xs=4 sm=6 md=8 lg=9 xl=11}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+          {{#row.el-col xs=8 sm=6 md=4 lg=3 xl=1}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
+          {{/el-row}}
+        </div>
+      {{/card.body}}
+    {{/el-card}}
+<pre><code class="language-handlebars">\{{#el-row gutter=10 as |row|}}
   \{{#row.el-col xs=8 sm=6 md=4 lg=3 xl=1}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
   \{{#row.el-col xs=4 sm=6 md=8 lg=9 xl=11}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.el-col}}
   \{{#row.el-col xs=4 sm=6 md=8 lg=9 xl=11}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
   \{{#row.el-col xs=8 sm=6 md=4 lg=3 xl=1}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.el-col}}
 \{{/el-row}}</code></pre>
-  </div>
+  {{/card.body}}
+{{/el-card}}
 
-  <div>
-    <h3>Utility classes for hiding elements</h3>
-    <p>Additionally, Element provides a series of classes for hiding elements under certain conditions. These classes can be added to any DOM elements or custom components.</p>
 
-    <ul>
-      <li><code class="code">hidden-xs-only</code> - hide when on extra small viewports only</li>
-      <li><code class="code">hidden-sm-only</code> - hide when on small viewports and down</li>
-      <li><code class="code">hidden-sm-and-down</code> - hide when on small viewports and down</li>
-      <li><code class="code">hidden-sm-and-up</code> - hide when on small viewports and up</li>
-      <li><code class="code">hidden-md-only</code> - hide when on medium viewports only</li>
-      <li><code class="code">hidden-md-and-down</code> - hide when on medium viewports and down</li>
-      <li><code class="code">hidden-md-and-up</code> - hide when on medium viewports and up</li>
-      <li><code class="code">hidden-lg-only</code> - hide when on large viewports only</li>
-      <li><code class="code">hidden-lg-and-down</code> - hide when on large viewports and down</li>
-      <li><code class="code">hidden-lg-and-up</code> - hide when on large viewports and up</li>
-      <li><code class="code">hidden-xl-only</code> - hide when on extra large viewports only</li>
-    </ul>
-  </div>
+<h3>Utility classes for hiding elements</h3>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+{{#card.header title="Additionally, Element provides a series of classes for hiding elements under certain conditions. These classes can
+be added to any DOM elements or custom components."}}{{/card.header}}
+  {{#card.body}}
+    <div>
+      <ul>
+        <li><code class="code">hidden-xs-only</code> - hide when on extra small viewports only</li>
+        <li><code class="code">hidden-sm-only</code> - hide when on small viewports and down</li>
+        <li><code class="code">hidden-sm-and-down</code> - hide when on small viewports and down</li>
+        <li><code class="code">hidden-sm-and-up</code> - hide when on small viewports and up</li>
+        <li><code class="code">hidden-md-only</code> - hide when on medium viewports only</li>
+        <li><code class="code">hidden-md-and-down</code> - hide when on medium viewports and down</li>
+        <li><code class="code">hidden-md-and-up</code> - hide when on medium viewports and up</li>
+        <li><code class="code">hidden-lg-only</code> - hide when on large viewports only</li>
+        <li><code class="code">hidden-lg-and-down</code> - hide when on large viewports and down</li>
+        <li><code class="code">hidden-lg-and-up</code> - hide when on large viewports and up</li>
+        <li><code class="code">hidden-xl-only</code> - hide when on extra large viewports only</li>
+      </ul>
+    </div>
+  {{/card.body}}
+{{/el-card}}
+
 </div>
