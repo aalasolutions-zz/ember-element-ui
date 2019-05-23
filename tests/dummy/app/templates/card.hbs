@@ -14,13 +14,17 @@
 {{/el-card}}
 
 
-<pre><code class="language-handlebars">
-\{{#el-card class="box-card" as |card|}}
+<br><br>
+
+{{#el-card class="box-card" shadow="hover" as |card|}}
+  {{#card.body}}
+<pre><code class="language-handlebars">\{{#el-card class="box-card" as |card|}}
   \{{#card.header title="Card Name"}}
     \{{#el-button  color="text"}}Operation button\{{/el-button}}
   \{{/card.header}}
   \{{#card.body}}
     Some content for the card
   \{{/card.body}}
-\{{/el-card}}
-  </code></pre>
+\{{/el-card}}</code></pre>
+  {{/card.body}}
+{{/el-card}}

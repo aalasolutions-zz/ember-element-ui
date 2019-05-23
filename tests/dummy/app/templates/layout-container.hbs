@@ -1,77 +1,84 @@
 <h2>Container</h2>
-<p>Container components for scaffolding basic structure of the page:</p>
-<p>
-<code class="code">\{{el-container}}</code>:
-wrapper container. When nested with a <code class="code">\{{el-header}}</code> or <code class="code">\{{el-footer}}</code>, all its child elements will be vertically arranged. Otherwise horizontally.
 
-<br>
-<br>
-<code class="code">\{{el-header}}</code>: container for headers.<br>
-<code class="code">\{{el-aside}}</code>: container for side sections (usually a side nav).<br>
-<code class="code">\{{el-main}}</code>: container for main sections.<br>
-<code class="code">\{{el-footer}}</code>: container for footers.<br>
-</p>
-
-<h3>Common Layouts</h3>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+{{#card.header title="Container components for scaffolding basic structure of the page:"}}{{/card.header}}
+  {{#card.body}}
+    <p>
+      <code class="code">\{{el-container}}</code>:
+      wrapper container. When nested with a <code class="code">\{{el-header}}</code> or <code class="code">\{{el-footer}}</code>, all its child elements will be vertically arranged. Otherwise horizontally.
+      <br>
+      <br>
+      <code class="code">\{{el-header}}</code>: container for headers.<br>
+      <code class="code">\{{el-aside}}</code>: container for side sections (usually a side nav).<br>
+      <code class="code">\{{el-main}}</code>: container for main sections.<br>
+      <code class="code">\{{el-footer}}</code>: container for footers.<br>
+    </p>
+  {{/card.body}}
+{{/el-card}}
 
 
 <div class="page-layout-container">
 
-{{#el-container}}
-  {{#el-header}}Header{{/el-header}}
-  {{#el-main}}Main{{/el-main}}
-{{/el-container}}
-  <br>
-{{#el-container}}
-  {{#el-header}}Header{{/el-header}}
-  {{#el-main}}Main{{/el-main}}
-  {{#el-footer}}Footer{{/el-footer}}
-{{/el-container}}
-<br>
-{{#el-container}}
-  {{#el-aside width="200px"}}Aside{{/el-aside}}
-  {{#el-main}}Main{{/el-main}}
-{{/el-container}}
-  <br>
-{{#el-container}}
-  {{#el-header}}Header{{/el-header}}
-  {{#el-container}}
-    {{#el-aside width="200px"}}Aside{{/el-aside}}
-    {{#el-main}}Main{{/el-main}}
-  {{/el-container}}
-{{/el-container}}
-  <br>
-{{#el-container}}
-  {{#el-header}}Header{{/el-header}}
-  {{#el-container}}
-    {{#el-aside width="200px"}}Aside{{/el-aside}}
-    {{#el-container}}
-      {{#el-main}}Main{{/el-main}}
-      {{#el-footer}}Footer{{/el-footer}}
-    {{/el-container}}
-  {{/el-container}}
-{{/el-container}}
-  <br>
-{{#el-container}}
-  {{#el-aside width="200px"}}Aside{{/el-aside}}
-  {{#el-container}}
-    {{#el-header}}Header{{/el-header}}
-    {{#el-main}}Main{{/el-main}}
-  {{/el-container}}
-{{/el-container}}
-  <br>
-{{#el-container}}
-  {{#el-aside width="200px"}}Aside{{/el-aside}}
-  {{#el-container}}
-    {{#el-header}}Header{{/el-header}}
-    {{#el-main}}Main{{/el-main}}
-    {{#el-footer}}Footer{{/el-footer}}
-  {{/el-container}}
-{{/el-container}}
+<h3>Common Layouts</h3>
+{{#el-card class="box-card" shadow="hover" as |card|}}
 
-
-  <pre><code class="language-handlebars">
-\{{#el-container}}
+  {{#card.body}}
+    {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+        {{#el-container}}
+        {{#el-header}}Header{{/el-header}}
+        {{#el-main}}Main{{/el-main}}
+        {{/el-container}}
+        <br>
+        {{#el-container}}
+        {{#el-header}}Header{{/el-header}}
+        {{#el-main}}Main{{/el-main}}
+        {{#el-footer}}Footer{{/el-footer}}
+        {{/el-container}}
+        <br>
+        {{#el-container}}
+        {{#el-aside width="200px"}}Aside{{/el-aside}}
+        {{#el-main}}Main{{/el-main}}
+        {{/el-container}}
+        <br>
+        {{#el-container}}
+        {{#el-header}}Header{{/el-header}}
+        {{#el-container}}
+        {{#el-aside width="200px"}}Aside{{/el-aside}}
+        {{#el-main}}Main{{/el-main}}
+        {{/el-container}}
+        {{/el-container}}
+        <br>
+        {{#el-container}}
+        {{#el-header}}Header{{/el-header}}
+        {{#el-container}}
+        {{#el-aside width="200px"}}Aside{{/el-aside}}
+        {{#el-container}}
+        {{#el-main}}Main{{/el-main}}
+        {{#el-footer}}Footer{{/el-footer}}
+        {{/el-container}}
+        {{/el-container}}
+        {{/el-container}}
+        <br>
+        {{#el-container}}
+        {{#el-aside width="200px"}}Aside{{/el-aside}}
+        {{#el-container}}
+        {{#el-header}}Header{{/el-header}}
+        {{#el-main}}Main{{/el-main}}
+        {{/el-container}}
+        {{/el-container}}
+        <br>
+        {{#el-container}}
+        {{#el-aside width="200px"}}Aside{{/el-aside}}
+        {{#el-container}}
+        {{#el-header}}Header{{/el-header}}
+        {{#el-main}}Main{{/el-main}}
+        {{#el-footer}}Footer{{/el-footer}}
+        {{/el-container}}
+        {{/el-container}}
+      {{/card.body}}
+    {{/el-card}}
+<pre><code class="language-handlebars">\{{#el-container}}
   \{{#el-header}}Header\{{/el-header}}
   \{{#el-main}}Main\{{/el-main}}
 \{{/el-container}}
@@ -120,7 +127,8 @@ wrapper container. When nested with a <code class="code">\{{el-header}}</code> o
     \{{#el-main}}Main\{{/el-main}}
     \{{#el-footer}}Footer\{{/el-footer}}
   \{{/el-container}}
-\{{/el-container}}
-  </code></pre>
+\{{/el-container}}</code></pre>
+  {{/card.body}}
+{{/el-card}}
 
 </div>

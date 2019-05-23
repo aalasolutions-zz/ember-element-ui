@@ -1,30 +1,32 @@
 <h2>Icon</h2>
 <p>Element provides a set of common icons.</p>
 
-
 <h3>Basic usage</h3>
-<p>Just assign the class name to <code class="code">el-icon-iconName</code></p>
-
-
-<i class="el-icon-edit"></i>
-<i class="el-icon-share"></i>
-<i class="el-icon-delete"></i>
-{{#el-button color="primary" icon="el-icon-search"}}Search{{/el-button}}
-
+{{#el-card class="box-card" shadow="hover" as |card|}}
+  {{#card.header bodyStyle="padding:4px 0px 4px 20PX;" title=""}}<p>Just assign the class name to <code class="code">el-icon-iconName</code></p>{{/card.header}}
+  {{#card.body}}
+    {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+      <i class="el-icon-edit"></i>
+      <i class="el-icon-share"></i>
+      <i class="el-icon-delete"></i>
+      {{#el-button color="primary" icon="el-icon-search"}}Search{{/el-button}}
+      {{/card.body}}
+    {{/el-card}}
 <pre><code class="language-handlebars">&lt;i class="el-icon-edit">&lt;/i>
 &lt;i class="el-icon-share">&lt;/i>
 &lt;i class="el-icon-delete">&lt;/i>
-  \{{#el-button type="primary" icon="el-icon-search"}}Search\{{/el-button}}
+\{{#el-button type="primary" icon="el-icon-search"}}Search\{{/el-button}}
 </code></pre>
-
+  {{/card.body}}
+{{/el-card}}
 
 <h3>Icons</h3>
 <ul class="icon-list">
   <li><span><i class="el-icon-platform-eleme"></i><span class="icon-name">el-icon-platform-eleme</span></span></li>
   <li><span><i class="el-icon-delete-solid"></i><span class="icon-name">el-icon-delete-solid</span></span></li>
   <li><span><i class="el-icon-eleme"></i><span class="icon-name">el-icon-eleme</span></span></li>
-  <li><span><i class="el-icon-c-scale-to-original"></i><span class="icon-name">el-icon-c-scale-to-original</span></span>
-  </li>
+  <li><span><i class="el-icon-c-scale-to-original"></i><span class="icon-name">el-icon-c-scale-to-original</span></span></li>
   <li><span><i class="el-icon-sort-up"></i><span class="icon-name">el-icon-sort-up</span></span></li>
   <li><span><i class="el-icon-sort-down"></i><span class="icon-name">el-icon-sort-down</span></span></li>
   <li><span><i class="el-icon-upload"></i><span class="icon-name">el-icon-upload</span></span></li>
@@ -72,8 +74,7 @@
   <li><span><i class="el-icon-message-solid"></i><span class="icon-name">el-icon-message-solid</span></span></li>
   <li><span><i class="el-icon-menu"></i><span class="icon-name">el-icon-menu</span></span></li>
   <li><span><i class="el-icon-star-on"></i><span class="icon-name">el-icon-star-on</span></span></li>
-  <li><span><i class="el-icon-video-camera-solid"></i><span class="icon-name">el-icon-video-camera-solid</span></span>
-  </li>
+  <li><span><i class="el-icon-video-camera-solid"></i><span class="icon-name">el-icon-video-camera-solid</span></span></li>
   <li><span><i class="el-icon-phone"></i><span class="icon-name">el-icon-phone</span></span></li>
   <li><span><i class="el-icon-more"></i><span class="icon-name">el-icon-more</span></span></li>
   <li><span><i class="el-icon-share"></i><span class="icon-name">el-icon-share</span></span></li>
@@ -127,8 +128,7 @@
   <li><span><i class="el-icon-film"></i><span class="icon-name">el-icon-film</span></span></li>
   <li><span><i class="el-icon-suitcase"></i><span class="icon-name">el-icon-suitcase</span></span></li>
   <li><span><i class="el-icon-suitcase-1"></i><span class="icon-name">el-icon-suitcase-1</span></span></li>
-  <li><span><i class="el-icon-picture-outline-round"></i><span
-    class="icon-name">el-icon-picture-outline-round</span></span></li>
+  <li><span><i class="el-icon-picture-outline-round"></i><span class="icon-name">el-icon-picture-outline-round</span></span></li>
   <li><span><i class="el-icon-picture-outline"></i><span class="icon-name">el-icon-picture-outline</span></span></li>
   <li><span><i class="el-icon-receiving"></i><span class="icon-name">el-icon-receiving</span></span></li>
   <li><span><i class="el-icon-collection"></i><span class="icon-name">el-icon-collection</span></span></li>
@@ -142,8 +142,7 @@
   <li><span><i class="el-icon-house"></i><span class="icon-name">el-icon-house</span></span></li>
   <li><span><i class="el-icon-no-smoking"></i><span class="icon-name">el-icon-no-smoking</span></span></li>
   <li><span><i class="el-icon-smoking"></i><span class="icon-name">el-icon-smoking</span></span></li>
-  <li><span><i class="el-icon-shopping-cart-full"></i><span class="icon-name">el-icon-shopping-cart-full</span></span>
-  </li>
+  <li><span><i class="el-icon-shopping-cart-full"></i><span class="icon-name">el-icon-shopping-cart-full</span></span></li>
   <li><span><i class="el-icon-shopping-cart-1"></i><span class="icon-name">el-icon-shopping-cart-1</span></span></li>
   <li><span><i class="el-icon-shopping-cart-2"></i><span class="icon-name">el-icon-shopping-cart-2</span></span></li>
   <li><span><i class="el-icon-shopping-bag-1"></i><span class="icon-name">el-icon-shopping-bag-1</span></span></li>
@@ -180,15 +179,12 @@
   <li><span><i class="el-icon-message"></i><span class="icon-name">el-icon-message</span></span></li>
   <li><span><i class="el-icon-postcard"></i><span class="icon-name">el-icon-postcard</span></span></li>
   <li><span><i class="el-icon-position"></i><span class="icon-name">el-icon-position</span></span></li>
-  <li><span><i class="el-icon-turn-off-microphone"></i><span class="icon-name">el-icon-turn-off-microphone</span></span>
-  </li>
+  <li><span><i class="el-icon-turn-off-microphone"></i><span class="icon-name">el-icon-turn-off-microphone</span></span></li>
   <li><span><i class="el-icon-microphone"></i><span class="icon-name">el-icon-microphone</span></span></li>
-  <li><span><i class="el-icon-close-notification"></i><span class="icon-name">el-icon-close-notification</span></span>
-  </li>
+  <li><span><i class="el-icon-close-notification"></i><span class="icon-name">el-icon-close-notification</span></span></li>
   <li><span><i class="el-icon-bell"></i><span class="icon-name">el-icon-bell</span></span></li>
   <li><span><i class="el-icon-bangzhu"></i><span class="icon-name">el-icon-bangzhu</span></span></li>
-  <li><span><i class="el-icon-circle-plus-outline"></i><span class="icon-name">el-icon-circle-plus-outline</span></span>
-  </li>
+  <li><span><i class="el-icon-circle-plus-outline"></i><span class="icon-name">el-icon-circle-plus-outline</span></span></li>
   <li><span><i class="el-icon-remove-outline"></i><span class="icon-name">el-icon-remove-outline</span></span></li>
   <li><span><i class="el-icon-circle-check"></i><span class="icon-name">el-icon-circle-check</span></span></li>
   <li><span><i class="el-icon-time"></i><span class="icon-name">el-icon-time</span></span></li>
@@ -213,8 +209,7 @@
   <li><span><i class="el-icon-discover"></i><span class="icon-name">el-icon-discover</span></span></li>
   <li><span><i class="el-icon-place"></i><span class="icon-name">el-icon-place</span></span></li>
   <li><span><i class="el-icon-location-outline"></i><span class="icon-name">el-icon-location-outline</span></span></li>
-  <li><span><i class="el-icon-location-information"></i><span
-    class="icon-name">el-icon-location-information</span></span></li>
+  <li><span><i class="el-icon-location-information"></i><span class="icon-name">el-icon-location-information</span></span></li>
   <li><span><i class="el-icon-add-location"></i><span class="icon-name">el-icon-add-location</span></span></li>
   <li><span><i class="el-icon-delete-location"></i><span class="icon-name">el-icon-delete-location</span></span></li>
   <li><span><i class="el-icon-map-location"></i><span class="icon-name">el-icon-map-location</span></span></li>
@@ -292,8 +287,7 @@
   <li><span><i class="el-icon-goblet"></i><span class="icon-name">el-icon-goblet</span></span></li>
   <li><span><i class="el-icon-goblet-full"></i><span class="icon-name">el-icon-goblet-full</span></span></li>
   <li><span><i class="el-icon-goblet-square"></i><span class="icon-name">el-icon-goblet-square</span></span></li>
-  <li><span><i class="el-icon-goblet-square-full"></i><span class="icon-name">el-icon-goblet-square-full</span></span>
-  </li>
+  <li><span><i class="el-icon-goblet-square-full"></i><span class="icon-name">el-icon-goblet-square-full</span></span></li>
   <li><span><i class="el-icon-refrigerator"></i><span class="icon-name">el-icon-refrigerator</span></span></li>
   <li><span><i class="el-icon-grape"></i><span class="icon-name">el-icon-grape</span></span></li>
   <li><span><i class="el-icon-watermelon"></i><span class="icon-name">el-icon-watermelon</span></span></li>

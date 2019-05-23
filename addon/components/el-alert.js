@@ -10,7 +10,7 @@ export default Component.extend({
   TYPE_CLASSES_MAP: null,
 
   classNames: ['el-alert','animated', 'fadeIn'],
-  classNameBindings: ['typeClass',
+  classNameBindings: ['typeClass', 'effectClass',
     'center:is-center',
     'isClosed:el-hidden',
   ],
@@ -27,6 +27,7 @@ export default Component.extend({
   showIcon: false,
   center: false,
   isClosed: false,
+  effect: 'light',
 
   init() {
     this._super();
@@ -41,6 +42,9 @@ export default Component.extend({
 
   typeClass: computed('type', function () {
     return `el-alert--${ get(this, 'type') }`;
+  }),
+  effectClass: computed('effect', function () {
+    return `is-${ get(this, 'effect') }`;
   }),
   iconClass: computed('type', function () {
     return get(this, 'TYPE_CLASSES_MAP')[get(this, 'type')] || 'el-icon-info';

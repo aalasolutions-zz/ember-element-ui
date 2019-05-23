@@ -1,7 +1,9 @@
-<h2>Installation</h2>
+<p></p>
 
-
-<p>Well Its very easy</p>
-
-<pre><code class="language-bash">$ ember install ember-element-ui
-</code></pre>
+<h3>Intro</h3>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+{{#card.header title="This is great"}}{{/card.header}}
+  {{#card.body}}
+<pre>Ember ui elements</pre>
+  {{/card.body}}
+{{/el-card}}
