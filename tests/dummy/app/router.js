@@ -22,6 +22,7 @@ Router.map(function() {
   this.route('input');
   this.route('radio');
   this.route('divider');
+  this.route('switch');
 });
 
 export default Router;
