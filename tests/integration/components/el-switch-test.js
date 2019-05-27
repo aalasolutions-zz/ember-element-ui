@@ -7,20 +7,32 @@ module('Integration | Component | el-switch', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
     await render(hbs`{{el-switch}}`);
-
     assert.equal(this.element.textContent.trim(), '');
 
-    // Template block usage:
-    await render(hbs`
-      {{#el-switch}}
-        template block text
-      {{/el-switch}}
-    `);
+  });
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+
+  test('isActiveText', async function(assert) {
+
+    this.set('activeText', 'sampleText');
+    await render(hbs`{{el-switch activeText=activeText}}`);
+    assert.equal(this.element.textContent.trim(), 'sampleText');
+
+
+    this.set('inactiveIconClass', 'warning');
+    await render(hbs`{{el-switch inactiveIconClass=inactiveIconClass}}`);
+    assert.equal(this.element.textContent.trim(), '');
+
+
+  });
+  test('spanStyle', async function(assert) {
+
+    this.set('model', '23');
+    this.set('activeColor', '#FF00FF');
+    this.set('width', '50px');
+    await render(hbs`{{el-switch width=width model=model activeColor=activeColor}}`);
+    assert.equal(this.element.textContent.trim(), '');
+
   });
 });
