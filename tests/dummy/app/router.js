@@ -23,6 +23,7 @@ Router.map(function() {
   this.route('radio');
   this.route('divider');
   this.route('switch');
+  this.route('rate');
 });
 
 export default Router;
