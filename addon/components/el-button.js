@@ -44,8 +44,8 @@ export default Component.extend({
   }),
 
 
-  showIcon: computed('icon', 'disabled', function(){
-    return !!(get(this, 'icon') && !get(this, 'disabled'));
+  showIcon: computed('icon', 'loading', function(){
+    return !!(get(this, 'icon') && !get(this, 'loading'));
   }),
 
 
