@@ -14,6 +14,7 @@ export default Helper.extend({
     let max           = params[7];
     let colors        = params[8];
     let currentValue  = params[9];
+    let value         = params[10];
     // let color         = "rgb(247, 186, 42)";
 
     if (style) {
@@ -27,7 +28,7 @@ export default Helper.extend({
         }
         return htmlSafe(`color: ${color};`)
       }
-      if (classes[item - 1] === "el-icon-star-on" && !disabled) {
+      if (classes[item - 1] === "el-icon-star-on" && (!disabled || item < value)) {
         return htmlSafe(`color: ${color};`)
       }
       return;
