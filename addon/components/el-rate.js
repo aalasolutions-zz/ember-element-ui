@@ -1,115 +1,127 @@
 import Component from '@ember/component';
 import layout from '../templates/components/el-rate';
-import { computed } from "@ember/object";
-import { htmlSafe } from '@ember/template';
-import { typeOf } from '@ember/utils';
+import {computed, get, set} from "@ember/object";
+import {htmlSafe} from '@ember/template';
+import {typeOf} from '@ember/utils';
 
 export default Component.extend({
   layout,
   classNames: ['el-rate'],
 
-  voidIconClass        : 'el-icon-star-off',
-  colors               : ["rgb(247, 186, 42)"],
-  voidColor            : '#C6D1DE',
-  disabledVoidColor    : '#EFF2F7',
-  iconClasses          : ['el-icon-star-on', 'el-icon-star-on', 'el-icon-star-on'],
+  voidIconClass: 'el-icon-star-off',
+  colors: null,
+  voidColor: '#C6D1DE',
+  disabledVoidColor: '#EFF2F7',
+  iconClasses: null,
   disabledVoidIconClass: null,
-  textColor            : '#1f2d3d',
-  texts                : [],
-  value                : 0,
-  lowThreshold         : 2,
-  highThreshold        : 4,
-  max                  : 5,
-  disabled             : false,
-  allowHalf            : false,
-  showText             : false,
-  showScore            : false,
-  scoreTemplate        : '{value}',
-  pointerAtLeftHalf    : true,
+  textColor: '#1f2d3d',
+  texts: null,
+  value: 0,
+  lowThreshold: 2,
+  highThreshold: 4,
+  max: 5,
+  disabled: false,
+  allowHalf: false,
+  showText: false,
+  showScore: false,
+  scoreTemplate: '{value}',
+  pointerAtLeftHalf: true,
   hoverIndex: -1,
 
+
+  _defaultColor: 'rgb(247, 186, 42)',
+
+  didReceiveAttrs() {
+    if (!get(this, 'colors')) {
+      set(this, 'colors', [get(this, '_defaultColor')]);
+    }
+    if (!get(this, 'iconClasses')) {
+      set(this, 'iconClasses', ['el-icon-star-on', 'el-icon-star-on', 'el-icon-star-on']);
+    }
+    if (!get(this, 'texts')) {
+      set(this, 'texts', []);
+    }
+    if (get(this, "disabledVoidIconClass") === null) {
+      set(this, "disabledVoidIconClass", 'el-icon-star-on');
+    }
+  },
+
   currentValue: computed('value', function () {
-    return  this.get("value");
+    return get(this, "value");
   }),
 
   rateDisabled: computed("value", function () {
-    return !!this.get("disabled") ;
+    return !!get(this, "disabled");
   }),
 
-  disabledVoidIconClassMap: computed("voidIconClass","currentValue", function () {
-    let disabledVoidIconClass = this.get("disabledVoidIconClass");
-    if (disabledVoidIconClass == null) {
-      this.set("disabledVoidIconClass", this.get("voidIconClass"));
-    }
+
+  valueDecimal: computed("value", function () {
+    return get(this, "value") * 100 - Math.floor(get(this, "value")) * 100;
   }),
 
-  valueDecimal:computed("value",function() {
-    return this.get("value") * 100 - Math.floor(this.get("value")) * 100;
-  }),
-
-  text: computed('value',"currentValue", function () {
+  text: computed('value', "currentValue", function () {
     let result = '';
-    if (this.get("showScore")) {
-      result = this.get("scoreTemplate").replace(/\{\s*value\s*\}/, this.get("rateDisabled")
-        ? this.get("value")
-        : this.get("currentValue"));
-    } else if (this.get("showText")) {
-      result = this.get("texts")[Math.ceil(this.get("currentValue")) - 1];
+    if (get(this, "showScore")) {
+      result = get(this, "scoreTemplate").replace(/\{\s*value\s*\}/, get(this, "rateDisabled")
+        ? get(this, "value")
+        : get(this, "currentValue"));
+    } else if (get(this, "showText")) {
+      result = get(this, "texts")[Math.ceil(get(this, "currentValue")) - 1];
     }
     return result;
   }),
 
-  decimalStyle: computed("rateDisabled", function(){
+  decimalStyle: computed("rateDisabled", function () {
     let width = '';
-    if (this.get("rateDisabled")) {
-      width = `${this.get("valueDecimal")}%`;
-    } else if (this.get("allowHalf")) {
+    if (get(this, "rateDisabled")) {
+      width = `${get(this, "valueDecimal")}%`;
+    } else if (get(this, "allowHalf")) {
       width = '50%';
     }
-    let color = this.get("colorMap");
+    let color = get(this, "colorMap");
     return htmlSafe(`color: ${color}; width: ${width};`);
 
   }),
 
   activeColor: computed("currentValue", function () {
-    return this.getValueFromMap(this.get("currentValue"), this.get("colorMap"));
+    return this.getValueFromMap(get(this, "currentValue"), get(this, "colorMap"));
   }),
 
   maxNumberOfTimes: computed('max', function () {
-    let max = this.get("max");
+    let max = get(this, "max");
     let maxObj = [];
 
-      for (let i = 0; i < max; i++){
-        maxObj.push(i+1);
-      }
+    for (let i = 0; i < max; i++) {
+      maxObj.push(i + 1);
+    }
     return maxObj;
   }),
 
   classMap: computed("iconClasses", "value", function () {
-    let iconClasses = this.get("iconClasses");
+    let iconClasses = get(this, "iconClasses");
     return Array.isArray(iconClasses) ? {
-      [this.get("lowThreshold")]: iconClasses[0],
-      [this.get("highThreshold")]: { value: iconClasses[1], excluded: true },
-      [this.get("max")]: iconClasses[2]
-      } : this.get("iconClasses");
+      [get(this, "lowThreshold")]: iconClasses[0],
+      [get(this, "highThreshold")]: {value: iconClasses[1], excluded: true},
+      [get(this, "max")]: iconClasses[2]
+    } : get(this, "iconClasses");
   }),
 
-  decimalIconClass: computed("classMap", function() {
-    return this.getValueFromMap(this.get("value"), this.get("classMap"));
+  decimalIconClass: computed("classMap", function () {
+    return this.getValueFromMap(get(this, "value"), get(this, "classMap"));
   }),
 
   activeClass: computed("classMap", "currentValue", function () {
-    return this.getValueFromMap(this.get("currentValue"), this.get("classMap"));
+    return this.getValueFromMap(get(this, "currentValue"), get(this, "classMap"));
   }),
 
-  colorMap: computed(function () {
-    let colors = this.get("colors");
+  colorMap: computed('colors', 'lowThreshold', 'currentValue', 'highThreshold', function () {
+    let colors = get(this, "colors");
     let color = null;
 
-    if (colors.length == 3) {
-      if (this.get("currentValue") <= this.get("lowThreshold")) {
+    if (colors.length === 3) {
+      if (get(this, "currentValue") <= get(this, "lowThreshold")) {
         color = colors[0];
-      } else if (this.get("currentValue") <= this.get("highThreshold")) {
+      } else if (get(this, "currentValue") <= get(this, "highThreshold")) {
         color = colors[1];
       } else {
         color = colors[2];
@@ -120,50 +132,56 @@ export default Component.extend({
     return color;
   }),
 
-  voidClass: computed("classMap", "currentValue", function () {
-    return this.get("rateDisabled") ? this.get("disabledVoidIconClass") : this.get("voidIconClass");
+  voidClass: computed("classMap", "currentValue", "disabledVoidIconClass", "voidIconClass", function () {
+    return get(this, "rateDisabled") ? get(this, "disabledVoidIconClass") : get(this, "voidIconClass");
   }),
 
-  classes: computed('currentValue',"voidClass", function () {
-    let result = [];
-    let i = 0;
-    let threshold = this.get("currentValue");
+  classes: computed('currentValue', "voidClass", 'disabled', function () {
 
-    if (this.get("allowHalf") && this.get("currentValue") !== Math.floor(this.get("currentValue"))) {
-      threshold--;
-    }
+      let result = [];
+      let i = 0;
 
-    for (; i < threshold; i++) {
-      result.push(this.get("activeClass"));
+      if (get(this, 'rateDisabled')) {
+        for (; i < this.max; i++) {
+          result.push(get(this, "voidClass"));
+        }
+        return result;
+      }
+
+      let threshold = get(this, "currentValue");
+
+      if (get(this, "allowHalf") && get(this, "currentValue") !== Math.floor(get(this, "currentValue"))) {
+        threshold--;
+      }
+
+      for (; i < threshold; i++) {
+        result.push(get(this, "activeClass"));
+      }
+      for (; i < this.max; i++) {
+        result.push(get(this, "voidClass"));
+      }
+      return result;
     }
-    for (; i < this.max; i++) {
-      result.push(this.get("voidClass"));
-    }
-    return result;
-  }
   ),
 
   showTextScore: computed.or("showText", "showScore"),
 
-  textSpanStyle: computed("textColor","text", function () {
-    let color = this.get("textColor");
+  textSpanStyle: computed("textColor", "text", function () {
+    let color = get(this, "textColor");
     return htmlSafe(`color: ${color};`)
 
   }),
-
-  iconStyle: computed("value", function () {
-    return this.getIconStyle();
-  }),
+  //
+  // iconStyle: computed("value", function () {
+  //   return this.getIconStyle();
+  // }),
 
   getValueFromMap(value, map) {
     const matchedKeys = Object.keys(map)
-      .filter(key => {
-        const excluded = false;
-        return excluded ? value < key : value <= key;
-      })
+      .filter(key => value <= key)
       .sort((a, b) => a - b);
     const matchedValue = map[matchedKeys[0]];
-    if (typeOf(matchedValue) == "object") {
+    if (typeOf(matchedValue) === "object") {
       return matchedValue.value;
     } else {
       return (matchedValue || '');
@@ -171,7 +189,7 @@ export default Component.extend({
   },
 
   spanCursor: computed("rateDisabled", function () {
-    let rateDisabled = this.get("rateDisabled");
+    let rateDisabled = get(this, "rateDisabled");
     if (rateDisabled) {
       return htmlSafe(`cursor:auto;`)
     } else {
@@ -183,32 +201,19 @@ export default Component.extend({
   actions: {
 
     setCurrentValue(item) {
-      if (this.get("rateDisabled")) {
-        return;
+      if (!get(this, "rateDisabled")) {
+        set(this, "currentValue", item);
       }
-      this.set("currentValue", item);
     },
 
     resetCurrentValue() {
-
-      this.set("currentValue", this.get("value"));
+      set(this, "currentValue", get(this, "value"));
     },
 
     selectValue(item) {
-      if (this.get("rateDisabled")) {
-        return;
+      if (!get(this, "rateDisabled")) {
+        set(this, "value", item);
       }
-      this.set("value", item);
     }
-}
+  }
 });
-
-
-
-
-
-
-
-
-
-
