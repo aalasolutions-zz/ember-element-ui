@@ -214,6 +214,35 @@ export default Component.extend({
       if (!get(this, "rateDisabled")) {
         set(this, "value", item);
       }
-    }
+    },
+
+    handleKey(e) {
+      if (get(this,"rateDisabled")) {
+        return;
+      }
+      let currentValue = get(this,"currentValue");
+      const keyCode = e.keyCode;
+      if (keyCode === 38 || keyCode === 39) { // left / down
+        if (get(this,"allowHalf")) {
+          currentValue += 0.5;
+        } else {
+          currentValue += 1;
+        }
+        e.stopPropagation();
+        e.preventDefault();
+      } else if (keyCode === 37 || keyCode === 40) {
+        if (get(this, "allowHalf")) {
+          currentValue -= 0.5;
+        } else {
+          currentValue -= 1;
+        }
+        e.stopPropagation();
+        e.preventDefault();
+      }
+      currentValue = currentValue < 0 ? 0 : currentValue;
+      currentValue = currentValue > get(this, "max") ? get(this, "max") : currentValue;
+      set(this, "value", currentValue);
+      set(this, "currentValue", currentValue);
+    },
   }
 });
