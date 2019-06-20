@@ -1,5 +1,5 @@
-{{! template-lint-disable  no-inline-styles block-indentation}}
-<div class="el-rate" role="slider" onkeyup={{action 'handleKey' }} aria-valuetext={{text}} aria-valuemin="0" aria-valuemax={{max}} tabindex="0"
+{{! template-lint-disable  no-inline-styles block-indentation no-invalid-interactive}}
+<div class="el-rate" role="slider" onkeyup={{action "handleKey" }} aria-valuetext={{text}} aria-valuemin="0" aria-valuemax={{max}} tabindex="0"
      aria-valuenow={{currentValue}}>
   {{#each maxNumberOfTimes as |item key|}}<span class="el-rate__item" onmouseMove={{action "setCurrentValue" item}}
                                                 onmouseLeave={{action "resetCurrentValue" }}
