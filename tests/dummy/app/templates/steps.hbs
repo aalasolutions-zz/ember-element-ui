@@ -1,0 +1,40 @@
+
+
+{{outlet}}
+<h2>Rate</h2>
+<h3>Guide the user to complete tasks in accordance with the process. Its steps can be set according to the actual
+application scenario and the number of the steps can't be less than 2.  </h3>
+<div>
+<h3>Basic usage</h3>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+{{#card.header title="Simple step bar."}}{{/card.header}}
+  {{#card.body}}
+    {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+       {{el-steps}}
+      {{/card.body}}
+    {{/el-card}}
+<pre><code class="language-handlebars">\{{el-steps }}
+
+</code></pre>
+  {{/card.body}}
+{{/el-card}}
+
+
+
+
+
+
+</div>
+<h2>Attributes</h2>
+{{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
+{{#card.body}}
+  {{#el-table data=tableAttributes  as |t|}}
+    {{t.column prop="attribute" label="Attribute" width=165}}
+    {{t.column prop="desc" label="Description"}}
+    {{t.column prop="type" label="Type" width=100}}
+    {{t.column prop="val" label="Accepted Values" width=90}}
+    {{t.column prop="def" label="Default" width=350}}
+  {{/el-table}}
+{{/card.body}}
+{{/el-card}}
