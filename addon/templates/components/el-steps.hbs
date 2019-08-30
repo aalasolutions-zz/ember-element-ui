@@ -1,3 +1,12 @@
-{{yield}}
-
-<h3>comming soon</h3>
+<div>
+  <div class="el-steps {{directionHandler}}">
+    {{yield
+      (hash
+        step=(component "ElStep" object=object
+        stepsIncrement= (action "stepsIncrement")
+        steps = steps
+        )
+      )
+    }}
+  </div>
+</div>
