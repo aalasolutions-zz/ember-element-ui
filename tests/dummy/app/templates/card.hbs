@@ -55,23 +55,22 @@
 
 <br><br>
 
-
-{{#el-row gutter=12}}
-  {{#el-col span=8}}
+{{#el-row gutter=12 as |row|}}
+  {{#row.col span=8}}
     {{#el-card shadow="always" as |card|}}
       {{#card.body}}Always{{/card.body}}
     {{/el-card}}
-  {{/el-col}}
-  {{#el-col span=8}}
+  {{/row.col}}
+  {{#row.col span=8}}
     {{#el-card shadow="hover" as |card|}}
       {{#card.body}}Hover{{/card.body}}
     {{/el-card}}
-  {{/el-col}}
-  {{#el-col span=8}}
+  {{/row.col}}
+  {{#row.col span=8}}
     {{#el-card shadow="never" as |card|}}
       {{#card.body}}Never{{/card.body}}
     {{/el-card}}
-  {{/el-col}}
+  {{/row.col}}
 {{/el-row}}
 
 
