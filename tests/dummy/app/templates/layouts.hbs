@@ -79,19 +79,19 @@
       {{#card.body}}
         <div class="spacing">
           {{#el-row gutter=20 as |row|}}
-            {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-            {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-            {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-            {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
+            {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
+            {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
+            {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
           {{/el-row}}
         </div>
       {{/card.body}}
     {{/el-card}}
 <pre><code class="language-handlebars">\{{#el-row gutter=20 as |row|}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
 \{{/el-row}}</code></pre>
   {{/card.body}}
 {{/el-card}}
@@ -107,37 +107,37 @@
       {{#card.body}}
         <div class="hybrid">
           {{#el-row gutter=20 as |row|}}
-            {{#row.el-col span=16}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-            {{#row.el-col span=8}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.col span=16}}<div class="grid-content bg-purple"></div>{{/row.col}}
+            {{#row.col span=8}}<div class="grid-content bg-purple"></div>{{/row.col}}
           {{/el-row}}
           {{#el-row gutter=20 as |row|}}
-            {{#row.el-col span=8}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-            {{#row.el-col span=8}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-            {{#row.el-col span=4}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-            {{#row.el-col span=4}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.col span=8}}<div class="grid-content bg-purple"></div>{{/row.col}}
+            {{#row.col span=8}}<div class="grid-content bg-purple"></div>{{/row.col}}
+            {{#row.col span=4}}<div class="grid-content bg-purple"></div>{{/row.col}}
+            {{#row.col span=4}}<div class="grid-content bg-purple"></div>{{/row.col}}
           {{/el-row}}
           {{#el-row gutter=20 as |row|}}
-            {{#row.el-col span=4}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-            {{#row.el-col span=16}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-            {{#row.el-col span=4}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.col span=4}}<div class="grid-content bg-purple"></div>{{/row.col}}
+            {{#row.col span=16}}<div class="grid-content bg-purple"></div>{{/row.col}}
+            {{#row.col span=4}}<div class="grid-content bg-purple"></div>{{/row.col}}
           {{/el-row}}
         </div>
       {{/card.body}}
     {{/el-card}}
 <pre><code class="language-handlebars">\{{#el-row gutter=20 as |row|}}
-  \{{#row.el-col span=16}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=8}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
+  \{{#row.col span=16}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=8}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
 \{{/el-row}}
 \{{#el-row gutter=20 as |row|}}
-  \{{#row.el-col span=8}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=8}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=4}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=4}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
+  \{{#row.col span=8}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=8}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=4}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=4}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
 \{{/el-row}}
 \{{#el-row gutter=20 as |row|}}
-  \{{#row.el-col span=4}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=16}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=4}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
+  \{{#row.col span=4}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=16}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=4}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
 \{{/el-row}}</code></pre>
   {{/card.body}}
 {{/el-card}}
@@ -151,29 +151,29 @@
       {{#card.body}}
         <div class="offset">
           {{#el-row gutter=20 as |row|}}
-            {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-            {{#row.el-col span=6 offset=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
+            {{#row.col span=6 offset=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
           {{/el-row}}
           {{#el-row gutter=20 as |row|}}
-            {{#row.el-col span=6 offset=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-            {{#row.el-col span=6 offset=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.col span=6 offset=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
+            {{#row.col span=6 offset=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
           {{/el-row}}
           {{#el-row gutter=20 as |row|}}
-            {{#row.el-col span=12 offset=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+            {{#row.col span=12 offset=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
           {{/el-row}}
         </div>
       {{/card.body}}
     {{/el-card}}
 <pre><code class="language-handlebars">\{{#el-row gutter=20 as |row|}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6 offset=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6 offset=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
 \{{/el-row}}
 \{{#el-row gutter=20 as |row|}}
-  \{{#row.el-col span=6 offset=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6 offset=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
+  \{{#row.col span=6 offset=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6 offset=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
 \{{/el-row}}
 \{{#el-row gutter=20 as |row|}}
-  \{{#row.el-col span=12 offset=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
+  \{{#row.col span=12 offset=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
 \{{/el-row}}</code></pre>
   {{/card.body}}
 {{/el-card}}
@@ -187,57 +187,57 @@
       {{#card.body}}
           <div class="alignment">
             {{#el-row type="flex" class="row-bg" as |row|}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
             {{/el-row}}
             {{#el-row type="flex" class="row-bg" justify="center" as |row|}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
             {{/el-row}}
             {{#el-row type="flex" class="row-bg" justify="end" as |row|}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
             {{/el-row}}
             {{#el-row type="flex" class="row-bg" justify="space-between" as |row|}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
             {{/el-row}}
             {{#el-row type="flex" class="row-bg" justify="space-around" as |row|}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
-              {{#row.el-col span=6}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple-light"></div>{{/row.col}}
+              {{#row.col span=6}}<div class="grid-content bg-purple"></div>{{/row.col}}
             {{/el-row}}
           </div>
       {{/card.body}}
     {{/el-card}}
 <pre><code class="language-handlebars">\{{#el-row type="flex" class="row-bg" as |row|}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
 \{{/el-row}}
 \{{#el-row type="flex" class="row-bg" justify="center" as |row|}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
 \{{/el-row}}
 \{{#el-row type="flex" class="row-bg" justify="end" as |row|}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
 \{{/el-row}}
 \{{#el-row type="flex" class="row-bg" justify="space-between" as |row|}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
 \{{/el-row}}
 \{{#el-row type="flex" class="row-bg" justify="space-around" as |row|}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.col}}
+  \{{#row.col span=6}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
 \{{/el-row}}</code></pre>
   {{/card.body}}
 {{/el-card}}
@@ -252,19 +252,19 @@
       {{#card.body}}
         <div class="responsive">
           {{#el-row gutter=10 as |row|}}
-          {{#row.el-col xs=8 sm=6 md=4 lg=3 xl=1}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-          {{#row.el-col xs=4 sm=6 md=8 lg=9 xl=11}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
-          {{#row.el-col xs=4 sm=6 md=8 lg=9 xl=11}}<div class="grid-content bg-purple"></div>{{/row.el-col}}
-          {{#row.el-col xs=8 sm=6 md=4 lg=3 xl=1}}<div class="grid-content bg-purple-light"></div>{{/row.el-col}}
+          {{#row.col xs=8 sm=6 md=4 lg=3 xl=1}}<div class="grid-content bg-purple"></div>{{/row.col}}
+          {{#row.col xs=4 sm=6 md=8 lg=9 xl=11}}<div class="grid-content bg-purple-light"></div>{{/row.col}}
+          {{#row.col xs=4 sm=6 md=8 lg=9 xl=11}}<div class="grid-content bg-purple"></div>{{/row.col}}
+          {{#row.col xs=8 sm=6 md=4 lg=3 xl=1}}<div class="grid-content bg-purple-light"></div>{{/row.col}}
           {{/el-row}}
         </div>
       {{/card.body}}
     {{/el-card}}
 <pre><code class="language-handlebars">\{{#el-row gutter=10 as |row|}}
-  \{{#row.el-col xs=8 sm=6 md=4 lg=3 xl=1}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col xs=4 sm=6 md=8 lg=9 xl=11}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col xs=4 sm=6 md=8 lg=9 xl=11}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.el-col}}
-  \{{#row.el-col xs=8 sm=6 md=4 lg=3 xl=1}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.el-col}}
+  \{{#row.col xs=8 sm=6 md=4 lg=3 xl=1}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col xs=4 sm=6 md=8 lg=9 xl=11}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.col}}
+  \{{#row.col xs=4 sm=6 md=8 lg=9 xl=11}}&lt;div class="grid-content bg-purple">&lt;/div>\{{/row.col}}
+  \{{#row.col xs=8 sm=6 md=4 lg=3 xl=1}}&lt;div class="grid-content bg-purple-light">&lt;/div>\{{/row.col}}
 \{{/el-row}}</code></pre>
   {{/card.body}}
 {{/el-card}}
