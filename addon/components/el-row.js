@@ -19,6 +19,7 @@ export default Component.extend({
       let gutter = (get(this, 'gutter') / 2) + 'px';
       return htmlSafe(`margin-left: -${gutter}; margin-right: -${gutter}`);
     }
+    return htmlSafe("");
   }),
 
   getClassName: computed('justify', 'align', function () {

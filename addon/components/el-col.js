@@ -26,6 +26,7 @@ export default Component.extend({
       let gutter = (get(this, 'gutter') / 2) + 'px';
       return htmlSafe(`padding-left: ${gutter}; padding-right: ${gutter}`);
     }
+    return htmlSafe("");
   }),
 
   getClassName: computed('span', 'offset', 'pull', 'push', 'xs', 'sm', 'md', 'lg', 'xl', function () {

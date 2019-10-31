@@ -50,7 +50,7 @@ export default Component.extend({
   ],
 
 
-  isGroup: computed.or('border', 'isGroup'),
+  // isGroup: computed.or('border', 'isGroup'),
   isBorder: computed.or('border', 'isGroup'),
 
   layoutBodyWidth: computed('layout.bodyWidth', function(){

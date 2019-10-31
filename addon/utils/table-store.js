@@ -421,7 +421,7 @@ export default EmberObject.extend({
 
 
   toggleAllSelection(states) {
-    debounce(this, () => this.toggleAllSelectionDebounce(states), 10);
+    debounce(this, this.toggleAllSelectionDebounce(states), 10);
   },
 
   toggleAllSelectionDebounce(states){

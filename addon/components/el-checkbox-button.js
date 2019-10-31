@@ -31,10 +31,7 @@ export default Component.extend({
   }),
 
   sizeClass: computed('size', function () {
-
-    if (this.get('size')) {
-      return 'el-checkbox-button--' + this.get('size');
-    }
+    return this.get('size') ? 'el-checkbox-button--' + this.get('size') : "";
   }),
 
   actions: {

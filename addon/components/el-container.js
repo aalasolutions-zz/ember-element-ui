@@ -12,9 +12,7 @@ export default Component.extend({
   hasChildToMakeVertical: false,
 
   getClassName: computed('direction', 'hasChildToMakeVertical', function () {
-    if (get(this, 'direction') === 'vertical' || get(this, 'hasChildToMakeVertical')) {
-      return 'is-vertical';
-    }
+    return  (get(this, 'direction') === 'vertical' || get(this, 'hasChildToMakeVertical')) ? 'is-vertical' : "";
   }),
 
   didRender() {

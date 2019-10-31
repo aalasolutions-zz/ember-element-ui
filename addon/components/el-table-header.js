@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import layout from '../templates/components/el-table-header';
 import {computed, get, set} from "@ember/object";
 
+/*
 
 const getAllColumns = (columns) => {
   const result = [];
@@ -15,7 +16,6 @@ const getAllColumns = (columns) => {
   });
   return result;
 };
-/*
 
 const convertToRows = (originColumns) => {
   let maxLevel = 1;

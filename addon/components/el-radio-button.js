@@ -32,11 +32,7 @@ export default Component.extend({
   }),
 
   sizeClass: computed('size', function () {
-
-    if (this.get('size')) {
-      return 'el-radio-button--' + this.get('size');
-    }
-    // return this.get('model') === this.get('label');
+    return (this.get('size')) ? 'el-radio-button--' + this.get('size') : "";
   }),
 
   actions: {

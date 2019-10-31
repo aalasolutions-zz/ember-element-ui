@@ -21,6 +21,6 @@ module('Integration | Component | el-rate', function(hooks) {
       {{/el-rate}}
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.textContent.trim(), '');
   });
 });
