@@ -15,7 +15,7 @@ export default Component.extend({
     'circle:is-circle',
   ],
 
-  attributeBindings: ['disabled', 'autofocus', 'type'],
+  attributeBindings: ['disabled', 'autofocus', 'type', 'style'],
 
 
   disabled: false,
