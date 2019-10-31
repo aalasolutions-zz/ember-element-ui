@@ -172,7 +172,14 @@ table {
   background-color: rgba(0,0,0,0.5);
 }
 
-
+.clearfix{
+  &:before,&:after{
+    display: table; content: "";
+  }
+  &:after{
+    clear: both
+  }
+}
 
 @keyframes fadeOutUpElCustom {
   from {
@@ -247,8 +254,6 @@ table {
   animation-duration: 750ms;
 
 }
-
-
 
 
 @keyframes fadeIn50 {
