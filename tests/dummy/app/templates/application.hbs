@@ -1,96 +1,263 @@
 {{el-notification-container}}
+{{#el-header class="header"}}
+  <!--<div class="hamburger-container" {{action "toggleMenu"}}>-->
+  <!--<svg t="1492500959545" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1691"-->
+  <!--xmlns:xlink="http://www.w3.org/1999/xlink" width="64" height="64"-->
+  <!--class="hamburger {{if collapseStatus "" "is-active"}}">-->
+  <!--<path data-v-2fe8a492=""-->
+  <!--d="M966.8023 568.849776 57.196677 568.849776c-31.397081 0-56.850799-25.452695-56.850799-56.850799l0 0c0-31.397081 25.452695-56.849776 56.850799-56.849776l909.605623 0c31.397081 0 56.849776 25.452695 56.849776 56.849776l0 0C1023.653099 543.397081 998.200404 568.849776 966.8023 568.849776z"-->
+  <!--p-id="1692"></path>-->
+  <!--<path data-v-2fe8a492=""-->
+  <!--d="M966.8023 881.527125 57.196677 881.527125c-31.397081 0-56.850799-25.452695-56.850799-56.849776l0 0c0-31.397081 25.452695-56.849776 56.850799-56.849776l909.605623 0c31.397081 0 56.849776 25.452695 56.849776 56.849776l0 0C1023.653099 856.07443 998.200404 881.527125 966.8023 881.527125z"-->
+  <!--p-id="1693"></path>-->
+  <!--<path data-v-2fe8a492=""-->
+  <!--d="M966.8023 256.17345 57.196677 256.17345c-31.397081 0-56.850799-25.452695-56.850799-56.849776l0 0c0-31.397081 25.452695-56.850799 56.850799-56.850799l909.605623 0c31.397081 0 56.849776 25.452695 56.849776 56.850799l0 0C1023.653099 230.720755 998.200404 256.17345 966.8023 256.17345z"-->
+  <!--p-id="1694"></path>-->
+  <!--</svg>-->
+  <!--</div>-->
+
+
+  <h1 id="title">Ember-Element-UI
+
+
+    <!-- Place this tag where you want the button to render. -->
+    <div style="float: right;">
+      <a class="github-button" href="https://github.com/aalasolutions/ember-element-ui" data-icon="octicon-star"
+         data-size="large" data-show-count="true"
+         aria-label="Star aalasolutions/ember-element-ui on GitHub">Star</a>
+
+      <!-- Place this tag where you want the button to render. -->
+      <a class="github-button" href="https://github.com/aalasolutions/ember-element-ui/issues"
+         data-icon="octicon-issue-opened" data-size="large" data-show-count="true"
+         aria-label="Issue aalasolutions/ember-element-ui on GitHub">Issue</a>
+
+      <!-- Place this tag where you want the button to render. -->
+      <a class="github-button" href="https://github.com/aalasolutions/ember-element-ui/fork"
+         data-icon="octicon-repo-forked" data-size="large" data-show-count="true"
+         aria-label="Fork aalasolutions/ember-element-ui on GitHub">Fork</a>
+    </div>
+  </h1>
+
+{{/el-header}}
 
 {{#el-container}}
   {{#el-aside collapse=collapseStatus}}
-
-  {{!--@collapse={{collapseStatus}}--}}
-
-    {{#el-menu
-      collapse=collapseStatus
-      open="handleOpen"
-      mode="vertical"
-      close="handleClose"
-    }}
-
-
-      {{#el-menu-item-route linkto="index"  icon="el-icon-tickets" title="Intro"}}
-        Introduction
-      {{/el-menu-item-route}}
-      {{#el-menu-item-route linkto="installation"  icon="el-icon-edit" title="Installation"}}
-        Installation
-      {{/el-menu-item-route}}
-
-      {{#el-menu-item-route linkto="layouts"  icon="el-icon-edit" title="Layouts"}}
-        Layouts
-      {{/el-menu-item-route}}
-
-      {{#el-menu-item-route linkto="layout-container"  icon="el-icon-edit" title="Layouts Container"}}
-        Layout Container
-      {{/el-menu-item-route}}
-
-      {{#el-menu-item-route linkto="icons"  icon="el-icon-edit" title="Icons"}}
-        Icons
-      {{/el-menu-item-route}}
-
-
-      {{#el-menu-item-route linkto="buttons"  icon="el-icon-document" title="Buttons"}} Buttons {{/el-menu-item-route}}
-
-      {{#el-menu-item-route linkto="input"  icon="el-icon-document" title="Input"}} Input {{/el-menu-item-route}}
-
-      {{#el-menu-item-route linkto="tags"  icon="el-icon-document" title="Tag"}} Tag {{/el-menu-item-route}}
-      {{#el-menu-item-route linkto="progress"  icon="el-icon-document" title="Progress"}} Progress {{/el-menu-item-route}}
-      {{#el-menu-item-route linkto="badge"  icon="el-icon-document" title="Badge"}} Badge {{/el-menu-item-route}}
-
-
-      {{#el-menu-item-route linkto="alert"  icon="el-icon-document" title="Alert"}} Alert {{/el-menu-item-route}}
-      {{#el-menu-item-route linkto="message"  icon="el-icon-document" title="Message"}} Message {{/el-menu-item-route}}
-      {{#el-menu-item-route linkto="message-box"  icon="el-icon-document" title="Message"}} Message Box {{/el-menu-item-route}}
-      {{#el-menu-item-route linkto="radio"  icon="el-icon-document" title="Radio"}} Radio {{/el-menu-item-route}}
-      {{#el-menu-item-route linkto="switch"  icon="el-icon-document" title="Switch"}} Switch {{/el-menu-item-route}}
-      {{#el-menu-item-route linkto="rate"  icon="el-icon-document" title="Rate"}} Rate {{/el-menu-item-route}}
-
-
-      {{#el-menu-item-route linkto="card"  icon="el-icon-document" title="Card"}} Card {{/el-menu-item-route}}
-      {{#el-menu-item-route linkto="divider"  icon="el-icon-document" title="Divider"}} Divider {{/el-menu-item-route}}
-
-
-    {{!--<ElMenuItemRoute @linkto="member.category" @icon="el-icon-document" @title="Categories">--}}
-    {{!--Categories--}}
-    {{!--</ElMenuItemRoute>--}}
-
-    {{!--<ElMenuItemRoute @linkto="member.account" @icon="el-icon-setting" @title="Accounts">--}}
-    {{!--Accounts--}}
-    {{!--</ElMenuItemRoute>--}}
-
-    {{!--<ElMenuItem @title="Logout" @icon="fa fa-sign-out" @action={{action 'invalidateSession'}} />--}}
-
-    {{/el-menu}}
-
+    <div style="height: 92vh; overflow: auto;">
+    <ul class="side-nav">
+      <li class="nav-item"><a class="not-done">Development</a>
+        <ul class="pure-menu-list sub-nav" style="height: auto;">
+          <li class="nav-item">
+            {{#link-to 'index'}}
+              Introduction
+            {{/link-to}}
+          </li>
+          <li class="nav-item">
+            {{#link-to 'installation'}}
+              Installation
+            {{/link-to}}
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item"><a class="not-done">Components</a>
+        <div class="nav-group">
+          <div class="nav-group__title">Basic</div>
+          <ul class="pure-menu-list" style="height: auto;">
+            <li class="nav-item">
+              {{#link-to "layouts"}}Layout{{/link-to}}
+            </li>
+            <li class="nav-item">
+              {{#link-to "layout-container"}}Layout Container{{/link-to}}
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Color</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Typography</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Border</a>
+            </li>
+            <li class="nav-item">
+              {{#link-to "icons"}}Icon{{/link-to}}
+            </li>
+            <li class="nav-item">
+              {{#link-to "buttons"}}Button{{/link-to}}
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Link</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-group">
+          <div class="nav-group__title">Form</div>
+          <ul class="pure-menu-list" style="height: auto;">
+            <li class="nav-item">
+              {{#link-to "radio"}}Radio{{/link-to}}
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Checkbox</a>
+            </li>
+            <li class="nav-item">
+              {{#link-to "input"}}Input{{/link-to}}
+            </li>
+            <li class="nav-item">
+              <a class="not-done">InputNumber</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Select</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Cascader</a>
+            </li>
+            <li class="nav-item">
+              {{#link-to "switch"}}Switch{{/link-to}}
+            </li>
+            <li class="nav-item">
+              Slider
+            </li>
+            <li class="nav-item">
+              <a class="not-done">TimePicker</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">DatePicker</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">DateTimePicker</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Upload</a>
+            </li>
+            <li class="nav-item">
+              {{#link-to "rate"}}Rate{{/link-to}}
+            </li>
+            <li class="nav-item">
+              <a class="not-done">ColorPicker</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Transfer</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Form</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-group">
+          <div class="nav-group__title">Data</div>
+          <ul class="pure-menu-list" style="height: auto;">
+            <li class="nav-item">
+              <a class="not-done">Table</a>
+            </li>
+            <li class="nav-item">
+              {{#link-to "tags"}}Tag{{/link-to}}
+            </li>
+            <li class="nav-item">
+              {{#link-to "progress"}}Progress{{/link-to}}
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Tree</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Pagination</a>
+            </li>
+            <li class="nav-item">
+              {{#link-to "badge"}}Badge{{/link-to}}
+            </li>
+          </ul>
+        </div>
+        <div class="nav-group">
+          <div class="nav-group__title">Notice</div>
+          <ul class="pure-menu-list" style="height: auto;">
+            <li class="nav-item">
+              {{#link-to "alert"}}Alert{{/link-to}}
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Loading</a>
+            </li>
+            <li class="nav-item">
+              {{#link-to "message"}}Message{{/link-to}}
+            </li>
+            <li class="nav-item">
+              {{#link-to "message-box"}}MessageBox{{/link-to}}
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Notification</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-group">
+          <div class="nav-group__title">Navigation</div>
+          <ul class="pure-menu-list" style="height: auto;">
+            <li class="nav-item">
+              <a class="not-done">NavMenu</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Tabs</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Breadcrumb</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">PageHeader</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Dropdown</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Steps</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-group">
+          <div class="nav-group__title">Others</div>
+          <ul class="pure-menu-list" style="height: auto;">
+            <li class="nav-item">
+              <a class="not-done">Dialog</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Tooltip</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Popover</a>
+            </li>
+            <li class="nav-item">
+              {{#link-to "card"}}Card{{/link-to}}</li>
+            <li class="nav-item">
+              <a class="not-done">Carousel</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Collapse</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Timeline</a>
+            </li>
+            <li class="nav-item">
+              {{#link-to "divider"}}Divider{{/link-to}}</li>
+            <li class="nav-item">
+              <a class="not-done">Calendar</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Image</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Backtop</a></li>
+            <li class="nav-item">
+              <a class="not-done">InfiniteScroll</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Avatar</a>
+            </li>
+            <li class="nav-item">
+              <a class="not-done">Drawer</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    </div>
   {{/el-aside}}
 
   {{#el-container direction="vertical"}}
-    {{#el-header class="header"}}
-      <div class="hamburger-container" {{action "toggleMenu"}}>
-        <svg t="1492500959545" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1691"
-             xmlns:xlink="http://www.w3.org/1999/xlink" width="64" height="64"
-             class="hamburger {{if collapseStatus "" "is-active"}}">
-          <path data-v-2fe8a492=""
-                d="M966.8023 568.849776 57.196677 568.849776c-31.397081 0-56.850799-25.452695-56.850799-56.850799l0 0c0-31.397081 25.452695-56.849776 56.850799-56.849776l909.605623 0c31.397081 0 56.849776 25.452695 56.849776 56.849776l0 0C1023.653099 543.397081 998.200404 568.849776 966.8023 568.849776z"
-                p-id="1692"></path>
-          <path data-v-2fe8a492=""
-                d="M966.8023 881.527125 57.196677 881.527125c-31.397081 0-56.850799-25.452695-56.850799-56.849776l0 0c0-31.397081 25.452695-56.849776 56.850799-56.849776l909.605623 0c31.397081 0 56.849776 25.452695 56.849776 56.849776l0 0C1023.653099 856.07443 998.200404 881.527125 966.8023 881.527125z"
-                p-id="1693"></path>
-          <path data-v-2fe8a492=""
-                d="M966.8023 256.17345 57.196677 256.17345c-31.397081 0-56.850799-25.452695-56.850799-56.849776l0 0c0-31.397081 25.452695-56.850799 56.850799-56.850799l909.605623 0c31.397081 0 56.849776 25.452695 56.849776 56.850799l0 0C1023.653099 230.720755 998.200404 256.17345 966.8023 256.17345z"
-                p-id="1694"></path>
-        </svg>
-      </div>
-
-
-      <h1 id="title">Welcome to Ember-Element-UI</h1>
-
-
-    {{/el-header}}
+    <div style="height: 92vh; overflow: auto;">
     {{#el-main class="container"}}
       {{outlet}}
     {{/el-main}}
@@ -104,5 +271,6 @@
       </div>
     {{/el-footer}}
 
+    </div>
   {{/el-container}}
 {{/el-container}}
