@@ -99,7 +99,7 @@ module.exports = {
   },
 
 
-  treeForStyles: function (tree) {
+  treeForStyles: function () {
     var host = this._findHost();
 
     if (host.project.findAddonByName('ember-cli-sass')) {
