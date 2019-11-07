@@ -42,7 +42,8 @@
     "ember-cli-htmlbars": "^4.0.8",
     "ember-cli-sass": "^10.0.1",
     "normalize.css": "^8.0.1",
-    "popper.js": "^1.16.0"
+    "popper.js": "^1.16.0",
+    "sass": "^1.23.3"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.1.0",
@@ -71,14 +72,14 @@
     "eslint-plugin-ember": "^7.3.0",
     "eslint-plugin-node": "^10.0.0",
     "loader.js": "^4.7.0",
-    "qunit-dom": "^0.9.1",
-    "sass": "^1.23.3"
+    "qunit-dom": "^0.9.1"
   },
   "engines": {
     "node": "8.* || 10.* || >= 12.*"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "defaultBlueprint": "ember-element-ui"
+    "defaultBlueprint": "ember-element-ui",
+    "demoURL": "https://aalasolutions.com/ember/element-ui/"
   }
 }

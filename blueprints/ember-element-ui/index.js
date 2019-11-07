@@ -43,7 +43,7 @@ module.exports = {
       this.ui.writeLine(`Created ${file}`);
     }
 
-     this.addAddonsToProject({
+    this.addAddonsToProject({
       packages: [
         {name: "ember-font-awesome", target: "^4.0.0-rc.4"},
       ]
@@ -80,7 +80,7 @@ module.exports = {
     host.import(path.join('node_modules', 'popper.js', 'dist', 'umd', 'popper.js'));
     host.import(path.join('node_modules', 'popper.js', 'dist', 'umd', 'popper-utils.js'));
 
-    host.import(path.join('node_modules',  'element-theme-chalk', 'lib', 'display.css'));
+    host.import(path.join('node_modules', 'element-theme-chalk', 'lib', 'display.css'));
 
 
     let fontsPath = 'vendor/element-font/fonts';
@@ -100,24 +100,17 @@ module.exports = {
 
 
   treeForStyles: function (tree) {
-    var styleTrees = [];
     var host = this._findHost();
 
     if (host.project.findAddonByName('ember-cli-sass')) {
-      styleTrees.push(new Funnel(path.join('node_modules', 'element-theme-chalk', 'src'), {
+      return new Funnel(path.join('node_modules', 'element-theme-chalk', 'src'), {
         destDir: 'ember-element-ui'
-      }));
+      });
     }
-
-    if (tree) {
-      styleTrees.push(tree);
-    }
-
-    return mergeTrees(styleTrees, {overwrite: true});
   },
 
 
-  treeForVendor: function(tree) {
+  treeForVendor: function (tree) {
     // Get configured fontFormats
     var fontsTree = [];
 

@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import layout from '../templates/components/el-table';
 import {computed, get, set} from "@ember/object";
-import tableStore from "../utils/table-store";
+// import tableStore from "../utils/table-store";
 export default Component.extend({
   layout,
   data: null,
@@ -58,17 +58,17 @@ export default Component.extend({
   }),
   init() {
     this._super();
-    if (!get(this, 'api')) {
-
-      let initialState = {
-        rowKey: this.rowKey,
-        defaultExpandAll: this.defaultExpandAll,
-        selectOnIndeterminate: this.selectOnIndeterminate
-      };
-      const api =  tableStore.create({table: this, initialState});
-      set(this, 'api', api);
-
-    }
+    // if (!get(this, 'api')) {
+    //
+    //   let initialState = {
+    //     rowKey: this.rowKey,
+    //     defaultExpandAll: this.defaultExpandAll,
+    //     selectOnIndeterminate: this.selectOnIndeterminate
+    //   };
+    //   const api =  tableStore.create({table: this, initialState});
+    //   set(this, 'api', api);
+    //
+    // }
 
 
 
