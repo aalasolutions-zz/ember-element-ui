@@ -1,5 +1,7 @@
 {{yield
   (hash
-    option=(component "el-checkbox-button" object=object model=model size=size)
+    checkbox=(component "el-checkbox" object=object parent=parent model=model isGroup=true)
+    button=(component "el-checkbox-button" object=object parent=parent model=model isGroup=true)
   )
 }}
+{{label}}

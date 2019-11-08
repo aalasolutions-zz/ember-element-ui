@@ -3,12 +3,28 @@ import layout from '../templates/components/el-checkbox-group';
 
 export default Component.extend({
   layout,
-  classNames: ['el-radio-group'],
+  classNames: ['el-checkbox-group'],
+  attributeBindings: [
+    'role',
+    'ariaLabel',
+    'style'
+  ],
+  role: 'group',
+  ariaLabel: "checkbox-group",
+
   model: null,
-  size: '',
+  disabled: false,
+  min: Number,
+  max: Number,
+  size: null,
+  textColor: '',
   fill: '#409EFF',
 
+  parent: null,
+  init() {
+    this._super(...arguments);
+    this.set('parent', this);
+  },
 
-  attributeBindings: ['role'],
-  role: 'radiogroup',
+
 });
