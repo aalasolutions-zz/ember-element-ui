@@ -24,6 +24,7 @@ Router.map(function() {
   this.route('divider');
   this.route('switch');
   this.route('rate');
+  this.route('checkbox');
 });
 
 export default Router;

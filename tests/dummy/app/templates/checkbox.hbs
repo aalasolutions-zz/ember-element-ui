@@ -1,0 +1,340 @@
+<h2>Checkbox</h2>
+<p>A group of options for multiple choices.</p>
+
+<h3>Basic usage</h3>
+<p>Checkbox can be used alone to switch between two states.</p>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+  {{#card.header title="
+    The default value is a Boolean for single checkbox, and it becomes true when selected.
+    Content inside the el-checkbox tag will become the description following the button of the checkbox."}}{{/card.header}}
+  {{#card.body}}
+    <p>Current value of checkbox: {{checked}}</p>
+    {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+        {{#el-checkbox model=checked}}Option{{/el-checkbox}}
+      {{/card.body}}
+    {{/el-card}}
+    <pre><code class="language-handlebars">\{{#el-checkbox model=checked}}Option\{{/el-checkbox}}</code></pre>
+  {{/card.body}}
+{{/el-card}}
+
+<h3>Disabled</h3>
+<p>Disabled state for checkbox.</p>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+  {{#card.header title="Disabled attribute is used to disable the checkbox."}}{{/card.header}}
+  {{#card.body}}
+    {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+        {{#el-checkbox model=true disabled=true}}React{{/el-checkbox}}
+        {{#el-checkbox model=false disabled=true }}Ember{{/el-checkbox}}
+      {{/card.body}}
+    {{/el-card}}
+    <pre><code class="language-handlebars">\{{#el-checkbox model=true disabled=true}}React\{{/el-checkbox}}
+\{{#el-checkbox model=false disabled=true }}Ember\{{/el-checkbox}}</code></pre>
+  {{/card.body}}
+{{/el-card}}
+
+
+<h3>Checkbox Group</h3>
+<p>It is used for multiple checkboxes which are bound in one group, and indicates whether one option is selected by
+  checking if it is checked.</p>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+  {{#card.header title="Suitable for choosing from some mutually exclusive options."}}{{/card.header}}
+  {{#card.body}}
+
+    {{checkList}}
+    {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+        {{#el-checkbox-group model=checkList as |grp|}}
+          {{grp.checkbox label="Option A" }}
+          {{grp.checkbox label="Option B" }}
+          {{grp.checkbox label="Option C" }}
+          {{grp.checkbox label="disabled" disabled=true }}
+          {{grp.checkbox label="selected and disabled" disabled=true }}
+        {{/el-checkbox-group}}
+      {{/card.body}}
+    {{/el-card}}
+    <pre><code class="language-handlebars">\{{#el-checkbox-group model=checkList as |grp|}}
+  \{{grp.checkbox label="Option A" }}
+  \{{grp.checkbox label="Option B" }}
+  \{{grp.checkbox label="Option C" }}
+  \{{grp.checkbox label="disabled" disabled=true }}
+  \{{grp.checkbox label="selected and disabled" disabled=true }}
+\{{/el-checkbox-group}}</code></pre>
+  {{/card.body}}
+{{/el-card}}
+
+
+
+
+<h3>Indeterminate</h3>
+<p>The <code class="code">indeterminate</code> property can help you to achieve a 'check all' effect.</p>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+  {{#card.body}}
+    {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+        {{#el-checkbox indeterminate=isIndeterminate checked=checkAll action=(action "handleCheckAllChange")}}Check all{{/el-checkbox}}
+        <div><br></div>
+        {{#el-checkbox-group model=checkedCitiesInt as |grp|}}
+          {{#each cityOptionsInt as |city|}}
+            {{grp.checkbox label=city }}
+          {{/each}}
+        {{/el-checkbox-group}}
+      {{/card.body}}
+    {{/el-card}}
+    <pre><code class="language-handlebars">\{{#el-checkbox indeterminate=isIndeterminate checked=checkAll action=(action "handleCheckAllChange")}}Check all\{{/el-checkbox}}
+\{{#el-checkbox-group model=checkedCitiesInt as |grp|}}
+  \{{#each cityOptionsInt as |city|}}
+    \{{grp.checkbox label=city }}
+  \{{/each}}
+\{{/el-checkbox-group}}</code></pre>
+
+  <pre><code class="language-javascript">cityOptionsInt: ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen'],
+checkedCitiesInt: ['Shanghai', 'Beijing'],
+...
+isIndeterminate: computed('cityOptionsInt', 'checkedCitiesInt', function () {
+  return this.checkedCitiesInt.length ? this.checkedCitiesInt.length !== this.cityOptionsInt.length : false;
+}),
+checkAll: computed('cityOptionsInt', 'checkedCitiesInt', function () {
+  return this.checkedCitiesInt.length === this.cityOptionsInt.length;
+}),
+actions: {
+  handleCheckAllChange(e) {
+    this.set('checkedCitiesInt', e ? [...this.cityOptionsInt] : []);
+  },
+}
+...
+</code></pre>
+  {{/card.body}}
+{{/el-card}}
+
+
+
+<h3>Minimum / Maximum items checked</h3>
+<p>The <code class="code">min</code> and <code class="code">max</code> properties can help you to limit the number of
+  checked items.</p>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+
+  {{#card.body}}
+
+    {{checkedCities}}
+    {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+        {{#el-checkbox-group model=checkedCities min=1 max=2 as |grp|}}
+          {{#each cityOptions as |city|}}
+            {{grp.checkbox label=city }}
+          {{/each}}
+        {{/el-checkbox-group}}
+      {{/card.body}}
+    {{/el-card}}
+    <pre><code class="language-handlebars">\{{#el-checkbox-group model=checkedCities min=1 max=2 as |grp|}}
+  \{{#each cityOptions as |city|}}
+    \{{grp.checkbox label=city }}
+  \{{/each}}
+\{{/el-checkbox-group}}</code></pre>
+
+    <pre><code class="language-javascript">cityOptions: ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen'],
+checkedCities: ['Shanghai', 'Beijing'],</code></pre>
+  {{/card.body}}
+{{/el-card}}
+
+<h3>Button style</h3>
+<p>Checkbox with button styles.</p>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+  {{#card.body}}
+    {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+        <div>
+          {{#el-checkbox-group  model=checkedCitiesButton1 as |grp|}}
+            {{#each cityOptionsInt as |city|}}
+              {{grp.button label=city }}
+            {{/each}}
+          {{/el-checkbox-group}}
+        </div>
+        <div style="margin-top: 20px">
+          {{#el-checkbox-group  model=checkedCitiesButton2 size="medium" as |grp|}}
+            {{#each cityOptionsInt as |city|}}
+              {{grp.button label=city }}
+            {{/each}}
+          {{/el-checkbox-group}}
+        </div>
+        <div style="margin-top: 20px">
+          {{#el-checkbox-group  model=checkedCitiesButton3 size="small" as |grp|}}
+            {{#each cityOptionsInt as |city|}}
+              {{grp.button label=city disabled=(eq city 'Beijing') }}
+            {{/each}}
+          {{/el-checkbox-group}}
+        </div>
+        <div style="margin-top: 20px">
+          {{#el-checkbox-group  model=checkedCitiesButton4 size="mini" disabled=true as |grp|}}
+            {{#each cityOptionsInt as |city|}}
+              {{grp.button label=city }}
+            {{/each}}
+          {{/el-checkbox-group}}
+        </div>
+      {{/card.body}}
+    {{/el-card}}
+    <pre><code class="language-handlebars">&lt;div>
+  \{{#el-checkbox-group  model=checkedCitiesButton1 as |grp|}}
+    \{{#each cityOptionsInt as |city|}}
+      \{{grp.button label=city }}
+    \{{/each}}
+  \{{/el-checkbox-group}}
+&lt;/div>
+&lt;div style="margin-top: 20px">
+  \{{#el-checkbox-group  model=checkedCitiesButton2 size="medium" as |grp|}}
+    \{{#each cityOptionsInt as |city|}}
+      \{{grp.button label=city }}
+    \{{/each}}
+  \{{/el-checkbox-group}}
+&lt;/div>
+&lt;div style="margin-top: 20px">
+  \{{#el-checkbox-group  model=checkedCitiesButton3 size="small" as |grp|}}
+    \{{#each cityOptionsInt as |city|}}
+      \{{grp.button label=city disabled=(eq city 'Beijing') }}
+    \{{/each}}
+  \{{/el-checkbox-group}}
+&lt;div>
+&lt;div style="margin-top: 20px">
+  \{{#el-checkbox-group  model=checkedCitiesButton4 size="mini" disabled=true as |grp|}}
+    \{{#each cityOptionsInt as |city|}}
+      \{{grp.button label=city }}
+    \{{/each}}
+  \{{/el-checkbox-group}}
+&lt;/div></code></pre>
+    <pre><code  class="language-javascript">checkedCitiesButton1: ['Shanghai',],
+checkedCitiesButton2: ['Shanghai',],
+checkedCitiesButton3: ['Shanghai',],
+checkedCitiesButton4: [],</code></pre>
+  {{/card.body}}
+{{/el-card}}
+
+
+
+
+<h3>With borders</h3>
+{{#el-card class="box-card" shadow="hover" as |card|}}
+  {{#card.body}}
+
+    {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
+        <div>
+          {{el-checkbox model=checked1 label="Option1" border=true }}
+          {{el-checkbox model=checked2 label="Option2" border=true }}
+        </div>
+        <div style="margin-top: 20px">
+          {{el-checkbox model=checked3 label="Option1" border=true  size="medium"}}
+          {{el-checkbox model=checked4 label="Option2" border=true  size="medium"}}
+        </div>
+        <div style="margin-top: 20px">
+          {{#el-checkbox-group model=checkboxGroup1 size="small" as |grp|}}
+            {{grp.checkbox label="Option1" border=true}}
+            {{grp.checkbox label="Option2" border=true}}
+          {{/el-checkbox-group}}
+        </div>
+        <div style="margin-top: 20px">
+          {{#el-checkbox-group model=checkboxGroup2 size="mini" disabled=true as |grp|}}
+            {{grp.checkbox label="Option1" border=true}}
+            {{grp.checkbox label="Option2" border=true}}
+          {{/el-checkbox-group}}
+        </div>
+      {{/card.body}}
+    {{/el-card}}
+    <pre><code class="language-handlebars">&lt;div>
+  \{{el-checkbox model=checked1 label="Option1" border=true }}
+  \{{el-checkbox model=checked2 label="Option2" border=true }}
+&lt;/div>
+&lt;div style="margin-top: 20px">
+  \{{el-checkbox model=checked3 label="Option1" border=true  size="medium"}}
+  \{{el-checkbox model=checked4 label="Option2" border=true  size="medium"}}
+&lt;/div>
+&lt;div style="margin-top: 20px">
+  \{{#el-checkbox-group model=checkboxGroup1 size="small" as |grp|}}
+    \{{grp.checkbox label="Option1" border=true}}
+    \{{grp.checkbox label="Option2" border=true}}
+  \{{/el-checkbox-group}}
+&lt;/div>
+&lt;div style="margin-top: 20px">
+  \{{#el-checkbox-group model=checkboxGroup2 size="mini" disabled=true as |grp|}}
+    \{{grp.checkbox label="Option1" border=true}}
+    \{{grp.checkbox label="Option2" border=true}}
+  \{{/el-checkbox-group}}
+&lt;/div></code></pre>
+    <pre><code  class="language-javascript">checked1: true,
+checked2: false,
+checked3: true,
+checked4: false,
+
+checkboxGroup1: [],
+checkboxGroup2: [],</code></pre>
+  {{/card.body}}
+{{/el-card}}
+
+
+
+<br><br><br><br>
+
+<h2>Checkbox Attributes</h2>
+{{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
+  {{#card.body}}
+    {{#el-table data=cbAttributes  as |t|}}
+      {{t.column prop="attribute" label="Attribute" width=150}}
+      {{t.column prop="desc" label="Description"}}
+      {{t.column prop="type" label="Type" width=250}}
+      {{t.column prop="val" label="Accepted Values" width=250}}
+      {{t.column prop="def" label="Default" width=75}}
+    {{/el-table}}
+  {{/card.body}}
+{{/el-card}}
+
+<br><br><br><br>
+<h2>Checkbox Events</h2>
+{{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
+  {{#card.body}}
+    {{#el-table data=cbEvents  as |t|}}
+      {{t.column prop="attribute" label="Event Name" width=150}}
+      {{t.column prop="desc" label="Description"}}
+      {{t.column prop="type" label="Parameters" width=250}}
+    {{/el-table}}
+  {{/card.body}}
+{{/el-card}}
+
+<br><br><br><br>
+<h2>Checkbox-group Attributes</h2>
+{{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
+  {{#card.body}}
+    {{#el-table data=cbgAttributes  as |t|}}
+      {{t.column prop="attribute" label="Attribute" width=150}}
+      {{t.column prop="desc" label="Description"}}
+      {{t.column prop="type" label="Type" width=250}}
+      {{t.column prop="val" label="Accepted Values" width=250}}
+      {{t.column prop="def" label="Default" width=75}}
+    {{/el-table}}
+  {{/card.body}}
+{{/el-card}}
+
+
+<br><br><br><br>
+<h2>Checkbox-group Events</h2>
+{{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
+  {{#card.body}}
+    {{#el-table data=cbgEvents  as |t|}}
+      {{t.column prop="attribute" label="Event Name" width=150}}
+      {{t.column prop="desc" label="Description"}}
+      {{t.column prop="type" label="Parameters" width=250}}
+    {{/el-table}}
+  {{/card.body}}
+{{/el-card}}
+<br><br><br><br>
+<h2>Checkbox-button Attributes</h2>
+{{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
+  {{#card.body}}
+    {{#el-table data=cbbAttributes  as |t|}}
+      {{t.column prop="attribute" label="Attribute" width=150}}
+      {{t.column prop="desc" label="Description"}}
+      {{t.column prop="type" label="Type" width=250}}
+      {{t.column prop="val" label="Accepted Values" width=250}}
+      {{t.column prop="def" label="Default" width=75}}
+    {{/el-table}}
+  {{/card.body}}
+{{/el-card}}
