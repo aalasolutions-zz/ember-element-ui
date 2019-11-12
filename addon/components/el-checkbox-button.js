@@ -45,14 +45,14 @@ export default Component.extend({
   style: computed('isChecked', 'parent', function () {
 
     let style = '';
+    if (this.parent) {
+      style += this.parent.fill ? `background-color: ${this.parent.fill};` : '';
+      style += this.parent.fill ? `border-color: ${this.parent.fill};` : '';
+      style += this.parent.textColor ? `color: ${this.parent.textColor};` : '';
+      style += `box-shadow: -1px 0 0 0  + ${this.parent.fill};`;
+    }
 
-    style += this.parent.fill ? `background-color: ${this.parent.fill};` : '';
-    style += this.parent.fill ? `border-color: ${this.parent.fill};` : '';
-    style += this.parent.textColor ? `color: ${this.parent.textColor};` : '';
-    style += `box-shadow: -1px 0 0 0  + ${this.parent.fill};`;
-
-
-    return htmlSafe(this.isChecked ? style : '');
+    return htmlSafe(this.isChecked && style ? style : '');
 
   }),
 

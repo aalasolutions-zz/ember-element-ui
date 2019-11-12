@@ -5,27 +5,54 @@ import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | el-checkbox-button', function(hooks) {
   setupRenderingTest(hooks);
+  //
+  // test('it renders', async function(assert) {
+  //   // Set any properties with this.set('myProperty', 'value');
+  //   // Handle any actions with this.set('myAction', function(val) { ... });
+  //
+  //   await render(hbs`{{el-checkbox-button}}`);
+  //
+  //   assert.equal(this.element.textContent.trim(), '');
+  //
+  //   // Template block usage:
+  //   await render(hbs`
+  //     {{#el-checkbox-button}}
+  //       template block text
+  //     {{/el-checkbox-button}}
+  //   `);
+  //
+  //   assert.equal(this.element.textContent.trim(), 'template block text');
+  //
+  //
+  //   this.set('size', 'large');
+  //   await render(hbs`{{el-checkbox-button size=size}}`);
+  //
+  // });
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`{{el-checkbox-button}}`);
-
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#el-checkbox-button}}
-        template block text
-      {{/el-checkbox-button}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+  test('parent', async function(assert){
 
 
-    this.set('size', 'large');
-    await render(hbs`{{el-checkbox-button size=size}}`);
+    let parent = {fill: 'red', textColor: 'blue',};
+    let model = ['English', 'Maths', 'Science'];
+    this.set('parent', parent);
+    this.set('model', model);
+    await render(hbs`{{el-checkbox-button label="Button" parent=parent model=model}}`);
+    assert.equal(this.element.textContent.trim(), 'Button');
+
+
+    parent = {fill: '', textColor: '',};
+    this.set('parent', parent);
+    this.set('checked', true);
+    await render(hbs`{{el-checkbox-button label="Button" checked=checked parent=parent model=model}}`);
+
+
+
+    this.set('model', true);
+    this.set('checked', true);
+    await render(hbs`{{el-checkbox-button label="Button" checked=checked parent=parent model=model}}`);
+
+
+
 
   });
 });
