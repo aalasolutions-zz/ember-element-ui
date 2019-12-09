@@ -29,8 +29,7 @@ module('Integration | Component | el-checkbox-button', function(hooks) {
 
   });
 
-  test('parent', async function(assert){
-
+  test('parent', async function(assert) {
 
     let parent = {fill: 'red', textColor: 'blue',};
     let model = ['English', 'Maths', 'Science'];
@@ -39,19 +38,17 @@ module('Integration | Component | el-checkbox-button', function(hooks) {
     await render(hbs`{{el-checkbox-button label="Button" parent=parent model=model}}`);
     assert.equal(this.element.textContent.trim(), 'Button');
 
-
     parent = {fill: '', textColor: '',};
     this.set('parent', parent);
     this.set('checked', true);
     await render(hbs`{{el-checkbox-button label="Button" checked=checked parent=parent model=model}}`);
-
+    assert.equal(this.element.textContent.trim(), 'Button');
 
 
     this.set('model', true);
     this.set('checked', true);
     await render(hbs`{{el-checkbox-button label="Button" checked=checked parent=parent model=model}}`);
-
-
+    assert.equal(this.element.textContent.trim(), 'Button');
 
 
   });

@@ -81,23 +81,16 @@ module.exports = {
     host.import(path.join('node_modules', 'popper.js', 'dist', 'umd', 'popper-utils.js'));
 
     host.import(path.join('node_modules', 'element-theme-chalk', 'lib', 'display.css'));
-
-
-    let fontsPath = 'vendor/element-font/fonts';
-    let absoluteFontsPath = path.join('node_modules', 'element-theme-chalk', 'src', 'fonts');
-    let fontsFolderPath = '/assets/fonts';
-    let fontsToImport = fs.readdirSync(absoluteFontsPath);
-
-
-    fontsToImport.forEach(function (fontFilename) {
-      host.import(
-        path.join(fontsPath, fontFilename),
-        {destDir: fontsFolderPath}
-      );
-    });
-
   },
 
+  treeForPublic: function() {
+    let absoluteFontsPath = path.join('node_modules', 'element-theme-chalk', 'src', 'fonts');
+    let fontsFolderPath = '/assets/fonts';
+
+    return new Funnel(absoluteFontsPath, {
+      destDir: fontsFolderPath
+    });
+  },
 
   treeForStyles: function () {
     var host = this._findHost();
