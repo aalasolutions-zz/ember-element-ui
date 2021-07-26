@@ -1,60 +1,61 @@
-import Component from '@ember/component';
-import layout from '../templates/components/el-progress';
-import {computed, get} from "@ember/object";
+import Component from '@glimmer/component';
+import {computed} from "@ember/object";
 import {htmlSafe} from '@ember/template';
+import {tracked} from '@glimmer/tracking';
 
-export default Component.extend({
-  layout,
-  classNames: ['el-progress'],
+export default class ElProgressComponent extends Component {
+  @tracked width;
+  @tracked strokeWidth;
+  @tracked showText = true;
 
-  classNameBindings: ['getClassName',
-    'hit:is-hit',
-  ],
+  @computed('args.strokeWidth')
+  get _strokeWidth(){
+    return this.args.strokeWidth || 6;
+  }
 
+  @computed('args.width')
+  get _width(){
+    return this.args.width || 126;
+  }
 
-  attributeBindings: ['role'],
-  role: "progressbar",
+  @computed('args.type')
+  get _type(){
+    return this.args.type || 'line';
+  }
 
-  percentage: 0,
-  type: 'line',
-  strokeWidth: 6,
-  textInside: false,
-  status: null,
-  color: '',
-  width: 126,
-  showText: true,
-
-
-  iconClass: computed('line', 'status', function () {
-    if (get(this, 'type') === 'line') {
-      return get(this, 'status') === 'success' ? 'el-icon-circle-check' : 'el-icon-circle-close';
+  @computed('args.status', '_type')
+  get iconClass() {
+    if ((this._type || 'line') === 'line') {
+      return this.args.status === 'success' ? 'el-icon-circle-check' : 'el-icon-circle-close';
     } else {
-      return get(this, 'status') === 'success' ? 'el-icon-check' : 'el-icon-close';
+      return this.args.status === 'success' ? 'el-icon-check' : 'el-icon-close';
     }
-  }),
+  }
 
-  relativeStrokeWidth: computed('strokeWidth', function () {
-    return (get(this, 'strokeWidth') / this.width * 100).toFixed(1);
+  @computed('_strokeWidth', '_width')
+  get relativeStrokeWidth() {
+    return (this._strokeWidth / this._width * 100).toFixed(1);
+  }
 
-  }),
-
-  trackPath: computed('relativeStrokeWidth', function () {
-    const radius = parseInt(50 - parseFloat(get(this, 'relativeStrokeWidth')) / 2, 10);
+  @computed('relativeStrokeWidth')
+  get trackPath() {
+    const radius = parseInt(50 - parseFloat(this.relativeStrokeWidth) / 2, 10);
     return `M 50 50 m 0 -${radius} a ${radius} ${radius} 0 1 1 0 ${radius * 2} a ${radius} ${radius} 0 1 1 0 -${radius * 2}`;
+  }
 
-  }),
-
-  perimeter: computed('relativeStrokeWidth', function () {
-    const radius = 50 - parseFloat(get(this, 'relativeStrokeWidth')) / 2;
+  @computed('relativeStrokeWidth')
+  get perimeter() {
+    const radius = 50 - parseFloat(this.relativeStrokeWidth) / 2;
     return 2 * Math.PI * radius;
-  }),
+  }
 
-  stroke: computed('color', 'status', function () {
+  @computed('args.{color,status}')
+  get stroke() {
     let ret;
-    if (get(this, 'color')) {
-      ret = get(this, 'color');
+    if (this.args.color) {
+      ret = this.args.color;
     } else {
-      switch (get(this, 'status')) {
+      switch (this.args.status) {
         case 'success':
           ret = '#13ce66';
           break;
@@ -66,76 +67,95 @@ export default Component.extend({
       }
     }
     return ret;
-  }),
+  }
 
-  getClassName: computed('type', 'status', 'showText', 'textInside', function () {
-
+  @computed('args.{status,textInside}', 'showText', '_type')
+  get className() {
     let classNames = '';
 
-    if (get(this, 'type')) {
-      classNames += ` el-progress--${get(this, 'type')}`;
+    if (this._type) {
+      classNames += ` el-progress--${this._type}`;
     }
-    if (get(this, 'status')) {
-      classNames += ` is-${get(this, 'status')}`;
+    if (this.args.status) {
+      classNames += ` is-${this.args.status}`;
     } else {
-      if (!get(this, 'showText')) {
+      if (!this.showText) { // todo: default is true
         classNames += ` el-progress--without-text`;
       }
-      if (get(this, 'textInside')) {
+      if (this.args.textInside) {
         classNames += ` el-progress--text-inside`;
       }
     }
 
     return classNames;
-  }),
+  }
 
-  showTextInside: computed.and('showText', 'textInside'),
-  showStatus: computed.not('status'),
-  statusIsText: computed.equal('status', 'text'),
+  @computed('args.textInside', 'showText')
+  get showTextInside() {
+    return this.showText && this.args.textInside;
+  }
 
+  @computed('args.status')
+  get showStatus() {
+    return !this.args.status;
+  }
 
-  isTypeLine: computed.equal('type', 'line'),
-  isTypeCircle: computed.equal('type', 'line'),
+  @computed('argsstatus')
+  get statusIsText() {
+    return this.args.status === 'text';
+  }
 
-  progressText: computed('textInside', 'showText', function () {
-    return !get(this, 'textInside') && get(this, 'showText');
-  }),
+  @computed('_type')
+  get isTypeLine() {
+    return this._type === 'line';
+  }
 
-  strokeWidthStyle: computed('strokeWidth', function () {
-    let strokeWidth = get(this, 'strokeWidth');
-    return htmlSafe(`height: ${strokeWidth}px`);
-  }),
+  @computed('_type')
+  get isTypeCircle() {
+    return this._type !== 'line';
+  }
 
+  @computed('args.textInside', 'showText')
+  get progressText() {
+    return !this.args.textInside && this.showText;
+  }
 
-  barStyle: computed('percentage', 'color', function () {
+  @computed('_strokeWidth')
+  get strokeWidthStyle() {
+    let _strokeWidth = this._strokeWidth;
+    return htmlSafe(`height: ${_strokeWidth}px`);
+  }
+
+  @computed('args.{percentage,color}')
+  get barStyle() {
     const style = {};
-    style.width = get(this, 'percentage') + '%';
-    style.backgroundColor = get(this, 'color');
-
+    style.width = this.args.percentage + '%';
+    style.backgroundColor = this.args.color;
     return htmlSafe(`width: ${style.width}; background-color: ${style.backgroundColor}`);
-  }),
+  }
 
-  circleStyle: computed('width', function () {
-    let width = get(this, 'width');
+  @computed('_width')
+  get circleStyle() {
+    let width = this._width;
     return htmlSafe(`height: ${width}px; width: ${width}px`);
-  }),
+  }
 
-  progressTextStyle: computed('type', 'strokeWidth', 'width', function () {
-    let size = get(this, 'type') === 'line'
-      ? 12 + get(this, 'strokeWidth') * 0.4
-      : get(this, 'width') * 0.111111 + 2;
+  @computed('_type', '_strokeWidth', '_width')
+  get progressTextStyle() {
+    let size = this._type === 'line'
+      ? 12 + this._strokeWidth * 0.4
+      : this._width * 0.111111 + 2;
     return htmlSafe(`fontSize: ${size}px`);
-  }),
+  }
 
-  circlePathStyle: computed('perimeter', 'percentage', function () {
-    const perimeter = get(this, 'perimeter');
+  @computed('args.percentage', 'perimeter')
+  get circlePathStyle() {
+    const perimeter = this.perimeter;
 
     let strokeDasharray = `${perimeter}px,${perimeter}px`;
-    let strokeDashoffset = (1 - get(this, 'percentage') / 100) * perimeter + 'px';
+    let strokeDashoffset = (1 - this.args.percentage / 100) * perimeter + 'px';
     let transition = 'stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease';
 
-
     return htmlSafe(`stroke-dasharray: ${strokeDasharray}; stroke-dashoffset: ${strokeDashoffset}; transition: ${transition}`);
-  }),
-
-});
+  }
+}

@@ -7,7 +7,8 @@
   {{#card.body}}
   {{#el-card class="box-card" shadow="naver" as |card|}}
     {{#card.body}}
-      {{#el-progress percentage="0"}}{{/el-progress}}
+      {{input type="range" value=strokeWidth min=0 max=100 step=1 }}
+      {{#el-progress percentage=strokeWidth }}{{/el-progress}}
       {{#el-progress percentage="70"}}{{/el-progress}}
       {{#el-progress percentage="80" color="#8e71c7"}}{{/el-progress}}
       {{#el-progress percentage="100" status="success"}}{{/el-progress}}
@@ -79,12 +80,17 @@
 <h2>Attributes</h2>
 {{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
 {{#card.body}}
-    {{#el-table data=tableAttributes  as |t|}}
-      {{t.column prop="attribute" label="Attribute" width=150}}
-      {{t.column prop="desc" label="Description"}}
-      {{t.column prop="type" label="Type" width=100}}
-      {{t.column prop="val" label="Accepted Values" width=250}}
-      {{t.column prop="def" label="Default" width=75}}
-    {{/el-table}}
+  <EmberTable as |t|>
+    <t.head @columns={{this.columns}} />
+    <t.body @rows={{this.rows}} />
+  </EmberTable>
+
+{{!--    {{#el-table data=tableAttributes  as |t|}}--}}
+{{!--      {{t.column prop="attribute" label="Attribute" width=150}}--}}
+{{!--      {{t.column prop="desc" label="Description"}}--}}
+{{!--      {{t.column prop="type" label="Type" width=100}}--}}
+{{!--      {{t.column prop="val" label="Accepted Values" width=250}}--}}
+{{!--      {{t.column prop="def" label="Default" width=75}}--}}
+{{!--    {{/el-table}}--}}
 {{/card.body}}
 {{/el-card}}
