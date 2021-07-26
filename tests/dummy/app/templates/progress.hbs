@@ -3,25 +3,25 @@
 
 <div>
 <h3>Linear progress bar (external percentage)</h3>
-{{#el-card class="box-card" shadow="hover" as |card|}}
-  {{#card.body}}
-  {{#el-card class="box-card" shadow="naver" as |card|}}
-    {{#card.body}}
-      {{input type="range" value=strokeWidth min=0 max=100 step=1 }}
-      {{#el-progress percentage=strokeWidth }}{{/el-progress}}
-      {{#el-progress percentage="70"}}{{/el-progress}}
-      {{#el-progress percentage="80" color="#8e71c7"}}{{/el-progress}}
-      {{#el-progress percentage="100" status="success"}}{{/el-progress}}
-      {{#el-progress percentage="50" status="exception"}}{{/el-progress}}
-    {{/card.body}}
-  {{/el-card}}
-<pre><code class="language-handlebars">\{{#el-progress percentage="0"}}\{{/el-progress}}
-\{{#el-progress percentage="70"}}\{{/el-progress}}
-\{{#el-progress percentage="80" color="#8e71c7"}}\{{/el-progress}}
-\{{#el-progress percentage="100" status="success"}}\{{/el-progress}}
-\{{#el-progress percentage="50" status="exception"}}\{{/el-progress}}</code></pre>
-  {{/card.body}}
-{{/el-card}}
+  <ElCard class="box-card" @shadow="hover" as |card|>
+    <ElCardBody>
+      <ElCard class="box-card" @shadow="hover" as |card|>
+        <ElCardBody>
+          <ElProgress @percentage="0" ></ElProgress>
+          <ElProgress @percentage="70"></ElProgress>
+          <ElProgress @percentage="80" @color="#8e71c7"></ElProgress>
+          <ElProgress @percentage="100" @status="success"></ElProgress>
+          <ElProgress @percentage="50" @status="exception"></ElProgress>
+        </ElCardBody>
+      </ElCard>
+
+    <pre><code class="language-handlebars">&lt;ElProgress @percentage="0"/>
+&lt;ElProgress @percentage="70">&lt;/ElProgress>
+&lt;ElProgress @percentage="80" @color="#8e71c7">&lt;/ElProgress>
+&lt;ElProgress @percentage="100" @status="success">&lt;/ElProgress>
+&lt;ElProgress @percentage="50" @status="exception">&lt;/ElProgress></code></pre>
+    </ElCardBody>
+  </ElCard>
 
 <h3>Linear progress bar (internal percentage)</h3>
 {{#el-card class="box-card" shadow="hover" as |card|}}

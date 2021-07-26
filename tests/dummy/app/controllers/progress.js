@@ -1,7 +1,6 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
-  strokeWidth: 50,
   columns:[
     {name: `Attribute`, valuePath: `attribute`},
     {name: `Description`, valuePath: `desc`},
