@@ -1,59 +1,46 @@
-import Component from '@ember/component';
-import layout from '../templates/components/el-button';
-import {computed, get} from "@ember/object";
+import Component from '@glimmer/component';
+import {action, computed} from "@ember/object";
 
-export default Component.extend({
-  layout,
-  tagName: 'button',
+export default class ElButtonComponent extends Component {
 
+  @computed('args.{colors,size,disabled,autofocus}')
+  get className() {
 
-  classNames: ['el-button'],
-  classNameBindings: ['getClassName',
-    'loading:is-loading',
-    'plain:is-plain',
-    'round:is-round',
-    'circle:is-circle',
-  ],
+    let classNames = 'el-button';
 
-  attributeBindings: ['disabled', 'autofocus', 'type', 'style'],
+    if (this.args.loading)
+      classNames += ' is-loading';
+    if (this.args.plain)
+      classNames += ' is-plain';
+    if (this.args.round)
+      classNames += ' is-round';
+    if (this.args.circle)
+      classNames += ' is-circle';
 
+    classNames += ' el-button--' + (this.args.color || 'default');
 
-  disabled: false,
-  autofocus: false,
+    if (this.args.size) {
+      classNames += ` el-button--${this.args.size}`;
+    }
 
-  color: 'default',
-  size: false, // false, medium, small, mini
-  icon:  false,
-  loading: false,
-  plain: false,
-  round: false,
-  circle: false,
-
-
-  getClassName: computed('color', 'size', 'disabled', 'autofocus', function () {
-
-    let classNames = '';
-
-    classNames += 'el-button--' + get(this, 'color');
-
-    if(get(this, 'size')){classNames += ` el-button--${get(this, 'size')}`;}
-
-    if(get(this, 'loading') || get(this, 'disabled') ){classNames += ` is-disabled`;}
+    if (this.args.loading || this.args.disabled) {
+      classNames += ` is-disabled`;
+    }
 
     return classNames;
-  }),
-
-
-  showIcon: computed('icon', 'loading', function(){
-    return !!(get(this, 'icon') && !get(this, 'loading'));
-  }),
-
-
-  click(){
-    if(this.get('action')){
-      this.get('action')();
-    }
   }
 
 
-});
+  @computed('args.{icon,loading}')
+  get showIcon() {
+    return !!(this.args.icon && !this.args.loading);
+  }
+
+
+  @action
+  click() {
+    if (typeof this.args.action === 'function') {
+      this.args.action();
+    }
+  }
+}

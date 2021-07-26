@@ -1,27 +1,19 @@
-import Component from '@ember/component';
-import layout from '../templates/components/el-card';
-import {computed, get} from "@ember/object";
+import Component from '@glimmer/component';
+import {computed} from "@ember/object";
+import {tracked} from "@glimmer/tracking";
 
-export default Component.extend({
-  layout,
-  classNames: ['el-card'],
+export default class ElCardComponent extends Component {
 
-  classNameBindings: ['getClassName',
-    'box:box-card',
-  ],
+  @tracked box = false;
 
-  shadow: 'always', // always false hover
-  box: false,
-  bodyStyle: null,
 
-  getClassName: computed('shadow', function () {
-    let classNames = '';
-
-    if(get(this, 'shadow')){
-      classNames += ` is-${get(this, 'shadow')}-shadow`;
-    }
+  @computed('args.{shadow,box}')
+  get className() {
+    let classNames = ` is-${(this.args.shadow || 'always')}-shadow`;
+    if (this.args.box)
+      classNames += ` box-card`;
 
     return classNames;
-  }),
+  }
 
-});
+}

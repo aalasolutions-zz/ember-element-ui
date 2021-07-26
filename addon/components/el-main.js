@@ -1,8 +1,5 @@
-import Component from '@ember/component';
-import layout from '../templates/components/el-main';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  layout,
-  tagName: 'main',
-  classNames: ['el-main'],
-});
+export default class ElMainComponent extends Component {
+
+}

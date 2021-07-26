@@ -1,0 +1,12 @@
+<div id="ember-element-wormhole">
+  {{#each this.messages as |message|}}
+    <ElMessage @messageObj={{message}} />
+  {{/each}}
+
+
+  {{#if this.messagesBox}}
+    {{#each this.messagesBox as |message|}}
+      <ElMessageBox @messageObj={{message}} />
+    {{/each}}
+  {{/if}}
+</div>

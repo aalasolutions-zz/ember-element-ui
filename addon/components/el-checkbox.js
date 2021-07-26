@@ -1,124 +1,111 @@
-import Component from '@ember/component';
-import layout from '../templates/components/el-checkbox';
-import {computed, set} from "@ember/object";
+import Component from '@glimmer/component';
+import {action, computed} from "@ember/object";
+import {tracked} from '@glimmer/tracking';
 
-export default Component.extend({
-  layout,
+export default class ElCheckboxComponent extends Component {
 
   // todo: focus
-  tagName: 'label',
-  classNames: ['el-checkbox'],
 
-  classNameBindings: [
-    'isChecked:is-checked',
-    'isDisabled:is-disabled',
-    'border:is-bordered',
-    'checkboxSize',
-  ],
-
-  attributeBindings: [
-    'role',
-    'isChecked:aria-checked'
-  ],
-  role: 'checkbox',
-
-  name: null,
-  change: null,
-  border: false,
-  size: '',
-
-  label: null,
-  trueLabel: undefined,
-  falseLabel: undefined,
-
-  value: null,
-  model: null,
-
-  isLabelProvided: computed.or('falseLabel', 'trueLabel'),
-
-  init() {
-    this._super(...arguments);
-    set(this, 'value', this.modelGet());
-  },
+  @tracked value = null;
 
 
-  isChecked: computed('model', 'label', 'trueLabel', 'checked', function () {
-    if (typeof this.checked === "boolean") {
-      return this.checked;
+  constructor(owner, args) {
+    super(owner, args);
+    this.value = this.modelGet();
+  }
+
+  @computed('args.{falseLabel,trueLabel}')
+  get isLabelProvided() {
+    return this.args.falseLabel || this.args.trueLabel;
+  }
+
+  @computed('args.{model,label,trueLabel,checked}')
+  get isChecked() {
+    if (typeof this.args.checked === "boolean") {
+      return this.args.checked;
     }
 
-    if (typeof this.model === "boolean") {
-      return this.model;
-    } else if (Array.isArray(this.model)) {
-      return this.model.indexOf(this.label) > -1;
-    } else if (this.model !== null && this.model !== undefined) {
-      return this.model === this.trueLabel;
+    if (typeof this.args.model === "boolean") {
+      return this.args.model;
+    } else if (Array.isArray(this.args.model)) {
+      return this.args.model.indexOf(this.args.label) > -1;
+    } else if (this.args.model !== null && this.args.model !== undefined) {
+      return this.args.model === this.args.trueLabel;
     }
 
-    return !!this.model;
-  }),
+    return !!this.args.model;
+  }
 
-
-  checkboxSize: computed('size', 'parent', 'parent.size', function () {
-    let size = this.parent
-      ? this.parent.size || this.size
-      : this.size;
+  @computed('args.{size,parent,parent.size}')
+  get checkboxSize() {
+    let size = this.args.parent
+      ? this.args.parent.size || this.args.size
+      : this.args.size;
 
     return size ? 'el-checkbox-button--' + size : '';
-  }),
+  }
 
-  compTabIndex: computed("indeterminate", function () {
-    return this.indeterminate ? 0 : false;
-  }),
-  compRole: computed("indeterminate", function () {
-    return this.indeterminate ? 'checkbox' : false;
-  }),
-  compAriaChecked: computed("indeterminate", function () {
-    return this.indeterminate ? 'mixed' : false;
-  }),
+  @computed('args.indeterminate')
+  get compTabIndex() {
+    return this.args.indeterminate ? 0 : false;
+  }
 
-  isLimitDisabled: computed('min', 'max', 'parent', 'isChecked', function () {
-    if (this.parent) {
-      return !!(this.parent.max || this.parent.min) &&
-        (this.model.length >= this.parent.max && !this.isChecked) ||
-        (this.model.length <= this.parent.min && this.isChecked);
+  @computed('args.indeterminate')
+  get compRole() {
+    return this.args.indeterminate ? 'checkbox' : false;
+  }
+
+  @computed('args.indeterminate')
+  get compAriaChecked() {
+    return this.args.indeterminate ? 'mixed' : false;
+  }
+
+  @computed('args.{min,max,parent}', 'isChecked')
+  get isLimitDisabled() {
+    if (this.args.parent) {
+      return !!(this.args.parent.max || this.args.parent.min) &&
+        (this.args.model.length >= this.args.parent.max && !this.isChecked) ||
+        (this.args.model.length <= this.args.parent.min && this.isChecked);
     }
 
     return false
 
-  }),
-  isDisabled: computed('parent', 'disabled', 'parent.disabled', 'isLimitDisabled', function () {
-    return this.parent
-      ? this.parent.disabled || this.disabled || this.isLimitDisabled
-      : this.disabled;
-  }),
+  }
 
-  actions: {
-    changed(value, name) {
-      if (this.get('action')) {
-        this.get('action')(value, name);
-      }
-    },
-    handleChange(ev) {
-      if (this.isLimitExceeded) return;
-      let value;
-      if (typeof this.checked === "boolean") {
-        value = !this.checked;
+  @computed('args.{parent,disabled,parent.disabled}', 'isLimitDisabled')
+  get isDisabled() {
+    return this.args.parent
+      ? this.args.parent.disabled || this.args.disabled || this.isLimitDisabled
+      : this.args.disabled;
+  }
+
+  @action
+  changed(value, name) {
+    if (this.get('action')) {
+      this.get('action')(value, name);
+    }
+  }
+
+  @action
+  handleChange(ev) {
+    if (this.isLimitExceeded) return;
+    let value;
+    if (typeof this.args.checked === "boolean") {
+      value = !this.args.checked;
+    } else {
+      if (ev.target.checked) {
+        value = this.args.trueLabel === undefined ? true : this.args.trueLabel;
       } else {
-        if (ev.target.checked) {
-          value = this.trueLabel === undefined ? true : this.trueLabel;
-        } else {
-          value = this.falseLabel === undefined ? false : this.falseLabel;
-        }
-      }
-
-      set(this, 'value', value);
-      this.modelSet(this.value);
-      if (this.action) {
-        this.action(this.value);
+        value = this.args.falseLabel === undefined ? false : this.args.falseLabel;
       }
     }
-  },
+
+    set(this, 'value', value);
+    this.modelSet(this.value);
+    if (typeof this.args.action === 'function') {
+      this.args.action(this.value);
+    }
+  }
 
 
   modelGet() {
@@ -132,31 +119,27 @@ export default Component.extend({
       } else if (model !== null && model !== undefined) {
         return model === this.trueLabel;
       }
-
-
     }
 
     return this.model;
+  }
 
-  },
   modelSet(val) {
-
     if (this.parent) {
-      set(this, 'isLimitExceeded', false);
+      this.isLimitExceeded = this.parent.min !== undefined && val.length < this.parent.min;
+      this.isLimitExceeded = this.parent.max !== undefined && val.length > this.parent.max;
 
-      (this.parent.min !== undefined && val.length < this.parent.min && (set(this, 'isLimitExceeded', true)));
-      (this.parent.max !== undefined && val.length > this.parent.max && (set(this, 'isLimitExceeded', true)));
       if (Array.isArray(this.model) && this.isLimitExceeded === false && !this.model.includes(this.label)) {
-        set(this, 'model', [...this.model, this.label]);
+        this.model = [...this.model, this.label];
       } else {
         const index = this.model.indexOf(this.label);
         this.model.splice(index, 1);
-        set(this, 'model', [...this.model]);
+        this.model = [...this.model];
       }
     } else {
-      set(this, 'value', val);
-      set(this, 'model', val);
+      this.value = val;
+      this.model = val;
     }
-  },
+  }
 
-});
+}

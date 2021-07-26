@@ -1,42 +1,48 @@
-import Component from '@ember/component';
-import layout from '../templates/components/el-badge';
-import {computed, get} from "@ember/object";
+import Component from '@glimmer/component';
+import {computed} from "@ember/object";
 
-export default Component.extend({
-  layout,
+import {htmlSafe} from '@ember/template';
+import {tracked} from "@glimmer/tracking";
 
-  classNames: ['el-badge'],
-  value: null,
-  max: null,
-  isDot: false,
-  hidden: false,
-  type: 'primary',
+export default class ElBadgeComponent extends Component {
 
-  isShow: computed('hidden', 'content', 'isDot', function(){
-    return !get(this, 'hidden') && (get(this, 'content') || get(this, 'content') === 0 || get(this, 'isDot'));
-  }),
+  // layout,
 
-  init(){
-    this._super();
+  // classNames: ['el-badge'],
+  /* value: null,
+   max: null,
+   isDot: false,
+   hidden: false,
+   type: 'primary',*/
 
-    let type = get(this,'type');
+  @computed('args.{hidden,content,isDot}')
+  get isShow() {
+    return !this.args.hidden && (this.args.content || this.args.content === 0 || this.args.isDot);
+  }
 
-    if(['primary', 'success', 'warning', 'info', 'danger'].indexOf(type) === -1){
-      // console.error('Provided type for el-badge is not valid. Please select one from [\'primary\', \'success\', \'warning\', \'info\', \'danger\']');
-    }
+  /* init(){
+     this._super();
 
-    // set(this, 'value')
-  },
+     let type = get(this,'type');
 
-  content: computed('isDot', 'value', 'max', function(){
-    if(get(this, 'isDot')) return;
-    const value = get(this, 'value');
-    const max = get(this, 'max');
+     if(['primary', 'success', 'warning', 'info', 'danger'].indexOf(type) === -1){
+       // console.error('Provided type for el-badge is not valid. Please select one from [\'primary\', \'success\', \'warning\', \'info\', \'danger\']');
+     }
 
-    if(typeof value === 'number' && typeof max === 'number'){
+     // set(this, 'value')
+   }*/
+
+  @computed('args.{isDot,value,max}')
+  get content() {
+    if (this.args.isDot) return;
+
+    const value = this.args.value;
+    const max = this.args.max;
+
+    if (typeof value === 'number' && typeof max === 'number') {
       return max < value ? `${max}+` : value;
     }
 
     return value;
-  }),
-});
+  }
+}

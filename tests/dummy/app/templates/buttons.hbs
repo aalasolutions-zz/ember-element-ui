@@ -222,7 +222,7 @@
     {{#el-row}}
       {{#el-button-group}}
         {{#el-button color="primary" icon="el-icon-arrow-left"}}Previous Page{{/el-button}}
-        {{#el-button color="primary"}}Next Page<i class="el-icon-arrow-right el-icon-right"></i>{{/el-button}}
+        {{#el-button color="primary"}}Next Page <i class="el-icon-arrow-right el-icon-right"></i>{{/el-button}}
       {{/el-button-group}}
 
 
@@ -237,7 +237,7 @@
 <pre><code class="language-handlebars">\{{#el-row}}
   \{{#el-button-group}}
     \{{#el-button color="primary" icon="el-icon-arrow-left"}}Previous Page\{{/el-button}}
-    \{{#el-button color="primary"}}Next Page<i class="el-icon-arrow-right el-icon-right"></i>\{{/el-button}}
+    \{{#el-button color="primary"}}Next Page &les;i class="el-icon-arrow-right el-icon-right">&les;/i>\{{/el-button}}
   \{{/el-button-group}}
 
 
@@ -307,12 +307,20 @@
 <h2>Attributes</h2>
 {{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
 {{#card.body}}
-    {{#el-table data=tableAttributes  as |t|}}
-      {{t.column prop="attribute" label="Attribute" width=150}}
-      {{t.column prop="desc" label="Description"}}
-      {{t.column prop="type" label="Type" width=100}}
-      {{t.column prop="val" label="Accepted Values" width=250}}
-      {{t.column prop="def" label="Default" width=75}}
-    {{/el-table}}
+
+
+  <EmberTable as |t|>
+    <t.head @columns={{this.columns}} />
+    <t.body @rows={{this.rows}} />
+  </EmberTable>
+
+{{!--  --}}
+{{!--    {{#el-table data=tableAttributes  as |t|}}--}}
+{{!--      {{t.column prop="attribute" label="Attribute" width=150}}--}}
+{{!--      {{t.column prop="desc" label="Description"}}--}}
+{{!--      {{t.column prop="type" label="Type" width=100}}--}}
+{{!--      {{t.column prop="val" label="Accepted Values" width=250}}--}}
+{{!--      {{t.column prop="def" label="Default" width=75}}--}}
+{{!--    {{/el-table}}--}}
 {{/card.body}}
 {{/el-card}}
