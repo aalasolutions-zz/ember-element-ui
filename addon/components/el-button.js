@@ -39,8 +39,8 @@ export default class ElButtonComponent extends Component {
 
   @action
   click() {
-    if (typeof this.args.action === 'function') {
-      this.args.action();
+    if (typeof this.args.click === 'function') {
+      this.args.click();
     }
   }
 }

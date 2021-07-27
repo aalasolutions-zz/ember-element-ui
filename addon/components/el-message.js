@@ -1,78 +1,68 @@
-import Component from '@ember/component';
-import layout from '../templates/components/el-message';
-import {computed, get} from "@ember/object";
+import Component from '@glimmer/component';
+import {computed,action} from "@ember/object";
 import {htmlSafe} from '@ember/template';
-
 import {inject as service} from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+export default class ElMessageComponent extends Component {
+  @service('message') messagesService;
+  @tracked messageObj;
 
-export default Component.extend({
-  layout,
+  @computed('args.messageObj.dismiss')
+  get _messageObj() {
+    console.log('this', this.args.messageObj);
+    return this.args.messageObj || null;
+  }
 
-  messagesService: service('message'),
-  messageObj: null,
-
-  classNames: ['el-message', 'animated'],
-  classNameBindings: ['getClassName',
-    'messageObj.center:is-center',
-    'messageObj.showClose:is-closable',
-  ],
-
-  attributeBindings: ['role'],
-  role: 'alert',
-
-  getClassName: computed('messageObj.{type,iconClass,customClass,dismiss}', function () {
+  @computed('_messageObj.dismiss')
+  get className() {
     let classNames = '';
-    if (get(this, 'messageObj.type') && !get(this, 'messageObj.iconClass')) {
-      classNames += ` el-message--${get(this, 'messageObj.type')}`;
+    if (this._messageObj.type && !this._messageObj.iconClass) {
+      classNames += ` el-message--${this._messageObj.type}`;
     }
+    console.log('check', this._messageObj.dismiss);
 
-    if (get(this, 'messageObj.dismiss')) {
+    if (this._messageObj.dismiss) {
       classNames += ` fadeOutUpElCustom `;
-    }else{
+    } else {
       classNames += ` fadeInDownElCustom `;
-
     }
     return classNames;
-  }),
+  }
 
-
-  typeClass: computed('messageObj.{type,iconClass}', function () {
+  @computed('_messageObj')
+  get typeClass() {
     let typeMap = {
       success: 'success',
       info: 'info',
       warning: 'warning',
-      error: 'error'
+      error: 'error',
     };
-    return get(this, 'messageObj.type') && !get(this, 'messageObj.iconClass')
-      ? `el-message__icon el-icon-${ typeMap[get(this, 'messageObj.type')] }`
+    return this._messageObj.type && !this._messageObj.iconClass
+      ? `el-message__icon el-icon-${typeMap[this._messageObj.type]}`
       : '';
-  }),
+  }
+  @computed('_messageObj')
+  get messageHTML() {
+    return htmlSafe(this._messageObj.message);
+  }
 
-  messageHTML: computed('messageObj.message', function () {
-    return htmlSafe(get(this, 'messageObj.message'));
-  }),
-
-
-  actions: {
-    close() {
-      this.close();
-    },
-
-  },
-
+  @action
   close() {
-    get(this, 'messagesService').removeMessage(get(this, 'messageObj'));
-  },
-
+    this.close();
+  }
+  close() {
+    this.messagesService.removeMessage(this._messageObj);
+  }
+  @action
   mouseEnter() {
-    if (get(this, 'messageObj.autoClear')) {
-      get(this, 'messagesService').clearTimer(get(this, 'messageObj'));
+    if (this._messageObj.autoClear) {
+      this.messagesService.clearTimer(this._messageObj);
     }
-  },
+  }
+  @action
   mouseLeave() {
-    if (get(this, 'messageObj.autoClear')) {
-      get(this, 'messagesService').startTimer(get(this, 'messageObj'));
+    if (this._messageObj.autoClear) {
+      this.messagesService.startTimer(this._messageObj);
     }
-  },
-
-});
+  }
+};
