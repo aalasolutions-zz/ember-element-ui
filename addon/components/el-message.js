@@ -3,13 +3,13 @@ import {computed,action} from "@ember/object";
 import {htmlSafe} from '@ember/template';
 import {inject as service} from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+
 export default class ElMessageComponent extends Component {
   @service('message') messagesService;
   @tracked messageObj;
 
   @computed('args.messageObj.dismiss')
   get _messageObj() {
-    console.log('this', this.args.messageObj);
     return this.args.messageObj || null;
   }
 
@@ -19,8 +19,7 @@ export default class ElMessageComponent extends Component {
     if (this._messageObj.type && !this._messageObj.iconClass) {
       classNames += ` el-message--${this._messageObj.type}`;
     }
-    console.log('check', this._messageObj.dismiss);
-
+  
     if (this._messageObj.dismiss) {
       classNames += ` fadeOutUpElCustom `;
     } else {
