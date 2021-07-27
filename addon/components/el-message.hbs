@@ -1,12 +1,15 @@
-{{#if messageObj.iconClass}}
-  <i class="el-message__icon {{messageObj.iconClass}} "></i>
-{{else}}
-  <i class={{typeClass}}></i>
-{{/if}}
+<div class="el-message animate__animated {{if @messageObj.center 'is-center'}} {{if @messageObj.showClose 'is-closable'}} {{this.className}}" {{on 'mouseenter' this.mouseEnter}} {{on 'mouseleave' this.mouseLeave}} role="alert">
 
-<p class="el-message__content">{{ messageHTML }}</p>
+  {{#if @messageObj.iconClass}}
+    <i class="el-message__icon {{@messageObj.iconClass}} "></i>
+  {{else}}
+    <i class={{this.typeClass}}></i>
+  {{/if}}
 
-{{#if messageObj.showClose}}
-  <i class="el-message__closeBtn el-icon-close" {{action "close"}} role="button">
-  </i>
-{{/if}}
+  <p class="el-message__content">{{this.messageHTML }}</p>
+
+  {{#if @messageObj.showClose}}
+    <i class="el-message__closeBtn el-icon-close" {{on 'click' this.close}} role="button">
+    </i>
+  {{/if}}
+</div>
