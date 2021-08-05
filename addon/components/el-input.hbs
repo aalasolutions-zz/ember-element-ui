@@ -1,3 +1,12 @@
+<div class="
+{{this._getClassName}}
+{{if this._disabled " is-disabled "}}
+{{if this._isGroup " el-input-group "}}
+{{if this._isPrefix " el-input--prefix "}}
+{{if this._isSuffix " el-input--suffix "}}
+{{if this._append " el-input-group--append "}}
+{{if this._prepend " el-input-group--prepend"}}
+">
 {{yield
   (hash
     prepend=(component "el-input-prepend" object=object)
@@ -5,38 +14,38 @@
 }}
 
 {{input
-  tabindex=tabindex
-  class=(concat "el-input__inner " customClass)
-  type=type
-  disabled=disabled
-  readonly=readonly
-  autocomplete=autocomplete
-  name=name
-  value=value
-  placeholder=placeholder
+  tabindex=this._tabindex
+  class=(concat "el-input__inner " this._customClass)
+  type=this._type
+  disabled=this._disabled
+  readonly=this._readonly
+  autocomplete=this._autocomplete
+  name=this._name
+  value=this.value
+  placeholder=this._placeholder
 }}
 
-{{#if prefixIcon}}
+{{#if this._prefixIcon}}
   <span class="el-input__prefix">
-    <i class="el-input__icon {{prefixIcon}}"></i>
+    <i class="el-input__icon {{this._prefixIcon}}"></i>
   </span>
 {{/if}}
 
 
-{{#if _isShowSuffixIcon}}
+{{#if this._isShowSuffixIcon}}
 
   <span class="el-input__suffix">
     <span class="el-input__suffix-inner">
-      {{#if showClear}}
+      {{#if this._showClear}}
         <i
           class="el-input__icon el-icon-circle-close el-input__clear"
           role="button"
-          {{action "clear"}}
+          {{on 'click' this.clear}}
         >
         </i>
       {{else}}
-        {{#if suffixIcon}}
-          <i class="el-input__icon {{suffixIcon}}"></i>
+        {{#if this._suffixIcon}}
+          <i class="el-input__icon {{this._suffixIcon}}"></i>
         {{/if}}
       {{/if}}
     </span>
@@ -50,3 +59,4 @@
     append=(component "el-input-append" object=object)
   )
 }}
+</div>
