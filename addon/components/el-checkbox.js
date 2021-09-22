@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import {action, computed} from "@ember/object";
+import {action, computed, set} from "@ember/object";
 import {tracked} from '@glimmer/tracking';
 
 export default class ElCheckboxComponent extends Component {
@@ -101,9 +101,9 @@ export default class ElCheckboxComponent extends Component {
     }
 
     set(this, 'value', value);
-    this.modelSet(this.value);
+    this.modelSet(value);
     if (typeof this.args.action === 'function') {
-      this.args.action(this.value);
+      this.args.action(value);
     }
   }
 
