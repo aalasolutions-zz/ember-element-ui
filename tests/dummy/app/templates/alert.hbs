@@ -165,13 +165,19 @@
 <h2>Attributes</h2>
 {{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
 {{#card.body}}
-  {{#el-table data=tableAttributes  as |t|}}
+
+  <EmberTable as |t|>
+    <t.head @columns={{this.columns}} />
+    <t.body @rows={{this.rows}} />
+  </EmberTable>
+
+ {{!-- {{#el-table data=tableAttributes  as |t|}}
     {{t.column prop="attribute" label="Attribute" width=150}}
     {{t.column prop="desc" label="Description"}}
     {{t.column prop="type" label="Type" width=100}}
     {{t.column prop="val" label="Accepted Values" width=250}}
     {{t.column prop="def" label="Default" width=75}}
-  {{/el-table}}
+  {{/el-table}}--}}
 {{/card.body}}
 {{/el-card}}
 
@@ -179,10 +185,15 @@
 <h3>Events</h3>
 {{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
 {{#card.body}}
-  {{#el-table data=tableEvents as |t|}}
+
+  <EmberTable as |t|>
+    <t.head @columns={{this.columnsEvents}} />
+    <t.body @rows={{this.rowsEvents}} />
+  </EmberTable>
+{{!--  {{#el-table data=tableEvents as |t|}}
     {{t.column prop="event" label="Event Name" width=150}}
     {{t.column prop="desc" label="Description"}}
     {{t.column prop="param" label="Parameters" width=155}}
-  {{/el-table}}
+  {{/el-table}}--}}
 {{/card.body}}
 {{/el-card}}

@@ -1,8 +1,6 @@
-import Component from '@ember/component';
-import layout from '../templates/components/el-button-group';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  layout,
-  classNames: ['el-button-group'],
+export default class ElButtonGroupComponent extends Component {
 
-});
+
+}

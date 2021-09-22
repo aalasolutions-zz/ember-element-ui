@@ -6,7 +6,17 @@ export default Controller.extend({
   subject  : "English",
   framework: "Ember",
   IntSports: "Hockey",
-  tableAttributes: [
+
+
+  columns:[
+    {name: `Attribute`, valuePath: `attribute`},
+    {name: `Description`, valuePath: `desc`},
+    {name: `Type`, valuePath: `type`},
+    {name: `Accepted Values`, valuePath: `val`},
+    {name: `Default`, valuePath: `def`}
+  ],
+
+  rows: [
     { attribute: 'value / model', desc: "binding value", type: "string", val: '-', def: '-' },
     { attribute: 'label', desc: "the value of Radio", type: "string", val: '-', def: '-' },
     { attribute: 'disabled', desc: "whether Radio is disabled	", type: "boolean", val: '-', def: 'false' },

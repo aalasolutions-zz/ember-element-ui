@@ -2,7 +2,15 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
 
-  tableAttributes:[
+
+  columns:[
+    {name: `Attribute`, valuePath: `attribute`},
+    {name: `Description`, valuePath: `desc`},
+    {name: `Type`, valuePath: `type`},
+    {name: `Accepted Values`, valuePath: `val`},
+    {name: `Default`, valuePath: `def`}
+  ],
+  rows:[
     {attribute: 'title', desc: "title", type: "string", val: '-', def: '-'},
     {attribute: 'type', desc: "component type", type: "string", val: 'success/warning/info/error', def: 'info'},
     {attribute: 'description', desc: "descriptive text. Can also be passed with the default block component", type: "string", val: '-', def: '-'},
@@ -17,7 +25,12 @@ export default Controller.extend({
 
   ],
 
-  tableEvents:[
+  columnsEvents:[
+    {name: `Event Name`, valuePath: `event`},
+    {name: `Description`, valuePath: `desc`},
+    {name: `Parameters`, valuePath: `param`},
+  ],
+  rowsEvents:[
     {event: 'close', desc: "triggers when Tag is removed", param: "--"},
   ],
 

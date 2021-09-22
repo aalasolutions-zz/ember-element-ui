@@ -1,0 +1,24 @@
+<label class="el-radio
+  {{if this.isChecked 'is-checked'}}
+  {{if @disabled 'is-disabled'}}
+  {{if @border 'is-bordered'}} {{this.sizeClass}}
+" role="radio" aria-checked={{this.isChecked}} >
+  <span
+          class="el-radio__input {{if this.isChecked " is-checked "}} {{if @disabled " is-disabled "}}"
+  >
+  <span class="el-radio__inner">
+  </span>
+    {{el-radio-input
+            value=@label
+            model=@model
+            name=@name
+            item=@item
+            disabled=@disabled
+            changed=(fn this.changed)
+            class="el-radio__original"
+    }}
+  </span>
+  <span class="el-radio__label">
+    {{yield}}
+  </span>
+</label>
