@@ -1,71 +1,78 @@
-import Component from '@glimmer/component';
-import {action, computed} from "@ember/object";
-import {tracked} from '@glimmer/tracking';
-
+import Component from '@ember/component';
+import layout from '../templates/components/el-alert';
+import {computed, get, set} from "@ember/object";
 import transition from "../utils/transition";
 
 
-export default class ElAlertComponent extends Component {
+export default Component.extend({
+  layout,
 
-  @tracked TYPE_CLASSES_MAP = null;
-  @tracked isClosed = false;
+  TYPE_CLASSES_MAP: null,
 
-  constructor(owner, args) {
-    super(owner, args);
+  classNames: ['el-alert','animated', 'fadeIn'],
+  classNameBindings: ['typeClass', 'effectClass',
+    'center:is-center',
+    'isClosed:el-hidden',
+  ],
 
-    this.TYPE_CLASSES_MAP = {
-      'success': 'el-icon-success',
-      'warning': 'el-icon-warning',
-      'error': 'el-icon-error'
+  attributeBindings: ['role'],
+
+  role: 'alert',
+
+  title: '',
+  description: '',
+  type: 'info',
+  closable: true,
+  closeText: '',
+  showIcon: false,
+  center: false,
+  isClosed: false,
+  effect: 'light',
+
+  init() {
+    this._super();
+    set(this,
+      'TYPE_CLASSES_MAP', {
+        'success': 'el-icon-success',
+        'warning': 'el-icon-warning',
+        'error': 'el-icon-error'
+      }
+    )
+  },
+
+  typeClass: computed('type', function () {
+    return `el-alert--${ get(this, 'type') }`;
+  }),
+  effectClass: computed('effect', function () {
+    return `is-${ get(this, 'effect') }`;
+  }),
+  iconClass: computed('type', function () {
+    return get(this, 'TYPE_CLASSES_MAP')[get(this, 'type')] || 'el-icon-info';
+  }),
+  isBigIcon: computed('description', function () {
+    return get(this, 'description') !== '' ? 'is-big' : '';
+  }),
+  isBoldTitle: computed('description', function () {
+    return get(this, 'description') !== '' ? 'is-bold' : '';
+
+  }),
+
+  actions: {
+    close() {
+      let e = this.element;
+
+      let transitionEvent = transition('animation');
+      e.addEventListener(transitionEvent, () => {
+        set(this, 'isClosed', true);
+        if (this.get('action')) {
+          this.get('action')();
+        }
+      });
+
+      e.classList.add('animated');
+      e.classList.add('fadeOut');
+
     }
   }
 
-  @computed('args.type')
-  get typeClass() {
-    return `el-alert--${(this.args.type || 'info')}`;
-  }
-
-  @computed('args.effect')
-  get effectClass() {
-    return `is-${(this.args.effect || 'light')}`;
-  }
-
-  @computed('args.type')
-  get iconClass() {
-    let typeClass = (this.args.type || 'info');
-    return this.TYPE_CLASSES_MAP[typeClass] || 'el-icon-info'
-  }
-
-  @computed('args.description')
-  get isBigIcon() {
-    return this.args.description ? 'is-big' : '';
-  }
-
-  @computed('args.description')
-  get isBoldTitle() {
-    return this.args.description ? 'is-bold' : '';
-  }
-
-  @computed('args.closable')
-  get isClosable() {
-    return typeof this.args.closable === 'boolean' ? this.args.closable : true;
-  }
-
-  @action
-  close(dom) {
-    let e = dom.target.closest('.el-alert');
-
-    let transitionEvent = transition('animation');
-    e.addEventListener(transitionEvent, () => {
-      this.isClosed = true;
-      if (typeof this.args.action === 'function') {
-        this.args.action();
-      }
-    });
-
-    e.classList.add('animate__animated');
-    e.classList.remove('animate__fadeIn');
-    e.classList.add('animate__fadeOut');
-  }
-
-}
+});

@@ -86,18 +86,12 @@
 <h2>Attributes</h2>
 {{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
 {{#card.body}}
-
-  <EmberTable as |t|>
-    <t.head @columns={{this.columns}} />
-    <t.body @rows={{this.rows}} />
-  </EmberTable>
-{{!--  --}}
-{{!--  {{#el-table data=tableAttributes  as |t|}}--}}
-{{!--    {{t.column prop="attribute" label="Attribute" width=150}}--}}
-{{!--    {{t.column prop="desc" label="Description"}}--}}
-{{!--    {{t.column prop="type" label="Type" width=100}}--}}
-{{!--    {{t.column prop="val" label="Accepted Values" width=250}}--}}
-{{!--    {{t.column prop="def" label="Default" width=75}}--}}
-{{!--  {{/el-table}}--}}
+  {{#el-table data=tableAttributes  as |t|}}
+    {{t.column prop="attribute" label="Attribute" width=150}}
+    {{t.column prop="desc" label="Description"}}
+    {{t.column prop="type" label="Type" width=100}}
+    {{t.column prop="val" label="Accepted Values" width=250}}
+    {{t.column prop="def" label="Default" width=75}}
+  {{/el-table}}
 {{/card.body}}
 {{/el-card}}

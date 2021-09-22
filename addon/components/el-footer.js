@@ -1,10 +1,19 @@
-import Component from '@glimmer/component';
-import {computed} from "@ember/object";
+import Component from '@ember/component';
+import layout from '../templates/components/el-footer';
+import {computed, get} from "@ember/object";
 import {htmlSafe} from '@ember/template';
 
-export default class ElFooterComponent extends Component {
-  @computed('args.height')
-  get style() {
-    return htmlSafe('height: ' + (this.args.height || '60px'));
-  }
-}
+export default Component.extend({
+  layout,
+  tagName: 'footer',
+  classNames: ['el-footer'],
+  height: '60px',
+
+
+  attributeBindings: ['style', 'dataComponent:data-component'],
+  dataComponent: 'el-footer',
+
+  style: computed('height', function () {
+    return htmlSafe('height: ' + get(this, 'height'));
+  }),
+});

@@ -1,20 +1,17 @@
-import Component from '@glimmer/component';
-import { computed } from "@ember/object";
+import Component from '@ember/component';
+import layout from '../templates/components/el-divider';
+import { computed, get } from "@ember/object";
 
-export default class ElDividerComponent extends Component {
+export default Component.extend({
+  layout,
+  classNames       : ['el-divider'],
+  classNameBindings: ['getClassName'],
 
-  @computed('args.contentPosition')
-  get _contentPosition () {
-    return this.args.contentPosition || "center";
-  }
 
-  @computed('args.direction')
-  get _direction(){
-    return this.args.direction || 'horizontal';
-  }
+  direction      : "horizontal",
+  contentPosition: "center",
 
-  @computed('_direction')
-  get className() {
-    return 'el-divider--' + this._direction ;
-  }
-}
+  getClassName: computed('direction', function () {
+    return 'el-divider--' + get(this, 'direction') ;
+  }),
+});

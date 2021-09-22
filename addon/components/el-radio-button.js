@@ -1,23 +1,45 @@
-import Component from '@glimmer/component';
-import {action, computed} from "@ember/object";
-import {tracked} from '@glimmer/tracking';
+import Component from '@ember/component';
+import layout from '../templates/components/el-radio-button';
+import {computed} from '@ember/object';
 
-export default class ElRadioButtonComponent extends Component {
+export default Component.extend({
+  layout,
 
-  @computed('args.{model,label}')
-  get isChecked() {
-    return this.args.model === this.args.label;
-  }
+  tagName: 'label',
+  classNames: ['el-radio-button'],
 
-  @computed('args.size')
-  get sizeClass() {
-    return this.args.size ? 'el-radio-button--' + this.args.size : "";
-  }
+  classNameBindings: [
+    'isChecked:is-checked',
+    'disabled:is-disabled',
+    'sizeClass'
+  ],
+  attributeBindings: [
+    'role',
+    'isChecked:aria-checked'
+  ],
+  role: 'radio',
 
-  @action
-  changed(value, name) {
-    if (typeof this.args.action === 'function') {
-      this.args.action(value, name);
+  model: null,
+  label: null,
+  name: null,
+  change: null,
+  item: '',
+
+  size: '',
+
+  isChecked: computed('model', 'label', function () {
+    return this.get('model') === this.get('label');
+  }),
+
+  sizeClass: computed('size', function () {
+    return (this.get('size')) ? 'el-radio-button--' + this.get('size') : "";
+  }),
+
+  actions: {
+    changed(value, name) {
+      if (this.get('action')) {
+        this.get('action')(value, name);
+      }
     }
   }
-}
+});

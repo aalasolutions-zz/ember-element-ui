@@ -1,56 +1,53 @@
-import Component from '@glimmer/component';
-
-import {computed} from "@ember/object";
+import Component from '@ember/component';
+import layout from '../templates/components/el-col';
+import {computed, get} from "@ember/object";
 import {htmlSafe} from '@ember/template';
 
-export default class ElColComponent extends Component {
-  // span: 24,
-  // offset: null,
-  // pull: null,
-  // push: null,
-  // xs: null,
-  // sm: null,
-  // md: null,
-  // lg: null,
-  // xl: null,
-  //
-  // gutter: null,
-  //
-  // classNames: ['el-col'],
-  // classNameBindings: ['getClassName'],
-  // attributeBindings: ['style'],
+export default Component.extend({
+  layout,
+  span: 24,
+  offset: null,
+  pull: null,
+  push: null,
+  xs: null,
+  sm: null,
+  md: null,
+  lg: null,
+  xl: null,
 
-  @computed('args.gutter')
-  get style() {
-    if (this.args.gutter) {
-      let gutter = (this.args.gutter / 2) + 'px';
+  gutter: null,
+
+  classNames: ['el-col'],
+  classNameBindings: ['getClassName'],
+  attributeBindings: ['style'],
+
+  style: computed('gutter', function () {
+    if (get(this, 'gutter')) {
+      let gutter = (get(this, 'gutter') / 2) + 'px';
       return htmlSafe(`padding-left: ${gutter}; padding-right: ${gutter}`);
     }
     return htmlSafe("");
-  }
+  }),
 
-
-  @computed('args.{span,offset,pull,push,xs,sm,md,lg,xl}')
-  get className() {
+  getClassName: computed('span', 'offset', 'pull', 'push', 'xs', 'sm', 'md', 'lg', 'xl', function () {
 
     let classList = [];
-    classList.push('el-col');
     ['span', 'offset', 'pull', 'push'].forEach(prop => {
-      if (this.args[prop] || this.args[prop] === 0) {
+      if (get(this, prop) || get(this, prop) === 0) {
         classList.push(
           prop !== 'span'
-            ? `el-col-${prop}-${this.args[prop]}`
-            : `el-col-${this.args[prop]}`
+            ? `el-col-${prop}-${get(this, prop)}`
+            : `el-col-${get(this, prop)}`
         );
       }
     });
 
 
     ['xs', 'sm', 'md', 'lg', 'xl'].forEach(size => {
-      if (typeof this.args[size] === 'number') {
-        classList.push(`el-col-${size}-${this.args[size]}`);
-      } else if (this.args[size] && typeof this.args[size] === 'object') {
-        let props = this.args[size];
+      if (typeof get(this, size) === 'number') {
+        classList.push(`el-col-${size}-${get(this, size)}`);
+      } else if (get(this, size) && typeof get(this, size) === 'object') {
+        let props = get(this, size);
 
 
         Object.keys(props).forEach(prop => {
@@ -63,8 +60,8 @@ export default class ElColComponent extends Component {
       }
     });
 
-    return htmlSafe(classList.join(' '));
+    return classList.join(' ');
 
-  }
+  }),
 
-}
+});

@@ -1,4 +1,14 @@
-import Component from '@glimmer/component';
+import Component from '@ember/component';
+import layout from '../templates/components/el-radio-group';
 
-export default class ElRadioGroupComponent extends Component {
-}
+export default Component.extend({
+  layout,
+  classNames: ['el-radio-group'],
+  model: null,
+  size: '',
+  fill: '#409EFF',
+
+
+  attributeBindings: ['role'],
+  role: 'radiogroup',
+});

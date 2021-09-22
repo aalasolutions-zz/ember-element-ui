@@ -1,154 +1,82 @@
-import Component from '@glimmer/component';
-import {tracked} from '@glimmer/tracking';
-import {action, computed, set} from "@ember/object";
+import Component from '@ember/component';
+import layout from '../templates/components/el-input';
+import {computed, get, set} from "@ember/object";
 
-export default class ElInputComponent extends Component{
+export default Component.extend({
+  layout,
+  value: null,
+  size: null,
+  resize: null,
+  disabled: false,
+  readonly: false,
+  type: 'text',
+  autosize: false,
+  autocomplete: 'off',
+  validateEvent: true,
+  suffixIcon: null,
+  prefixIcon: null,
+  label: null,
+  clearable: false,
+  tabindex: '',
+  placeholder: '',
+  prepend: null,
+  append: null,
+  customClass: '',
 
-  @tracked value;
+  _isGroup: computed('prepend', 'append', function () {
+    return !!(get(this, 'prepend') || get(this, 'append'));
+  }),
 
-  constructor(owner, args) {
-    super(owner, args);
-    this.value = this._value;
-  }
+  _isPrefix: computed('prefix', 'prefixIcon', function () {
+    return !!(get(this, 'prefix') || get(this, 'prefixIcon'));
+  }),
 
-  @computed('args.value')
-  get _value () {
-    return this.args.value || null;
-  }
+  _isSuffix: computed('suffix', 'suffixIcon', function () {
+    return !!(get(this, 'suffix') || get(this, 'suffixIcon'));
+  }),
 
-  @computed('args.size')
-  get _size () {
-    return this.args.size || null;
-  }
 
-  @computed('args.resize')
-  get _resize () {
-    return this.args.resize || null;
-  }
+  showClear: computed('clearable', 'disabled', 'readonly', 'value', function () {
+    return this.get('clearable') &&
+      !this.get('disabled') &&
+      !this.get('readonly') &&
+      this.get('value') !== ''
+  }),
 
-  @computed('args.disabled')
-  get _disabled () {
-    return this.args.disabled || false;
-  }
 
-  @computed('args.readonly')
-  get _readonly () {
-    return this.args.readonly || false;
-  }
+  _isShowSuffixIcon: computed('suffixIcon', 'showClear', 'validateState', 'needStatusIcon', function () {
+    return !!(get(this, 'suffixIcon') || get(this, 'showClear') || (get(this, 'validateState') && get(this, 'needStatusIcon')));
+  }),
 
-  @computed('args.type')
-  get _type () {
-    return this.args.type || 'text';
-  }
 
-  @computed('args.autosize')
-  get _autosize () {
-    return this.args.autosize || false;
-  }
+  classNameBindings: ['getClassName',
+    'disabled:is-disabled',
+    '_isGroup:el-input-group',
+    '_isPrefix:el-input--prefix',
+    '_isSuffix:el-input--suffix',
+    'append:el-input-group--append',
+    'prepend:el-input-group--prepend',
+  ],
 
-  @computed('args.autocomplete')
-  get _autocomplete () {
-    return this.args.autocomplete || 'off';
-  }
 
-  @computed('args.validateEvent')
-  get _validateEvent () {
-    return this.args.validateEvent || true;
-  }
-
-  @computed('args.suffixIcon')
-  get _suffixIcon () {
-    return this.args.suffixIcon || null;
-  }
-
-  @computed('args.prefixIcon')
-  get _prefixIcon () {
-    return this.args.prefixIcon || null;
-  }
-
-  @computed('args.label')
-  get _label () {
-    return this.args.label || null;
-  }
-
-  @computed('args.clearable')
-  get _clearable () {
-    return this.args.clearable || false;
-  }
-
-  @computed('args.tabindex')
-  get _tabindex () {
-    return this.args.tabindex || '';
-  }
-
-  @computed('args.placeholder')
-  get _placeholder () {
-    return this.args.placeholder || '';
-  }
-
-  @computed('args.prepend')
-  get _prepend () {
-    return this.args.prepend || null;
-  }
-
-  @computed('args.append')
-  get _append () {
-    return this.args.append || null;
-  }
-
-  @computed('args.customClass')
-  get _customClass () {
-    return this.args.customClass || '';
-  }
-
-  get _isGroup () {
-    return !!(this._prepend || this._append)
-  }
-
-  @computed('args.prefix')
-  get _isPrefix () {
-    return !!(this.prefix || this._prefixIcon)
-  }
-
-  @computed('args.suffix')
-  get _isSuffix () {
-    return !!(this.suffix || this._suffixIcon)
-  }
-
-  get _showClear () {
-    return this._clearable &&
-      !this._disabled &&
-      !this._readonly &&
-      this.value !== ''
-  }
-
-  @computed('args.{validateState,needStatusIcon}')
-  get _isShowSuffixIcon () {
-    return !!(
-      this._suffixIcon || 
-      this._showClear || 
-      (
-        this.validateState && 
-        this.needStatusIcon)
-      );
-  }
-
-  get _getClassName () {
+  getClassName: computed('type', 'size', function () {
 
     let classNames = '';
-    classNames += this._type === 'textarea' ? 'el-textarea' : 'el-input';
 
-    if (this._size) {
-      classNames += ` el-input--${this._size}`;
+    classNames += get(this, 'type') === 'textarea' ? 'el-textarea' : 'el-input';
+
+    if (get(this, 'size')) {
+      classNames += ` el-input--${get(this, 'size')}`;
     }
 
     return classNames;
+  }),
+
+  actions: {
+    clear() {
+      set(this, 'value', '');
+    }
   }
 
 
-  @action
-  clear() {
-    set(this, 'value', '')
-  }
-
-}
+});
