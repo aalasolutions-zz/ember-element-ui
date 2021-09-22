@@ -3,20 +3,20 @@
 
 <h3>Basic usage</h3>
 <p>Checkbox can be used alone to switch between two states.</p>
-<ElCard @class="box-card" @shadow="hover" as |card|>
-  <card.header @title="
+{{#el-card class="box-card" shadow="hover" as |card|}}
+  {{#card.header title="
     The default value is a Boolean for single checkbox, and it becomes true when selected.
-    Content inside the el-checkbox tag will become the description following the button of the checkbox."></card.header>
-  <card.body>
+    Content inside the el-checkbox tag will become the description following the button of the checkbox."}}{{/card.header}}
+  {{#card.body}}
     <p>Current value of checkbox: {{checked}}</p>
-    <ElCard @class="box-card" @shadow="naver" as |card|>
-      <card.body>
+    {{#el-card class="box-card" shadow="naver" as |card|}}
+      {{#card.body}}
         {{#el-checkbox model=checked}}Option{{/el-checkbox}}
-      </card.body>
-    </ElCard>
-    <pre><code class="language-handlebars">&lt;ElCheckbox @model=checked>Option&lt;/ElCheckbox></code></pre>
-  </card.body>
-</ElCard>
+      {{/card.body}}
+    {{/el-card}}
+    <pre><code class="language-handlebars">\{{#el-checkbox model=checked}}Option\{{/el-checkbox}}</code></pre>
+  {{/card.body}}
+{{/el-card}}
 
 <h3>Disabled</h3>
 <p>Disabled state for checkbox.</p>
@@ -277,19 +277,13 @@ checkboxGroup2: [],</code></pre>
 <h2>Checkbox Attributes</h2>
 {{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
   {{#card.body}}
-
-    <EmberTable as |t|>
-      <t.head @columns={{this.columns}} />
-      <t.body @rows={{this.rows}} />
-    </EmberTable>
-
-    {{!-- {{#el-table data=cbAttributes  as |t|}}
+    {{#el-table data=cbAttributes  as |t|}}
       {{t.column prop="attribute" label="Attribute" width=150}}
       {{t.column prop="desc" label="Description"}}
       {{t.column prop="type" label="Type" width=250}}
       {{t.column prop="val" label="Accepted Values" width=250}}
       {{t.column prop="def" label="Default" width=75}}
-    {{/el-table}} --}}
+    {{/el-table}}
   {{/card.body}}
 {{/el-card}}
 
@@ -297,17 +291,11 @@ checkboxGroup2: [],</code></pre>
 <h2>Checkbox Events</h2>
 {{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
   {{#card.body}}
-
-    <EmberTable as |t|>
-      <t.head @columns={{this.columns}} />
-      <t.body @rows={{this.rows}} />
-    </EmberTable>
-
-    {{!-- {{#el-table data=cbEvents  as |t|}}
+    {{#el-table data=cbEvents  as |t|}}
       {{t.column prop="attribute" label="Event Name" width=150}}
       {{t.column prop="desc" label="Description"}}
       {{t.column prop="type" label="Parameters" width=250}}
-    {{/el-table}} --}}
+    {{/el-table}}
   {{/card.body}}
 {{/el-card}}
 
@@ -315,19 +303,13 @@ checkboxGroup2: [],</code></pre>
 <h2>Checkbox-group Attributes</h2>
 {{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
   {{#card.body}}
-
-    <EmberTable as |t|>
-      <t.head @columns={{this.columns}} />
-      <t.body @rows={{this.rows}} />
-    </EmberTable>
-{{!--    --}}
-{{!--    {{#el-table data=cbgAttributes  as |t|}}--}}
-{{!--      {{t.column prop="attribute" label="Attribute" width=150}}--}}
-{{!--      {{t.column prop="desc" label="Description"}}--}}
-{{!--      {{t.column prop="type" label="Type" width=250}}--}}
-{{!--      {{t.column prop="val" label="Accepted Values" width=250}}--}}
-{{!--      {{t.column prop="def" label="Default" width=75}}--}}
-{{!--    {{/el-table}}--}}
+    {{#el-table data=cbgAttributes  as |t|}}
+      {{t.column prop="attribute" label="Attribute" width=150}}
+      {{t.column prop="desc" label="Description"}}
+      {{t.column prop="type" label="Type" width=250}}
+      {{t.column prop="val" label="Accepted Values" width=250}}
+      {{t.column prop="def" label="Default" width=75}}
+    {{/el-table}}
   {{/card.body}}
 {{/el-card}}
 
@@ -336,35 +318,23 @@ checkboxGroup2: [],</code></pre>
 <h2>Checkbox-group Events</h2>
 {{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
   {{#card.body}}
-
-    <EmberTable as |t|>
-      <t.head @columns={{this.columns}} />
-      <t.body @rows={{this.rows}} />
-    </EmberTable>
-
-  {{!--  {{#el-table data=cbgEvents  as |t|}}
+    {{#el-table data=cbgEvents  as |t|}}
       {{t.column prop="attribute" label="Event Name" width=150}}
       {{t.column prop="desc" label="Description"}}
       {{t.column prop="type" label="Parameters" width=250}}
-    {{/el-table}}--}}
+    {{/el-table}}
   {{/card.body}}
 {{/el-card}}
 <br><br><br><br>
 <h2>Checkbox-button Attributes</h2>
 {{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
   {{#card.body}}
-
-    <EmberTable as |t|>
-      <t.head @columns={{this.columns}} />
-      <t.body @rows={{this.rows}} />
-    </EmberTable>
-    {{!--
     {{#el-table data=cbbAttributes  as |t|}}
       {{t.column prop="attribute" label="Attribute" width=150}}
       {{t.column prop="desc" label="Description"}}
       {{t.column prop="type" label="Type" width=250}}
       {{t.column prop="val" label="Accepted Values" width=250}}
       {{t.column prop="def" label="Default" width=75}}
-    {{/el-table}}--}}
+    {{/el-table}}
   {{/card.body}}
 {{/el-card}}

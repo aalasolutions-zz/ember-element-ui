@@ -1,14 +1,7 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
-  columns:[
-    {name: `Attribute`, valuePath: `attribute`},
-    {name: `Description`, valuePath: `desc`},
-    {name: `Type`, valuePath: `type`},
-    {name: `Accepted Values`, valuePath: `val`},
-    {name: `Default`, valuePath: `def`}
-  ],
-  rows:[
+  tableAttributes:[
     {attribute: 'percentage', desc: "percentage, required", type: "number", val: '0-100', def: '0'},
     {attribute: 'type', desc: "the type of progress bar", type: "string", val: 'line/circle', def: 'line'},
     {attribute: 'strokeWidth', desc: "the width of progress bar", type: "number", val: '-', def: '6'},
@@ -18,5 +11,5 @@ export default Controller.extend({
     {attribute: 'width', desc: "the canvas width of circle progress bar", type: "number", val: '-', def: '126'},
     {attribute: 'showText', desc: "whether to show percentage", type: "boolean", val: '-', def: 'true'},
   ],
-
+  
 });

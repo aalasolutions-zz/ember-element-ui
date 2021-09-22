@@ -1,6 +1,4 @@
 @import "ember-element-ui";
-@import "ember-table/default";
-
 
 h1 {
   margin: 9px;
@@ -85,6 +83,7 @@ header.header {
 }
 
 main.container {
+  //background-color: #f0f2f5;
   ul:not(.timeline) {
     font-size: 14px;
     color: #5e6d82;
@@ -348,15 +347,14 @@ body > .el-container {
 .side-nav {
 
 
-  a.active, a:hover {
+  a.active, a:hover{
     color: #409eff !important;
   }
 
-  a.not-done {
+  a.not-done{
     text-decoration: line-through !important;
     color: #929292 !important;
   }
-
   li {
     display: list-item;
     list-style: none;
@@ -409,7 +407,7 @@ body > .el-container {
 
 
   .nav-group {
-    ul {
+    ul{
       padding: 0;
       margin: 0;
       overflow: hidden;
@@ -454,18 +452,6 @@ body > .el-container {
       }
     }
   }
-}
 
 
-.ember-table {
-  th, td{
-    font-size: 14px;
-  }
-  thead {
-    th {
-      font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
-      color: #333333;
-      font-weight: bold;
-    }
-  }
 }

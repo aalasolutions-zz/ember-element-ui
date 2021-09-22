@@ -6,13 +6,13 @@
   {{#card.body}}
     {{#el-card class="box-card" shadow="naver" as |card|}}
       {{#card.body}}
-        <ElInput @placeholder="Please input" @type="" @value={{value}} @customClass="input-width" />
+        {{#el-input placeholder="Please input" type="" value=value customClass="input-width"}}{{/el-input}}
         {{#if value.length}}
           <br><br>&nbsp;&nbsp;{{value}}
         {{/if}}
       {{/card.body}}
     {{/el-card}}
-<pre><code class="language-handlebars">&lt;ElInput @placeholder="Please input" /></code></pre>
+<pre><code class="language-handlebars">\{{#el-input placeholder="Please input"}}\{{/el-input}}</code></pre>
   {{/card.body}}
 {{/el-card}}
 
@@ -21,10 +21,10 @@
   {{#card.body}}
     {{#el-card class="box-card" shadow="naver" as |card|}}
       {{#card.body}}
-        <ElInput @placeholder="Please input" @disabled="true" @customClass="input-width" />
+        {{#el-input placeholder="Please input" disabled="true" customClass="input-width"}}{{/el-input}}
       {{/card.body}}
     {{/el-card}}
-<pre><code class="language-handlebars">&lt;ElInput @placeholder="Please input" @disabled="true" /></code></pre>
+<pre><code class="language-handlebars">\{{#el-input placeholder="Please input" disabled="true"}}\{{/el-input}}</code></pre>
   {{/card.body}}
 {{/el-card}}
 
@@ -34,11 +34,11 @@
 {{#el-card class="box-card" shadow="naver" as |card|}}
   {{#card.body}}
     <div class="input-width">
-      <ElInput @placeholder="Please input" @clearable="true" />
+      {{#el-input placeholder="Please input" clearable="true" }}{{/el-input}}
     </div>
   {{/card.body}}
 {{/el-card}}
-<pre><code class="language-handlebars">&lt;ElInput @placeholder="Please input" @clearable="true" /></code></pre>
+<pre><code class="language-handlebars">\{{#el-input placeholder="Please input" clearable="true"}}\{{/el-input}}</code></pre>
   {{/card.body}}
 {{/el-card}}
 
@@ -49,15 +49,15 @@
 {{#el-card class="box-card" shadow="naver" as |card|}}
   {{#card.body}}
     <div class="input-width">
-    <ElInput @placeholder="Please input" @prefixIcon="el-icon-search" />
+    {{#el-input placeholder="Please input" prefixIcon="el-icon-search" }}{{/el-input}}
     <br>
     <br>
-    <ElInput @placeholder="Please input" @suffixIcon="el-icon-date" />
+    {{#el-input placeholder="Please input" suffixIcon="el-icon-date" }}{{/el-input}}
    </div>
   {{/card.body}}
 {{/el-card}}
-<pre><code class="language-handlebars">&lt;ElInput @placeholder="Please input" @prefixIcon="el-icon-search" />
-&lt;ElInput @placeholder="Please input" @suffixIcon="el-icon-date" /></code></pre>
+<pre><code class="language-handlebars">\{{#el-input placeholder="Please input" prefixIcon="el-icon-search"}}\{{/el-input}}
+\{{#el-input placeholder="Please input" suffixIcon="el-icon-date"}}\{{/el-input}}</code></pre>
   {{/card.body}}
 {{/el-card}}
 </div>
@@ -65,13 +65,13 @@
 <h2>Attributes</h2>
 {{#el-card class="box-card" shadow="hover" bodyStyle="padding:0px;" as |card|}}
 {{#card.body}}
-    {{!-- {{#el-table data=tableAttributes  as |t|}}
+    {{#el-table data=tableAttributes  as |t|}}
       {{t.column prop="attribute" label="Attribute" width=150}}
       {{t.column prop="desc" label="Description"}}
       {{t.column prop="type" label="Type" width=100}}
       {{t.column prop="val" label="Accepted Values" width=250}}
       {{t.column prop="def" label="Default" width=75}}
-    {{/el-table}} --}}
+    {{/el-table}}
 {{/card.body}}
 {{/el-card}}
 

@@ -1,6 +1,11 @@
 'use strict';
 
 module.exports = {
-  extends: 'octane',
+  extends: 'recommended',
+  ignore: [
+    './node_modules/**',
+    './vendor/**',
+    'tests/dummy/**',
+    'dummy/**'
+  ]
 };
-

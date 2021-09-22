@@ -1,37 +1,63 @@
-import Component from '@glimmer/component';
-import {action, computed} from "@ember/object";
-import {tracked} from '@glimmer/tracking';
-
+import Component from '@ember/component';
+import layout from '../templates/components/el-tag';
+import {computed, get, set} from "@ember/object";
 import transition from "../utils/transition";
 
-export default class ElTagComponent extends Component {
-  @tracked
-  isClosed = false;
+export default Component.extend({
+  layout,
+  tagName: 'span',
+  classNames: ['el-tag'],
 
-  @computed('args.{type,size}')
-  get className() {
+  classNameBindings: ['getClassName',
+    'hit:is-hit',
+    'isClosed:el-hidden',
+  ],
+
+
+  getClassName: computed('type', 'size', function () {
+
     let classNames = '';
-    if (this.args.type) {
-      classNames += ` el-tag--${this.args.type}`;
+
+    if (get(this, 'type')) {
+      classNames += ` el-tag--${get(this, 'type')}`;
     }
-    if (this.args.size) {
-      classNames += ` el-tag--${this.args.size}`;
+    if (get(this, 'size')) {
+      classNames += ` el-tag--${get(this, 'size')}`;
     }
+
     return classNames;
-  }
+  }),
 
-  @action
-  handleClose(dom) {
+  isClosed: false,
 
-    let e = dom.target.closest('.el-tag');
-    let transitionEvent = transition('animation');
-    e.addEventListener(transitionEvent, () => {
-      this.isClosed = true;
-      if (typeof this.args.close === 'function') {
-        this.args.close();
-      }
-    });
-    e.classList.add('animate__animated');
-    e.classList.add('animate__flipOutY');
-  }
-}
+  closable: false,
+  type: '',
+  hit: false,
+  color: '',
+  size: '',
+
+  handleClose: null,
+
+
+  actions: {
+    handleClose() {
+      // this.$().addClass('animated flipOutY');
+      let e = this.element;
+
+      let transitionEvent = transition('animation');
+      e.addEventListener(transitionEvent, () => {
+        set(this, 'isClosed', true);
+        if (this.get('close')) {
+          this.get('close')();
+        }
+      });
+
+      e.classList.add('animated');
+      e.classList.add('flipOutY');
+
+    }
+  },
+
+
+
+});

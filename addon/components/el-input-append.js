@@ -1,8 +1,8 @@
-import Component from '@glimmer/component';
+import Component from '@ember/component';
+import layout from '../templates/components/el-input-append';
 
-export default class ElInputAppendComponent extends Component{
+export default Component.extend({
+  layout,
+  classNames: ['el-input-group__append'],
 
-  // layout,
-  // classNames: ['el-input-group__append'],
-
-}
+});

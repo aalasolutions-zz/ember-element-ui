@@ -1,43 +1,31 @@
-import Component from '@glimmer/component';
-// import layout from '../templates/components/el-container';
-import {computed} from "@ember/object";
-import {tracked} from '@glimmer/tracking';
+import Component from '@ember/component';
+import layout from '../templates/components/el-container';
+import {computed, get, set} from "@ember/object";
 
-export default class ElContainerComponent extends Component {
-  // layout,
-  // tagName: 'section',
+export default Component.extend({
+  layout,
+  tagName: 'section',
+  direction: null,
+  classNames: ['el-container'],
+  classNameBindings: ['getClassName'],
 
-  @tracked hasChildToMakeVertical = false;
-  // direction: null,
-  // classNames: ['el-container'],
-  // classNameBindings: ['getClassName'],
-  //
-  // hasChildToMakeVertical: false,
+  hasChildToMakeVertical: false,
 
-  @computed('args.direction', 'hasChildToMakeVertical')
-  get getClassName() {
-    return (this.args.direction === 'vertical' || this.hasChildToMakeVertical) ? 'is-vertical' : "";
-  }
+  getClassName: computed('direction', 'hasChildToMakeVertical', function () {
+    return  (get(this, 'direction') === 'vertical' || get(this, 'hasChildToMakeVertical')) ? 'is-vertical' : "";
+  }),
 
-  // getClassName: computed('direction', 'hasChildToMakeVertical', function () {
-  //   return  (get(this, 'direction') === 'vertical' || get(this, 'hasChildToMakeVertical')) ? 'is-vertical' : "";
-  // }),
-
-  onInsert(element, args) {
-    // todo: check this one
-    const child = element.children;
+  didRender() {
+    const child = this.element.children;
     let foundElements = false;
     for (let i = 0; i < child.length; i++) {
       let c = child[i];
-      if (c.dataset.component === 'el-header' || c.dataset.component === 'el-footer') {
+      if(c.dataset.component === 'el-header' || c.dataset.component === 'el-footer' ){
+        // set(this, 'hasChildToMakeVertical', true);
         foundElements = true;
         break;
       }
     }
-    if (foundElements) {
-      let _this = args[0];
-      _this.hasChildToMakeVertical = foundElements;
-    }
-
+    set(this, 'hasChildToMakeVertical', foundElements);
   }
-};
+});
