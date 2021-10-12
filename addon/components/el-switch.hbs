@@ -1,11 +1,16 @@
 {{! template-lint-disable }}
-<span class="el-switch {{if isChecked "is-checked"}} {{if disabled "is-disabled"}}" role="switch">
-  {{input
-    type="checkbox"
-    checked=model
-    class="el-switch__input"
-    disabled=disabled
-  }}
+
+<span 
+  {{on "click" this.handleAction}} 
+  class="el-switch {{if isChecked "is-checked"}} {{if isDisabled "is-disabled"}}" 
+  role="switch">
+
+  <Input
+    @type="checkbox"
+    @checked={{@model}}
+    @class="el-switch__input"
+    @disabled={{isDisabled}}
+  />
 
   {{#if isInactive}}
     <span class="el-switch__label el-switch__label--left {{if notChecked "is-active"}}">
